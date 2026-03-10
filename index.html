@@ -1,491 +1,403 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sprint Judicial | IA y Automatizaci&oacute;n para Abogados Litigantes</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-<style>
-:root {
-  --deep: #0B1D33;
-  --navy: #152A4A;
-  --accent: #3B82F6;
-  --accent-light: #60A5FA;
-  --teal: #06B6D4;
-  --gold: #F59E0B;
-  --green: #10B981;
-  --surface: #0F2440;
-  --surface-light: #1A3558;
-  --text: #E2E8F0;
-  --text-muted: #94A3B8;
-  --white: #FFFFFF;
-  --border: rgba(255,255,255,0.08);
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprint Judicial | IA y Automatizaci&oacute;n para Abogados Litigantes</title>
+  <meta name="description" content="Herramientas de inteligencia artificial y automatizaci&oacute;n para abogados litigantes en Colombia. Asistente legal IA, buscador de jurisprudencia, generador de documentos. +10 a&ntilde;os en la Rama Judicial.">
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sprint Judicial | IA y Automatizaci&oacute;n para Abogados Litigantes">
+  <meta property="og:description" content="Herramientas de inteligencia artificial y automatizaci&oacute;n para abogados litigantes en Colombia. Asistente legal IA, buscador de jurisprudencia, generador de documentos.">
+  <meta property="og:url" content="https://sprintjudicial.com">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="Sprint Judicial">
 
-html { scroll-behavior: smooth; }
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sprint Judicial | IA y Automatizaci&oacute;n para Abogados Litigantes">
+  <meta name="twitter:description" content="Herramientas de inteligencia artificial y automatizaci&oacute;n para abogados litigantes en Colombia. +10 a&ntilde;os en la Rama Judicial.">
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--deep);
-  color: var(--text);
-  line-height: 1.7;
-  overflow-x: hidden;
-}
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Sprint Judicial",
+    "description": "Herramientas de inteligencia artificial y automatizaci\u00f3n para abogados litigantes en Colombia.",
+    "url": "https://sprintjudicial.com",
+    "telephone": "+573015771258",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bello",
+      "addressRegion": "Antioquia",
+      "addressCountry": "CO"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Daniel Arbelaez Alvarez",
+      "jobTitle": "Ingeniero en Software \u2022 Especialista en LegalTech e IA"
+    },
+    "areaServed": "CO",
+    "serviceType": ["Asistente Legal IA", "Buscador de Jurisprudencia", "Automatizaci\u00f3n de Procesos", "Generador de Documentos", "Consultor\u00eda LegalTech"]
+  }
+  </script>
 
-/* ===== BACKGROUND GRAIN ===== */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 0;
-}
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
-.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
-
-/* ===== NAVBAR ===== */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(11,29,51,0.85);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border);
-  padding: 16px 0;
-}
-nav .container { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 800; color: var(--white); text-decoration: none; }
-.logo span { color: var(--accent-light); }
-.nav-links { display: flex; gap: 28px; align-items: center; }
-.nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
-.nav-links a:hover { color: var(--white); }
-.nav-cta {
-  background: var(--accent);
-  color: var(--white) !important;
-  padding: 10px 22px;
-  border-radius: 8px;
-  font-weight: 600 !important;
-  transition: all 0.3s;
-}
-.nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
-
-/* ===== HERO ===== */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-top: 80px;
-  position: relative;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -20%; right: -10%;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 10%; left: -15%;
-  width: 400px; height: 400px;
-  background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-.hero-content { max-width: 750px; }
-.hero-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(59,130,246,0.12);
-  border: 1px solid rgba(59,130,246,0.25);
-  border-radius: 100px;
-  padding: 6px 16px;
-  font-size: 0.82rem;
-  color: var(--accent-light);
-  font-weight: 600;
-  margin-bottom: 28px;
-  animation: fadeUp 0.8s ease;
-}
-.hero-badge::before { content: '\2605'; }
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2.5rem, 5vw, 3.8rem);
-  font-weight: 800;
-  line-height: 1.15;
-  margin-bottom: 24px;
-  animation: fadeUp 0.8s ease 0.1s both;
-}
-h1 .highlight {
-  background: linear-gradient(135deg, var(--accent-light), var(--teal));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.hero-sub {
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  max-width: 580px;
-  margin-bottom: 36px;
-  animation: fadeUp 0.8s ease 0.2s both;
-}
-.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.8s ease 0.3s both; }
-.btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 14px 28px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 1rem;
-  text-decoration: none;
-  transition: all 0.3s;
-  cursor: pointer;
-  border: none;
-  font-family: inherit;
-}
-.btn-primary { background: var(--accent); color: var(--white); }
-.btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(59,130,246,0.3); }
-.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
-.btn-outline:hover { border-color: var(--accent-light); color: var(--white); }
-.hero-stats {
-  display: flex; gap: 48px; margin-top: 56px;
-  padding-top: 32px;
-  border-top: 1px solid var(--border);
-  animation: fadeUp 0.8s ease 0.4s both;
-}
-.stat-number { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--white); }
-.stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
-
-/* ===== SECTIONS ===== */
-section { padding: 100px 0; }
-
-.section-label {
-  display: inline-block;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--accent-light);
-  margin-bottom: 16px;
-}
-h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-.section-desc { font-size: 1.05rem; color: var(--text-muted); max-width: 600px; margin-bottom: 48px; }
-
-/* ===== SERVICES ===== */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 20px;
-}
-.service-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 32px;
-  transition: all 0.4s;
-  position: relative;
-  overflow: hidden;
-}
-.service-card:hover {
-  border-color: rgba(59,130,246,0.3);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-}
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 3px;
-  border-radius: 16px 16px 0 0;
-}
-.service-card:nth-child(1)::before { background: linear-gradient(90deg, var(--accent), var(--teal)); }
-.service-card:nth-child(2)::before { background: linear-gradient(90deg, var(--teal), var(--green)); }
-.service-card:nth-child(3)::before { background: linear-gradient(90deg, var(--gold), #EF4444); }
-.service-card:nth-child(4)::before { background: linear-gradient(90deg, var(--green), var(--accent)); }
-.service-card:nth-child(5)::before { background: linear-gradient(90deg, #8B5CF6, var(--accent)); }
-.service-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-}
-.service-card:nth-child(1) .service-icon { background: rgba(59,130,246,0.15); }
-.service-card:nth-child(2) .service-icon { background: rgba(6,182,212,0.15); }
-.service-card:nth-child(3) .service-icon { background: rgba(245,158,11,0.15); }
-.service-card:nth-child(4) .service-icon { background: rgba(16,185,129,0.15); }
-.service-card:nth-child(5) .service-icon { background: rgba(139,92,246,0.15); }
-.service-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; color: var(--white); }
-.service-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; }
-.service-tag {
-  display: inline-block;
-  margin-top: 16px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  padding: 4px 12px;
-  border-radius: 100px;
-  background: rgba(255,255,255,0.06);
-  color: var(--text-muted);
-}
-
-/* ===== CREDENTIALS ===== */
-.credentials { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.cred-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
-.cred-item { text-align: center; padding: 24px; }
-.cred-icon { font-size: 2.5rem; margin-bottom: 16px; }
-.cred-item h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-.cred-item p { font-size: 0.88rem; color: var(--text-muted); }
-
-/* ===== ABOUT ===== */
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-.about-list { list-style: none; margin-top: 24px; }
-.about-list li { padding: 10px 0; font-size: 0.95rem; color: var(--text-muted); display: flex; gap: 12px; align-items: flex-start; }
-.about-list li::before { content: '\2713'; color: var(--green); font-weight: bold; flex-shrink: 0; margin-top: 2px; }
-.about-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 40px;
-  position: relative;
-  overflow: hidden;
-}
-.about-card::before {
-  content: '';
-  position: absolute;
-  top: -50%; right: -50%;
-  width: 200%; height: 200%;
-  background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 50%);
-  pointer-events: none;
-}
-.about-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
-.about-role { color: var(--accent-light); font-size: 0.9rem; font-weight: 600; margin-bottom: 20px; }
-.about-bio { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
-
-/* ===== CTA ===== */
-.cta-section {
-  text-align: center;
-  padding: 100px 0;
-  position: relative;
-}
-.cta-section::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 60%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-.cta-section h2 { margin-bottom: 16px; }
-.cta-section .section-desc { margin: 0 auto 36px; text-align: center; }
-.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-.cta-note { margin-top: 20px; font-size: 0.85rem; color: var(--text-muted); }
-
-/* ===== FOOTER ===== */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 48px 0;
-  text-align: center;
-}
-.footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 20px; flex-wrap: wrap; }
-.footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; transition: color 0.3s; }
-.footer-links a:hover { color: var(--white); }
-.footer-copy { font-size: 0.82rem; color: var(--text-muted); }
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  .nav-links a:not(.nav-cta) { display: none; }
-  .hero-stats { gap: 24px; flex-wrap: wrap; }
-  .about-grid { grid-template-columns: 1fr; gap: 32px; }
-  .services-grid { grid-template-columns: 1fr; }
-}
-</style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="container">
-    <a href="#" class="logo">Sprint<span>Judicial</span></a>
-    <div class="nav-links">
-      <a href="#servicios">Servicios</a>
-      <a href="#credenciales">Credenciales</a>
-      <a href="#sobre-mi">Sobre m&iacute;</a>
-      <a href="#contacto" class="nav-cta">Agendar Demo</a>
-    </div>
-  </div>
-</nav>
+<a href="#main-content" class="sr-only">Saltar al contenido principal</a>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-badge">Ganador JusticIALab 2024</div>
-      <h1>Inteligencia artificial y automatizaci&oacute;n para <span class="highlight">abogados litigantes</span></h1>
-      <p class="hero-sub">Herramientas que reducen horas de trabajo administrativo a minutos. Desarrolladas por un ingeniero con m&aacute;s de 10 a&ntilde;os dentro de la Rama Judicial de Colombia.</p>
-      <div class="hero-buttons">
-        <a href="#contacto" class="btn btn-primary">Agendar demo gratuita &rarr;</a>
-        <a href="#servicios" class="btn btn-outline">Ver servicios</a>
-      </div>
-      <div class="hero-stats">
-        <div><div class="stat-number">10+</div><div class="stat-label">A&ntilde;os en la Rama Judicial</div></div>
-        <div><div class="stat-number">5</div><div class="stat-label">Herramientas especializadas</div></div>
-        <div><div class="stat-number">Nacional</div><div class="stat-label">Agilex implementado en el pa&iacute;s</div></div>
+<!-- ===== NAVBAR ===== -->
+<header>
+  <nav class="navbar" aria-label="Navegaci&oacute;n principal">
+    <div class="navbar__container">
+      <a href="#" class="navbar__logo">Sprint<span class="navbar__logo-accent">Judicial</span></a>
+
+      <button class="navbar__toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Abrir men&uacute; de navegaci&oacute;n">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+
+      <div class="navbar__links" id="nav-menu">
+        <a href="#servicios" class="navbar__link">Servicios</a>
+        <a href="#como-funciona" class="navbar__link">C&oacute;mo Funciona</a>
+        <a href="#credenciales" class="navbar__link">Credenciales</a>
+        <a href="#sobre-mi" class="navbar__link">Sobre m&iacute;</a>
+        <a href="#contacto" class="navbar__cta">Agendar Demo</a>
       </div>
     </div>
-  </div>
-</section>
+  </nav>
+</header>
 
-<!-- SERVICES -->
-<section id="servicios">
-  <div class="container">
-    <div class="section-label">Servicios</div>
-    <h2>5 soluciones que transforman su pr&aacute;ctica jur&iacute;dica</h2>
-    <p class="section-desc">Cada herramienta resuelve un problema espec&iacute;fico. Juntas, forman un ecosistema que libera su tiempo para lo que realmente importa: litigar.</p>
-    <div class="services-grid">
+<!-- ===== MAIN ===== -->
+<main id="main-content">
 
-      <div class="service-card">
-        <div class="service-icon">&#129302;</div>
-        <h3>Asistente Legal IA</h3>
-        <p>Un asistente virtual privado entrenado en la normatividad y jurisprudencia de su especialidad. Disponible 24/7, trabaja con sus documentos y protege la confidencialidad de sus datos.</p>
-        <span class="service-tag">Desde $150.000 COP/mes</span>
-      </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__container">
+      <div class="hero__content">
+        <div class="hero__badge" data-animate>
+          <span aria-hidden="true">&#9733;</span> Ganador JusticIALab 2024
+        </div>
 
-      <div class="service-card">
-        <div class="service-icon">&#128269;</div>
-        <h3>Buscador de Jurisprudencia por Similitud</h3>
-        <p>Suba su caso y el sistema encuentra las sentencias m&aacute;s relevantes por similitud sem&aacute;ntica. No por palabras clave: entiende el contexto de su caso.</p>
-        <span class="service-tag">Desde $80.000 COP / 50 consultas</span>
-      </div>
+        <h1 class="hero__title" data-animate>
+          Inteligencia artificial y automatizaci&oacute;n para <span class="hero__title-highlight">abogados litigantes</span>
+        </h1>
 
-      <div class="service-card">
-        <div class="service-icon">&#128274;</div>
-        <h3>Anonimizador de Documentos</h3>
-        <p>Detecta y reemplaza autom&aacute;ticamente datos personales sensibles en Word, PDF y Excel. 100% local, ning&uacute;n dato sale de su computador. Cumple Ley 1581/2012.</p>
-        <span class="service-tag">Desde $200.000 COP (pago &uacute;nico)</span>
-      </div>
+        <p class="hero__subtitle" data-animate>
+          Herramientas que reducen horas de trabajo administrativo a minutos. Desarrolladas por un ingeniero con m&aacute;s de 10 a&ntilde;os dentro de la Rama Judicial de Colombia.
+        </p>
 
-      <div class="service-card">
-        <div class="service-icon">&#9881;</div>
-        <h3>Automatizaci&oacute;n de Procesos a Medida</h3>
-        <p>Software construido alrededor de c&oacute;mo usted trabaja hoy. Expedientes, oficios, informes, consultas de procesos: todo lo repetitivo, automatizado.</p>
-        <span class="service-tag">Desde $500.000 COP por proyecto</span>
-      </div>
+        <div class="hero__actions" data-animate>
+          <a href="#contacto" class="btn btn--primary">Agendar demo gratuita &rarr;</a>
+          <a href="#servicios" class="btn btn--outline">Ver servicios</a>
+        </div>
 
-      <div class="service-card">
-        <div class="service-icon">&#128196;</div>
-        <h3>Generador Inteligente de Documentos</h3>
-        <p>Entrevistas guiadas que producen tutelas, demandas, contratos y otros documentos completos en minutos. Basado en Docassemble, la misma tecnolog&iacute;a usada por tribunales de EE.UU.</p>
-        <span class="service-tag">Setup desde $800.000 COP</span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CREDENTIALS -->
-<section id="credenciales" class="credentials">
-  <div class="container">
-    <div class="section-label" style="text-align:center;display:block;">Credenciales</div>
-    <h2 style="text-align:center;">No es una promesa. Es un historial comprobado.</h2>
-    <p class="section-desc" style="text-align:center;margin:0 auto 48px;">Estas herramientas no est&aacute;n en fase de idea. Ya est&aacute;n en producci&oacute;n y han sido reconocidas a nivel nacional.</p>
-    <div class="cred-grid">
-      <div class="cred-item">
-        <div class="cred-icon">&#127942;</div>
-        <h3>Ganador JusticIALab</h3>
-        <p>Primer Concurso Nacional de Innovaci&oacute;n de la Rama Judicial &mdash; Proyecto MARDUK, categor&iacute;a Justicia Basada en Datos</p>
-      </div>
-      <div class="cred-item">
-        <div class="cred-icon">&#127758;</div>
-        <h3>Mapa de Innovaci&oacute;n Legal</h3>
-        <p>Incluido por Legal Hackers Colombia en la secci&oacute;n de Automatizaci&oacute;n Documental y de Procesos</p>
-      </div>
-      <div class="cred-item">
-        <div class="cred-icon">&#127891;</div>
-        <h3>Conferencista</h3>
-        <p>Jornada Acad&eacute;mica sobre IA y Justicia &mdash; Colegio de Jueces y Fiscales de Antioquia, ASOJUDICIALES, ACMJ</p>
-      </div>
-      <div class="cred-item">
-        <div class="cred-icon">&#128187;</div>
-        <h3>Agilex en Producci&oacute;n</h3>
-        <p>Herramienta de automatizaci&oacute;n de expedientes electr&oacute;nicos implementada a nivel nacional en la Rama Judicial</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="sobre-mi">
-  <div class="container">
-    <div class="about-grid">
-      <div>
-        <div class="section-label">Sobre m&iacute;</div>
-        <h2>Un ingeniero que entiende el derecho desde adentro</h2>
-        <p class="section-desc" style="margin-bottom:0;">No soy un desarrollador externo que intenta venderle tecnolog&iacute;a al sector legal. Soy alguien que ha trabajado dentro de juzgados, ha tramitado tutelas, acciones ejecutivas y procesos penales, y que adem&aacute;s es ingeniero.</p>
-        <ul class="about-list">
-          <li>M&aacute;s de 10 a&ntilde;os como funcionario de la Rama Judicial (desde Escribiente hasta T&eacute;cnico en Sistemas)</li>
-          <li>Ingeniero en Software (Tecnol&oacute;gico de Antioquia)</li>
-          <li>Especialista en IA (Universidad Internacional de La Rioja, en curso)</li>
-          <li>Diplomados en Delitos Inform&aacute;ticos, Ciencia de Datos y Pedagog&iacute;a</li>
-          <li>Docente universitario en Sistemas Operativos, Algoritmos y Estructuras de Datos</li>
-        </ul>
-      </div>
-      <div class="about-card">
-        <div class="about-name">Daniel Arbelaez Alvarez</div>
-        <div class="about-role">Ingeniero en Software &bull; Especialista en LegalTech e IA</div>
-        <p class="about-bio">Desde 2014 he construido soluciones tecnol&oacute;gicas para el sector justicia. Mi enfoque es crear herramientas que los funcionarios y abogados realmente necesitan, no tecnolog&iacute;a por la tecnolog&iacute;a. Cada herramienta que desarrollo nace de un problema real que he vivido en primera persona dentro de los despachos judiciales.</p>
-        <div style="margin-top:24px; display:flex; gap:16px; flex-wrap:wrap;">
-          <a href="https://linkedin.com/in/daniel-arbelaez-" class="btn btn-outline" style="font-size:0.85rem;padding:10px 18px;">LinkedIn</a>
-          <a href="https://github.com/HammerDev99" class="btn btn-outline" style="font-size:0.85rem;padding:10px 18px;">GitHub</a>
-          <a href="https://blog.sprintjudicial.com" class="btn btn-outline" style="font-size:0.85rem;padding:10px 18px;">Blog</a>
+        <div class="hero__stats" data-animate>
+          <div class="stat">
+            <div class="stat__value" data-count-target="10" data-count-suffix="+">0</div>
+            <div class="stat__label">A&ntilde;os en la Rama Judicial</div>
+          </div>
+          <div class="stat">
+            <div class="stat__value" data-count-target="6">0</div>
+            <div class="stat__label">Herramientas especializadas</div>
+          </div>
+          <div class="stat">
+            <div class="stat__value">Nacional</div>
+            <div class="stat__label">Agilex implementado en el pa&iacute;s</div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- CTA -->
-<section id="contacto" class="cta-section">
-  <div class="container">
-    <div class="section-label">Empecemos</div>
-    <h2>Agende una demo gratuita de 20 minutos</h2>
-    <p class="section-desc">Le muestro c&oacute;mo funcionan las herramientas con un caso real de su especialidad. Sin costo, sin compromiso, y adaptada a su pr&aacute;ctica.</p>
-    <div class="cta-buttons">
-      <a href="https://wa.me/573015771258?text=Hola%20Daniel%2C%20me%20interesa%20conocer%20las%20herramientas%20de%20IA%20para%20abogados." class="btn btn-primary" style="font-size:1.05rem;padding:16px 32px;">Escribir por WhatsApp &rarr;</a>
-      <a href="mailto:daniel.arbelaez.alvarez@gmail.com?subject=Demo%20Sprint%20Judicial" class="btn btn-outline" style="font-size:1.05rem;padding:16px 32px;">Enviar email</a>
+    <div class="hero__scroll-indicator" aria-hidden="true">
+      <span>Scroll</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
     </div>
-    <p class="cta-note">Tambi&eacute;n puede llamar al 301 577 1258</p>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-links">
-      <a href="#servicios">Servicios</a>
-      <a href="#credenciales">Credenciales</a>
-      <a href="#sobre-mi">Sobre m&iacute;</a>
-      <a href="https://blog.sprintjudicial.com">Blog</a>
-      <a href="https://links.sprintjudicial.com">Todos los enlaces</a>
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="container">
+      <span class="section__label" data-animate>Servicios</span>
+      <h2 class="section__title" data-animate>6 soluciones que transforman su pr&aacute;ctica jur&iacute;dica</h2>
+      <p class="section__description" data-animate>
+        Cada herramienta resuelve un problema espec&iacute;fico. Juntas, forman un ecosistema que libera su tiempo para lo que realmente importa: litigar.
+      </p>
+
+      <div class="services-grid" data-animate data-stagger>
+
+        <article class="service-card" data-color="blue">
+          <div class="service-card__icon" aria-hidden="true">&#129302;</div>
+          <h3 class="service-card__title">Asistente Legal IA</h3>
+          <p class="service-card__description">Un asistente virtual privado entrenado en la normatividad y jurisprudencia de su especialidad. Disponible 24/7, trabaja con sus documentos y protege la confidencialidad de sus datos.</p>
+          <span class="service-card__tag">Desde $150.000 COP/mes</span>
+          <div class="service-card__status service-card__status--production">
+            <span class="service-card__status-dot"></span> En producci&oacute;n
+          </div>
+        </article>
+
+        <article class="service-card" data-color="teal">
+          <div class="service-card__icon" aria-hidden="true">&#128269;</div>
+          <h3 class="service-card__title">Buscador de Jurisprudencia</h3>
+          <p class="service-card__description">Suba su caso y el sistema encuentra las sentencias m&aacute;s relevantes por similitud sem&aacute;ntica. No por palabras clave: entiende el contexto de su caso.</p>
+          <span class="service-card__tag">Desde $80.000 COP / 50 consultas</span>
+          <div class="service-card__status service-card__status--production">
+            <span class="service-card__status-dot"></span> En producci&oacute;n
+          </div>
+        </article>
+
+        <article class="service-card" data-color="gold">
+          <div class="service-card__icon" aria-hidden="true">&#128274;</div>
+          <h3 class="service-card__title">Anonimizador de Documentos</h3>
+          <p class="service-card__description">Detecta y reemplaza autom&aacute;ticamente datos personales sensibles en Word, PDF y Excel. 100% local, ning&uacute;n dato sale de su computador. Cumple Ley 1581/2012.</p>
+          <span class="service-card__tag">Desde $200.000 COP (pago &uacute;nico)</span>
+          <div class="service-card__status service-card__status--development">
+            <span class="service-card__status-dot"></span> En desarrollo
+          </div>
+        </article>
+
+        <article class="service-card" data-color="green">
+          <div class="service-card__icon" aria-hidden="true">&#9881;</div>
+          <h3 class="service-card__title">Automatizaci&oacute;n de Procesos</h3>
+          <p class="service-card__description">Software construido alrededor de c&oacute;mo usted trabaja hoy. Expedientes, oficios, informes, consultas de procesos: todo lo repetitivo, automatizado.</p>
+          <span class="service-card__tag">Desde $500.000 COP por proyecto</span>
+          <div class="service-card__status service-card__status--production">
+            <span class="service-card__status-dot"></span> En producci&oacute;n
+          </div>
+        </article>
+
+        <article class="service-card" data-color="purple">
+          <div class="service-card__icon" aria-hidden="true">&#128196;</div>
+          <h3 class="service-card__title">Generador de Documentos</h3>
+          <p class="service-card__description">Entrevistas guiadas que producen tutelas, demandas, contratos y otros documentos completos en minutos. Basado en Docassemble, la misma tecnolog&iacute;a usada por tribunales de EE.UU.</p>
+          <span class="service-card__tag">Setup desde $800.000 COP</span>
+          <div class="service-card__status service-card__status--production">
+            <span class="service-card__status-dot"></span> En producci&oacute;n
+          </div>
+        </article>
+
+        <article class="service-card" data-color="red">
+          <div class="service-card__icon" aria-hidden="true">&#128161;</div>
+          <h3 class="service-card__title">Consultor&iacute;a LegalTech e IA</h3>
+          <p class="service-card__description">Sesiones personalizadas para firmas y despachos que quieren integrar inteligencia artificial en sus flujos de trabajo. Diagn&oacute;stico, hoja de ruta e implementaci&oacute;n acompa&ntilde;ada.</p>
+          <span class="service-card__tag">Desde $300.000 COP/sesi&oacute;n</span>
+          <div class="service-card__status service-card__status--production">
+            <span class="service-card__status-dot"></span> En producci&oacute;n
+          </div>
+        </article>
+
+      </div>
     </div>
-    <p class="footer-copy">&copy; 2025 Sprint Judicial &mdash; Daniel Arbelaez Alvarez. Bello, Antioquia, Colombia.</p>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona">
+    <div class="container">
+      <span class="section__label text-center" style="display:block;" data-animate>C&oacute;mo Funciona</span>
+      <h2 class="section__title text-center" data-animate>Del primer contacto a la soluci&oacute;n en 4 pasos</h2>
+      <p class="section__description text-center" style="margin-left:auto;margin-right:auto;" data-animate>
+        Un proceso sencillo y sin fricci&oacute;n para que empiece a ahorrar tiempo desde la primera semana.
+      </p>
+
+      <div class="process" data-animate>
+        <div class="process__grid">
+          <div class="process__line"></div>
+
+          <div class="process__step" data-animate>
+            <div class="process__number">1</div>
+            <div>
+              <h3 class="process__step-title">Agende una demo de 20 min</h3>
+              <p class="process__step-desc">Nos cuenta qu&eacute; hace y c&oacute;mo trabaja hoy. Le mostramos las herramientas en acci&oacute;n con un caso real de su especialidad.</p>
+            </div>
+          </div>
+
+          <div class="process__step" data-animate>
+            <div class="process__number">2</div>
+            <div>
+              <h3 class="process__step-title">Evaluamos su necesidad espec&iacute;fica</h3>
+              <p class="process__step-desc">Identificamos qu&eacute; herramienta o combinaci&oacute;n de herramientas resuelve mejor su problema. Sin soluciones gen&eacute;ricas.</p>
+            </div>
+          </div>
+
+          <div class="process__step" data-animate>
+            <div class="process__number">3</div>
+            <div>
+              <h3 class="process__step-title">Implementamos la soluci&oacute;n</h3>
+              <p class="process__step-desc">Configuramos, personalizamos y entregamos la herramienta funcionando. Con capacitaci&oacute;n incluida para su equipo.</p>
+            </div>
+          </div>
+
+          <div class="process__step" data-animate>
+            <div class="process__number">4</div>
+            <div>
+              <h3 class="process__step-title">Soporte y evoluci&oacute;n continua</h3>
+              <p class="process__step-desc">Acompa&ntilde;amiento permanente, actualizaciones normativas y mejoras basadas en su retroalimentaci&oacute;n.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENCIALES -->
+  <section id="credenciales" class="credentials">
+    <div class="container">
+      <span class="section__label text-center" style="display:block;" data-animate>Credenciales</span>
+      <h2 class="section__title text-center" data-animate>No es una promesa. Es un historial comprobado.</h2>
+      <p class="section__description text-center" style="margin-left:auto;margin-right:auto;" data-animate>
+        Estas herramientas no est&aacute;n en fase de idea. Ya est&aacute;n en producci&oacute;n y han sido reconocidas a nivel nacional.
+      </p>
+
+      <div class="credentials__grid" data-animate data-stagger>
+
+        <div class="credential">
+          <div class="credential__icon" aria-hidden="true">&#127942;</div>
+          <h3 class="credential__title">Ganador JusticIALab</h3>
+          <p class="credential__description">Primer Concurso Nacional de Innovaci&oacute;n de la Rama Judicial &mdash; Proyecto MARDUK, categor&iacute;a Justicia Basada en Datos</p>
+        </div>
+
+        <div class="credential">
+          <div class="credential__icon" aria-hidden="true">&#127758;</div>
+          <h3 class="credential__title">Mapa de Innovaci&oacute;n Legal</h3>
+          <p class="credential__description">Incluido por Legal Hackers Colombia en la secci&oacute;n de Automatizaci&oacute;n Documental y de Procesos</p>
+        </div>
+
+        <div class="credential">
+          <div class="credential__icon" aria-hidden="true">&#127891;</div>
+          <h3 class="credential__title">Conferencista</h3>
+          <p class="credential__description">Jornada Acad&eacute;mica sobre IA y Justicia &mdash; Colegio de Jueces y Fiscales de Antioquia, ASOJUDICIALES, ACMJ</p>
+        </div>
+
+        <div class="credential">
+          <div class="credential__icon" aria-hidden="true">&#128187;</div>
+          <h3 class="credential__title">Agilex en Producci&oacute;n</h3>
+          <p class="credential__description">Herramienta de automatizaci&oacute;n de expedientes electr&oacute;nicos implementada a nivel nacional en la Rama Judicial</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MI -->
+  <section id="sobre-mi">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__content">
+          <span class="section__label" data-animate>Sobre m&iacute;</span>
+          <h2 class="section__title" data-animate>Un ingeniero que entiende el derecho desde adentro</h2>
+          <p class="section__description" data-animate>
+            No soy un desarrollador externo que intenta venderle tecnolog&iacute;a al sector legal. Soy alguien que ha trabajado dentro de juzgados, ha tramitado tutelas, acciones ejecutivas y procesos penales, y que adem&aacute;s es ingeniero.
+          </p>
+          <ul class="about__list" data-animate>
+            <li>M&aacute;s de 10 a&ntilde;os como funcionario de la Rama Judicial (desde Escribiente hasta T&eacute;cnico en Sistemas)</li>
+            <li>Ingeniero en Software (Tecnol&oacute;gico de Antioquia)</li>
+            <li>Especialista en IA (Universidad Internacional de La Rioja, en curso)</li>
+            <li>Diplomados en Delitos Inform&aacute;ticos, Ciencia de Datos y Pedagog&iacute;a</li>
+            <li>Docente universitario en Sistemas Operativos, Algoritmos y Estructuras de Datos</li>
+          </ul>
+        </div>
+
+        <div class="about__card" data-animate>
+          <div class="about__name">Daniel Arbelaez Alvarez</div>
+          <div class="about__role">Ingeniero en Software &bull; Especialista en LegalTech e IA</div>
+          <p class="about__bio">Desde 2014 he construido soluciones tecnol&oacute;gicas para el sector justicia. Mi enfoque es crear herramientas que los funcionarios y abogados realmente necesitan, no tecnolog&iacute;a por la tecnolog&iacute;a. Cada herramienta que desarrollo nace de un problema real que he vivido en primera persona dentro de los despachos judiciales.</p>
+          <div class="about__links">
+            <a href="https://linkedin.com/in/daniel-arbelaez-" class="btn btn--outline" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/HammerDev99" class="btn btn--outline" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://blog.sprintjudicial.com" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto" class="cta-section">
+    <div class="container">
+      <span class="section__label" data-animate>Empecemos</span>
+      <h2 class="section__title" data-animate>Agende una demo gratuita de 20 minutos</h2>
+      <p class="section__description" data-animate>
+        Le muestro c&oacute;mo funcionan las herramientas con un caso real de su especialidad. Sin costo, sin compromiso, y adaptada a su pr&aacute;ctica.
+      </p>
+      <div class="cta-section__buttons" data-animate>
+        <a href="https://wa.me/573015771258?text=Hola%20Daniel%2C%20me%20interesa%20conocer%20las%20herramientas%20de%20IA%20para%20abogados." class="btn btn--green btn--lg" target="_blank" rel="noopener noreferrer">
+          Escribir por WhatsApp &rarr;
+        </a>
+        <a href="mailto:daniel.arbelaez.alvarez@gmail.com?subject=Demo%20Sprint%20Judicial" class="btn btn--outline btn--lg">Enviar email</a>
+      </div>
+      <p class="cta-section__note" data-animate>Tambi&eacute;n puede llamar al 301 577 1258</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid" data-animate>
+
+      <div class="footer__brand">
+        <a href="#" class="navbar__logo">Sprint<span class="navbar__logo-accent">Judicial</span></a>
+        <p class="footer__brand-desc">Herramientas de inteligencia artificial y automatizaci&oacute;n dise&ntilde;adas para abogados litigantes en Colombia.</p>
+        <div class="footer__social">
+          <a href="https://linkedin.com/in/daniel-arbelaez-" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/HammerDev99" aria-label="GitHub" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+
+      <div class="footer__column">
+        <h4 class="footer__column-title">Servicios</h4>
+        <div class="footer__column-links">
+          <a href="#servicios">Asistente Legal IA</a>
+          <a href="#servicios">Buscador de Jurisprudencia</a>
+          <a href="#servicios">Automatizaci&oacute;n</a>
+          <a href="#servicios">Generador de Documentos</a>
+          <a href="#servicios">Consultor&iacute;a LegalTech</a>
+        </div>
+      </div>
+
+      <div class="footer__column">
+        <h4 class="footer__column-title">Recursos</h4>
+        <div class="footer__column-links">
+          <a href="https://blog.sprintjudicial.com" target="_blank" rel="noopener noreferrer">Blog</a>
+          <a href="https://links.sprintjudicial.com" target="_blank" rel="noopener noreferrer">Todos los enlaces</a>
+          <a href="#como-funciona">C&oacute;mo Funciona</a>
+          <a href="#credenciales">Credenciales</a>
+        </div>
+      </div>
+
+      <div class="footer__column">
+        <h4 class="footer__column-title">Contacto</h4>
+        <div class="footer__column-links">
+          <a href="https://wa.me/573015771258" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a href="mailto:daniel.arbelaez.alvarez@gmail.com">Email</a>
+          <a href="#sobre-mi">Sobre m&iacute;</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Sprint Judicial &mdash; Daniel Arbelaez Alvarez. Bello, Antioquia, Colombia.</p>
+    </div>
   </div>
 </footer>
 
+<script src="js/main.js" defer></script>
 </body>
 </html>

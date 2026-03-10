@@ -66,7 +66,7 @@ console.log(`  INFO: ${externalLinks.length} links externos encontrados`);
 console.log('\n--- Contenido ---\n');
 const serviceCards = (html.match(/service-card/g) || []).length;
 // Cada card tiene la clase mencionada varias veces (en CSS y HTML), contar solo las del HTML
-const serviceArticles = (html.match(/<div class="service-card">/g) || []).length;
+const serviceArticles = (html.match(/<article class="service-card[^>]*>/g) || []).length;
 check(
   serviceArticles >= 5,
   `Al menos 5 tarjetas de servicio (${serviceArticles} encontradas)`
