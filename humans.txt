@@ -1,0 +1,8 @@
+/* TEAM */
+Developer: Daniel Arbelaez Alvarez
+Site: https://www.sprintjudicial.com
+Location: Colombia
+
+/* SITE */
+Standards: HTML5, CSS3, JavaScript ES6+
+Software: Vanilla (zero dependencies)

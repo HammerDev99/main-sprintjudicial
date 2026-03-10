@@ -1,0 +1,23 @@
+# Sprint Judicial
+
+> IA y Automatización para Abogados Litigantes en Colombia
+
+Sprint Judicial es una plataforma LegalTech que ofrece herramientas de inteligencia artificial y automatización para profesionales del derecho en Colombia.
+
+## Servicios
+
+- Sherlock AI: Análisis inteligente de expedientes judiciales
+- Copiloto Procesal: Asistente IA para redacción de documentos legales
+- Monitoreo Judicial: Seguimiento automatizado de procesos
+- Automatización de Términos: Cálculo automático de plazos procesales
+- Plantillas Inteligentes: Generación de documentos con IA
+- Análisis Jurisprudencial: Búsqueda y análisis de precedentes
+
+## Principio
+
+La IA asiste, no decide. Todas las herramientas están diseñadas para potenciar al abogado, no reemplazarlo.
+
+## Contacto
+
+- Web: https://www.sprintjudicial.com
+- WhatsApp: https://wa.me/573128abordar

@@ -4,5 +4,11 @@ COPY css/ /usr/share/nginx/html/css/
 COPY js/ /usr/share/nginx/html/js/
 COPY robots.txt /usr/share/nginx/html/
 COPY sitemap.xml /usr/share/nginx/html/
+COPY favicon.ico /usr/share/nginx/html/
+COPY favicon.svg /usr/share/nginx/html/
+COPY security.txt /usr/share/nginx/html/
+COPY humans.txt /usr/share/nginx/html/
+COPY llms.txt /usr/share/nginx/html/
+COPY .well-known/ /usr/share/nginx/html/.well-known/
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
