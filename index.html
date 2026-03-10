@@ -51,7 +51,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700;8..60,800&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
@@ -90,7 +90,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__container hero__container--split">
+    <div class="hero__container">
       <div class="hero__content">
         <div class="hero__badge" data-animate>
           <span aria-hidden="true">&#9733;</span> Ganador JusticIALab 2024
@@ -125,27 +125,6 @@
         </div>
       </div>
 
-      <!-- Hero visual decorativo (visible solo en desktop) -->
-      <div class="hero__visual" aria-hidden="true">
-        <div class="hero__visual-grid">
-          <div class="hero__visual-card hero__visual-card--1">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            <span>An&aacute;lisis en segundos</span>
-          </div>
-          <div class="hero__visual-card hero__visual-card--2">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            <span>Cumple Ley 1581</span>
-          </div>
-          <div class="hero__visual-card hero__visual-card--3">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            <span>Documentos autom&aacute;ticos</span>
-          </div>
-          <div class="hero__visual-card hero__visual-card--4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span>100% privado y seguro</span>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="hero__scroll-indicator" aria-hidden="true">
@@ -352,27 +331,6 @@
     </div>
   </section>
 
-  <!-- TESTIMONIOS (placeholder — contenido pendiente) -->
-  <section id="testimonios" class="testimonials">
-    <div class="container">
-      <span class="section__label section__label--center" data-animate>Testimonios</span>
-      <h2 class="section__title section__title--center" data-animate>Lo que dicen quienes ya usan las herramientas</h2>
-      <p class="section__description section__description--center" data-animate>
-        Abogados y funcionarios judiciales que han transformado su pr&aacute;ctica con Sprint Judicial.
-      </p>
-
-      <div class="testimonials__grid" data-animate data-stagger>
-        <blockquote class="testimonial">
-          <p class="testimonial__text">&ldquo;Pr&oacute;ximamente: testimonios reales de abogados y funcionarios que usan nuestras herramientas en su pr&aacute;ctica diaria.&rdquo;</p>
-          <footer class="testimonial__author">
-            <div class="testimonial__name">Pr&oacute;ximamente</div>
-            <div class="testimonial__role">Estamos recopilando testimonios</div>
-          </footer>
-        </blockquote>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA INTERMEDIO -->
   <section class="cta-mid" aria-label="Llamada a acci&oacute;n intermedia">
     <div class="container">
@@ -501,45 +459,6 @@
             <li class="comparison__item comparison__item--positive">Anonimizar autom&aacute;ticamente: <strong>30 segundos</strong></li>
             <li class="comparison__item comparison__item--positive">Monitoreo autom&aacute;tico de normativa: <strong>en tiempo real</strong></li>
           </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALCULADORA -->
-  <section id="calculadora" class="calculator">
-    <div class="container">
-      <span class="section__label section__label--center" data-animate>Calculadora</span>
-      <h2 class="section__title section__title--center" data-animate>&iquest;Cu&aacute;nto tiempo puede ahorrar al mes?</h2>
-      <p class="section__description section__description--center" data-animate>
-        Ajuste los valores seg&uacute;n su pr&aacute;ctica y vea el impacto real.
-      </p>
-
-      <div class="calculator__card" data-animate>
-        <div class="calculator__inputs">
-          <div class="calculator__field">
-            <label class="calculator__label" for="calc-searches">&iquest;Cu&aacute;ntas b&uacute;squedas de jurisprudencia hace al mes?</label>
-            <input type="range" id="calc-searches" class="calculator__range" min="0" max="40" value="10" aria-label="B&uacute;squedas de jurisprudencia por mes">
-            <div class="calculator__range-value"><span id="calc-searches-val">10</span> b&uacute;squedas</div>
-          </div>
-          <div class="calculator__field">
-            <label class="calculator__label" for="calc-documents">&iquest;Cu&aacute;ntos documentos legales redacta al mes?</label>
-            <input type="range" id="calc-documents" class="calculator__range" min="0" max="30" value="5" aria-label="Documentos legales por mes">
-            <div class="calculator__range-value"><span id="calc-documents-val">5</span> documentos</div>
-          </div>
-          <div class="calculator__field">
-            <label class="calculator__label" for="calc-anon">&iquest;Cu&aacute;ntos expedientes anonimiza al mes?</label>
-            <input type="range" id="calc-anon" class="calculator__range" min="0" max="50" value="8" aria-label="Expedientes anonimizados por mes">
-            <div class="calculator__range-value"><span id="calc-anon-val">8</span> expedientes</div>
-          </div>
-        </div>
-
-        <div class="calculator__result">
-          <div class="calculator__result-label">Ahorro estimado al mes</div>
-          <div class="calculator__result-value" id="calc-result">42</div>
-          <div class="calculator__result-unit">horas</div>
-          <p class="calculator__result-note">Eso equivale a <strong id="calc-days">5.3</strong> d&iacute;as laborales completos que puede dedicar a litigar.</p>
-          <a href="#contacto" class="btn btn--green">Ver c&oacute;mo lograrlo &rarr;</a>
         </div>
       </div>
     </div>

@@ -40,8 +40,8 @@
 ### Font Families
 | Token | Fuente | Peso disponible | Uso |
 |-------|--------|----------------|-----|
-| `--font-display` | Playfair Display | 600, 700, 800 | h1, h2, stats, logo |
-| `--font-body` | DM Sans | 400, 500, 600, 700 | Todo el resto |
+| `--font-display` | Source Serif 4 | 600, 700, 800 | h1, h2, stats, logo |
+| `--font-body` | Inter | 400, 500, 600, 700 | Todo el resto |
 
 ### Escala tipográfica
 | Elemento | Size | Weight | Font |

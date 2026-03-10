@@ -65,8 +65,8 @@ for (const [token, value] of Object.entries(colorMap)) {
 }
 
 // Fuentes
-check(css.includes('Playfair Display'), 'Font display: Playfair Display');
-check(css.includes('DM Sans'), 'Font body: DM Sans');
+check(css.includes('Source Serif 4'), 'Font display: Source Serif 4');
+check(css.includes('Inter'), 'Font body: Inter');
 
 // Responsive
 check(css.includes('@media'), 'Media queries presentes');

@@ -6,7 +6,7 @@ Landing page pública en sprintjudicial.com, ecosistema de 6 servicios.
 ## Stack
 
 - **Frontend**: HTML5 / CSS3 / JavaScript vanilla (sin frameworks)
-- **Diseño**: Tema oscuro premium, Playfair Display + DM Sans
+- **Diseño**: Tema oscuro premium, Source Serif 4 + Inter
 - **Deploy**: Hosting estático (Dockerfile disponible)
 - **Producción**: sprintjudicial.com
 - **Subdominios**: blog.sprintjudicial.com | links.sprintjudicial.com | docs.sherlock.sprintjudicial.com

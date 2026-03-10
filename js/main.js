@@ -277,49 +277,6 @@ const SprintJudicial = (() => {
     mql.addEventListener('change', handleResize);
   }
 
-  // --- Calculator ---
-
-  function initCalculator() {
-    var searches = $('[id="calc-searches"]');
-    var documents = $('[id="calc-documents"]');
-    var anon = $('[id="calc-anon"]');
-
-    if (!searches || !documents || !anon) return;
-
-    // Time savings per unit (in hours): manual time - Sprint time
-    var SAVINGS = {
-      search: 2.5 - 0.08,     // 2.5h manual vs 5min with Sprint
-      document: 4.0 - 0.25,   // 4h manual vs 15min with Sprint
-      anon: 1.5 - 0.008       // 1.5h manual vs 30sec with Sprint
-    };
-
-    function updateCalc() {
-      var s = parseInt(searches.value, 10);
-      var d = parseInt(documents.value, 10);
-      var a = parseInt(anon.value, 10);
-
-      // Update display values
-      $('[id="calc-searches-val"]').textContent = s;
-      $('[id="calc-documents-val"]').textContent = d;
-      $('[id="calc-anon-val"]').textContent = a;
-
-      // Calculate total hours saved
-      var totalHours = (s * SAVINGS.search) + (d * SAVINGS.document) + (a * SAVINGS.anon);
-      totalHours = Math.round(totalHours);
-
-      var days = (totalHours / 8).toFixed(1);
-
-      $('[id="calc-result"]').textContent = totalHours;
-      $('[id="calc-days"]').textContent = days;
-    }
-
-    searches.addEventListener('input', updateCalc);
-    documents.addEventListener('input', updateCalc);
-    anon.addEventListener('input', updateCalc);
-
-    updateCalc();
-  }
-
   // --- Public API ---
 
   return {
@@ -330,7 +287,6 @@ const SprintJudicial = (() => {
       initCounters();
       initSmoothScroll();
       initResizeHandler();
-      initCalculator();
     }
   };
 
