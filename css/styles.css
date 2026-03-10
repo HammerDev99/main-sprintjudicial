@@ -93,7 +93,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Background grain texture */
+/* Background grain texture (hidden on mobile for iOS perf) */
 body::before {
   content: '';
   position: fixed;
@@ -104,6 +104,13 @@ body::before {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 0;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  body::before {
+    display: block;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -325,6 +332,7 @@ section {
 
 .hero {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   padding-top: 80px;
@@ -1350,7 +1358,7 @@ section {
   }
 
   .blog__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .footer__grid {
@@ -1396,6 +1404,10 @@ section {
     align-items: center;
     text-align: center;
   }
+
+  .blog__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* --- Mobile menu (below 768px) --- */
@@ -1435,6 +1447,11 @@ section {
     padding: 14px 32px;
   }
 
+  /* Reduce section padding on mobile */
+  section {
+    padding: var(--space-3xl) 0;
+  }
+
   .hero__stats {
     gap: var(--space-lg);
     flex-wrap: wrap;
@@ -1455,5 +1472,16 @@ section {
   .cta-mid::before,
   .cta-section::before {
     display: none;
+  }
+
+  .about__card {
+    padding: var(--space-xl);
+  }
+
+  .btn--lg {
+    font-size: 1rem;
+    padding: 14px 24px;
+    width: 100%;
+    justify-content: center;
   }
 }
