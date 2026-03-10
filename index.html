@@ -1,256 +1,491 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sitio en Construcción</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sprint Judicial | IA y Automatizaci&oacute;n para Abogados Litigantes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep: #0B1D33;
+  --navy: #152A4A;
+  --accent: #3B82F6;
+  --accent-light: #60A5FA;
+  --teal: #06B6D4;
+  --gold: #F59E0B;
+  --green: #10B981;
+  --surface: #0F2440;
+  --surface-light: #1A3558;
+  --text: #E2E8F0;
+  --text-muted: #94A3B8;
+  --white: #FFFFFF;
+  --border: rgba(255,255,255,0.08);
+}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            overflow: hidden;
-        }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-        .container {
-            text-align: center;
-            max-width: 600px;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-            animation: fadeInUp 1s ease-out;
-        }
+html { scroll-behavior: smooth; }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--deep);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
 
-        .construction-icon {
-            font-size: 5rem;
-            margin-bottom: 1.5rem;
-            animation: bounce 2s infinite;
-        }
+/* ===== BACKGROUND GRAIN ===== */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
+/* ===== NAVBAR ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(11,29,51,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+}
+nav .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 800; color: var(--white); text-decoration: none; }
+.logo span { color: var(--accent-light); }
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+.nav-links a:hover { color: var(--white); }
+.nav-cta {
+  background: var(--accent);
+  color: var(--white) !important;
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-weight: 600 !important;
+  transition: all 0.3s;
+}
+.nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
 
-        .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-            line-height: 1.6;
-        }
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  position: relative;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(59,130,246,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 10%; left: -15%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(6,182,212,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero-content { max-width: 750px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(59,130,246,0.12);
+  border: 1px solid rgba(59,130,246,0.25);
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 0.82rem;
+  color: var(--accent-light);
+  font-weight: 600;
+  margin-bottom: 28px;
+  animation: fadeUp 0.8s ease;
+}
+.hero-badge::before { content: '\2605'; }
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  animation: fadeUp 0.8s ease 0.1s both;
+}
+h1 .highlight {
+  background: linear-gradient(135deg, var(--accent-light), var(--teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 580px;
+  margin-bottom: 36px;
+  animation: fadeUp 0.8s ease 0.2s both;
+}
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; animation: fadeUp 0.8s ease 0.3s both; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+.btn-primary { background: var(--accent); color: var(--white); }
+.btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(59,130,246,0.3); }
+.btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.btn-outline:hover { border-color: var(--accent-light); color: var(--white); }
+.hero-stats {
+  display: flex; gap: 48px; margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  animation: fadeUp 0.8s ease 0.4s both;
+}
+.stat-number { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--white); }
+.stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
 
-        .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50px;
-            margin: 2rem 0;
-            overflow: hidden;
-        }
+/* ===== SECTIONS ===== */
+section { padding: 100px 0; }
 
-        .progress {
-            height: 100%;
-            background: linear-gradient(90deg, #ff6b6b, #ffd93d);
-            width: 65%;
-            border-radius: 50px;
-            animation: progressAnimation 3s ease-in-out infinite;
-        }
+.section-label {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 16px;
+}
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.section-desc { font-size: 1.05rem; color: var(--text-muted); max-width: 600px; margin-bottom: 48px; }
 
-        @keyframes progressAnimation {
-            0% { width: 45%; }
-            50% { width: 75%; }
-            100% { width: 65%; }
-        }
+/* ===== SERVICES ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+.service-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+.service-card:hover {
+  border-color: rgba(59,130,246,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 16px 16px 0 0;
+}
+.service-card:nth-child(1)::before { background: linear-gradient(90deg, var(--accent), var(--teal)); }
+.service-card:nth-child(2)::before { background: linear-gradient(90deg, var(--teal), var(--green)); }
+.service-card:nth-child(3)::before { background: linear-gradient(90deg, var(--gold), #EF4444); }
+.service-card:nth-child(4)::before { background: linear-gradient(90deg, var(--green), var(--accent)); }
+.service-card:nth-child(5)::before { background: linear-gradient(90deg, #8B5CF6, var(--accent)); }
+.service-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+.service-card:nth-child(1) .service-icon { background: rgba(59,130,246,0.15); }
+.service-card:nth-child(2) .service-icon { background: rgba(6,182,212,0.15); }
+.service-card:nth-child(3) .service-icon { background: rgba(245,158,11,0.15); }
+.service-card:nth-child(4) .service-icon { background: rgba(16,185,129,0.15); }
+.service-card:nth-child(5) .service-icon { background: rgba(139,92,246,0.15); }
+.service-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; color: var(--white); }
+.service-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; }
+.service-tag {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.06);
+  color: var(--text-muted);
+}
 
-        .contact-info {
-            margin-top: 2rem;
-            font-size: 1.1rem;
-            opacity: 0.8;
-        }
+/* ===== CREDENTIALS ===== */
+.credentials { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.cred-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; }
+.cred-item { text-align: center; padding: 24px; }
+.cred-icon { font-size: 2.5rem; margin-bottom: 16px; }
+.cred-item h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.cred-item p { font-size: 0.88rem; color: var(--text-muted); }
 
-        .contact-info a {
-            color: #ffd93d;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
+/* ===== ABOUT ===== */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.about-list { list-style: none; margin-top: 24px; }
+.about-list li { padding: 10px 0; font-size: 0.95rem; color: var(--text-muted); display: flex; gap: 12px; align-items: flex-start; }
+.about-list li::before { content: '\2713'; color: var(--green); font-weight: bold; flex-shrink: 0; margin-top: 2px; }
+.about-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+.about-card::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+.about-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+.about-role { color: var(--accent-light); font-size: 0.9rem; font-weight: 600; margin-bottom: 20px; }
+.about-bio { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; }
 
-        .contact-info a:hover {
-            color: white;
-            text-shadow: 0 0 10px rgba(255, 217, 61, 0.5);
-        }
+/* ===== CTA ===== */
+.cta-section {
+  text-align: center;
+  padding: 100px 0;
+  position: relative;
+}
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.cta-section h2 { margin-bottom: 16px; }
+.cta-section .section-desc { margin: 0 auto 36px; text-align: center; }
+.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.cta-note { margin-top: 20px; font-size: 0.85rem; color: var(--text-muted); }
 
-        .social-links {
-            margin-top: 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
+/* ===== FOOTER ===== */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 0;
+  text-align: center;
+}
+.footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 20px; flex-wrap: wrap; }
+.footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; transition: color 0.3s; }
+.footer-links a:hover { color: var(--white); }
+.footer-copy { font-size: 0.82rem; color: var(--text-muted); }
 
-        .social-links a {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: white;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-        .social-links a:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .shape {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .shape:nth-child(1) {
-            width: 100px;
-            height: 100px;
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .shape:nth-child(2) {
-            width: 60px;
-            height: 60px;
-            top: 20%;
-            right: 15%;
-            animation-delay: 1s;
-        }
-
-        .shape:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            bottom: 15%;
-            left: 20%;
-            animation-delay: 2s;
-        }
-
-        .shape:nth-child(4) {
-            width: 120px;
-            height: 120px;
-            bottom: 10%;
-            right: 10%;
-            animation-delay: 0.5s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                margin: 1rem;
-                padding: 1.5rem;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .construction-icon {
-                font-size: 4rem;
-            }
-        }
-    </style>
-    <script defer src="https://analytics.sprintjudicial.com/script.js" data-website-id="02c8c902-1147-46f5-94ab-06f68558a945"></script>
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .nav-links a:not(.nav-cta) { display: none; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
+  .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .services-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
-    <div class="floating-shapes">
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
-        <div class="shape"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <a href="#" class="logo">Sprint<span>Judicial</span></a>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#credenciales">Credenciales</a>
+      <a href="#sobre-mi">Sobre m&iacute;</a>
+      <a href="#contacto" class="nav-cta">Agendar Demo</a>
     </div>
-    
-    <div class="container">
-        <div class="construction-icon">🚧</div>
-        <h1>Sitio en Construcción</h1>
-        <p class="subtitle">
-            Estamos trabajando duro para traerte algo increíble.<br>
-            ¡Pronto estaremos contigo!
-        </p>
-        
-        <div class="progress-bar">
-            <div class="progress"></div>
-        </div>
-        
-        <div class="contact-info">
-            <p>¿Tienes alguna pregunta?</p>
-            <p>Contáctame a través de : <a href="https://www.linkedin.com/in/daniel-arbelaez-">LinkedIn</a></p>
-            <!-- <p>o envíame un correo al <a href="mailto:daniel.arbelaez.alvarez@gmail.com">buzón de correo</a></p> -->
-        </div>
-        
-        <!-- <div class="social-links">
-            <a href="#" title="Facebook">📘</a>
-            <a href="#" title="Twitter">🐦</a>
-            <a href="#" title="Instagram">📷</a>
-            <a href="#" title="LinkedIn">💼</a>
-        </div> -->
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">Ganador JusticIALab 2024</div>
+      <h1>Inteligencia artificial y automatizaci&oacute;n para <span class="highlight">abogados litigantes</span></h1>
+      <p class="hero-sub">Herramientas que reducen horas de trabajo administrativo a minutos. Desarrolladas por un ingeniero con m&aacute;s de 10 a&ntilde;os dentro de la Rama Judicial de Colombia.</p>
+      <div class="hero-buttons">
+        <a href="#contacto" class="btn btn-primary">Agendar demo gratuita &rarr;</a>
+        <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-number">10+</div><div class="stat-label">A&ntilde;os en la Rama Judicial</div></div>
+        <div><div class="stat-number">5</div><div class="stat-label">Herramientas especializadas</div></div>
+        <div><div class="stat-number">Nacional</div><div class="stat-label">Agilex implementado en el pa&iacute;s</div></div>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="servicios">
+  <div class="container">
+    <div class="section-label">Servicios</div>
+    <h2>5 soluciones que transforman su pr&aacute;ctica jur&iacute;dica</h2>
+    <p class="section-desc">Cada herramienta resuelve un problema espec&iacute;fico. Juntas, forman un ecosistema que libera su tiempo para lo que realmente importa: litigar.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">&#129302;</div>
+        <h3>Asistente Legal IA</h3>
+        <p>Un asistente virtual privado entrenado en la normatividad y jurisprudencia de su especialidad. Disponible 24/7, trabaja con sus documentos y protege la confidencialidad de sus datos.</p>
+        <span class="service-tag">Desde $150.000 COP/mes</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">&#128269;</div>
+        <h3>Buscador de Jurisprudencia por Similitud</h3>
+        <p>Suba su caso y el sistema encuentra las sentencias m&aacute;s relevantes por similitud sem&aacute;ntica. No por palabras clave: entiende el contexto de su caso.</p>
+        <span class="service-tag">Desde $80.000 COP / 50 consultas</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">&#128274;</div>
+        <h3>Anonimizador de Documentos</h3>
+        <p>Detecta y reemplaza autom&aacute;ticamente datos personales sensibles en Word, PDF y Excel. 100% local, ning&uacute;n dato sale de su computador. Cumple Ley 1581/2012.</p>
+        <span class="service-tag">Desde $200.000 COP (pago &uacute;nico)</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">&#9881;</div>
+        <h3>Automatizaci&oacute;n de Procesos a Medida</h3>
+        <p>Software construido alrededor de c&oacute;mo usted trabaja hoy. Expedientes, oficios, informes, consultas de procesos: todo lo repetitivo, automatizado.</p>
+        <span class="service-tag">Desde $500.000 COP por proyecto</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">&#128196;</div>
+        <h3>Generador Inteligente de Documentos</h3>
+        <p>Entrevistas guiadas que producen tutelas, demandas, contratos y otros documentos completos en minutos. Basado en Docassemble, la misma tecnolog&iacute;a usada por tribunales de EE.UU.</p>
+        <span class="service-tag">Setup desde $800.000 COP</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section id="credenciales" class="credentials">
+  <div class="container">
+    <div class="section-label" style="text-align:center;display:block;">Credenciales</div>
+    <h2 style="text-align:center;">No es una promesa. Es un historial comprobado.</h2>
+    <p class="section-desc" style="text-align:center;margin:0 auto 48px;">Estas herramientas no est&aacute;n en fase de idea. Ya est&aacute;n en producci&oacute;n y han sido reconocidas a nivel nacional.</p>
+    <div class="cred-grid">
+      <div class="cred-item">
+        <div class="cred-icon">&#127942;</div>
+        <h3>Ganador JusticIALab</h3>
+        <p>Primer Concurso Nacional de Innovaci&oacute;n de la Rama Judicial &mdash; Proyecto MARDUK, categor&iacute;a Justicia Basada en Datos</p>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">&#127758;</div>
+        <h3>Mapa de Innovaci&oacute;n Legal</h3>
+        <p>Incluido por Legal Hackers Colombia en la secci&oacute;n de Automatizaci&oacute;n Documental y de Procesos</p>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">&#127891;</div>
+        <h3>Conferencista</h3>
+        <p>Jornada Acad&eacute;mica sobre IA y Justicia &mdash; Colegio de Jueces y Fiscales de Antioquia, ASOJUDICIALES, ACMJ</p>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">&#128187;</div>
+        <h3>Agilex en Producci&oacute;n</h3>
+        <p>Herramienta de automatizaci&oacute;n de expedientes electr&oacute;nicos implementada a nivel nacional en la Rama Judicial</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="sobre-mi">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-label">Sobre m&iacute;</div>
+        <h2>Un ingeniero que entiende el derecho desde adentro</h2>
+        <p class="section-desc" style="margin-bottom:0;">No soy un desarrollador externo que intenta venderle tecnolog&iacute;a al sector legal. Soy alguien que ha trabajado dentro de juzgados, ha tramitado tutelas, acciones ejecutivas y procesos penales, y que adem&aacute;s es ingeniero.</p>
+        <ul class="about-list">
+          <li>M&aacute;s de 10 a&ntilde;os como funcionario de la Rama Judicial (desde Escribiente hasta T&eacute;cnico en Sistemas)</li>
+          <li>Ingeniero en Software (Tecnol&oacute;gico de Antioquia)</li>
+          <li>Especialista en IA (Universidad Internacional de La Rioja, en curso)</li>
+          <li>Diplomados en Delitos Inform&aacute;ticos, Ciencia de Datos y Pedagog&iacute;a</li>
+          <li>Docente universitario en Sistemas Operativos, Algoritmos y Estructuras de Datos</li>
+        </ul>
+      </div>
+      <div class="about-card">
+        <div class="about-name">Daniel Arbelaez Alvarez</div>
+        <div class="about-role">Ingeniero en Software &bull; Especialista en LegalTech e IA</div>
+        <p class="about-bio">Desde 2014 he construido soluciones tecnol&oacute;gicas para el sector justicia. Mi enfoque es crear herramientas que los funcionarios y abogados realmente necesitan, no tecnolog&iacute;a por la tecnolog&iacute;a. Cada herramienta que desarrollo nace de un problema real que he vivido en primera persona dentro de los despachos judiciales.</p>
+        <div style="margin-top:24px; display:flex; gap:16px; flex-wrap:wrap;">
+          <a href="https://linkedin.com/in/daniel-arbelaez-" class="btn btn-outline" style="font-size:0.85rem;padding:10px 18px;">LinkedIn</a>
+          <a href="https://github.com/HammerDev99" class="btn btn-outline" style="font-size:0.85rem;padding:10px 18px;">GitHub</a>
+          <a href="https://blog.sprintjudicial.com" class="btn btn-outline" style="font-size:0.85rem;padding:10px 18px;">Blog</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contacto" class="cta-section">
+  <div class="container">
+    <div class="section-label">Empecemos</div>
+    <h2>Agende una demo gratuita de 20 minutos</h2>
+    <p class="section-desc">Le muestro c&oacute;mo funcionan las herramientas con un caso real de su especialidad. Sin costo, sin compromiso, y adaptada a su pr&aacute;ctica.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/573015771258?text=Hola%20Daniel%2C%20me%20interesa%20conocer%20las%20herramientas%20de%20IA%20para%20abogados." class="btn btn-primary" style="font-size:1.05rem;padding:16px 32px;">Escribir por WhatsApp &rarr;</a>
+      <a href="mailto:daniel.arbelaez.alvarez@gmail.com?subject=Demo%20Sprint%20Judicial" class="btn btn-outline" style="font-size:1.05rem;padding:16px 32px;">Enviar email</a>
+    </div>
+    <p class="cta-note">Tambi&eacute;n puede llamar al 301 577 1258</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#credenciales">Credenciales</a>
+      <a href="#sobre-mi">Sobre m&iacute;</a>
+      <a href="https://blog.sprintjudicial.com">Blog</a>
+      <a href="https://links.sprintjudicial.com">Todos los enlaces</a>
+    </div>
+    <p class="footer-copy">&copy; 2025 Sprint Judicial &mdash; Daniel Arbelaez Alvarez. Bello, Antioquia, Colombia.</p>
+  </div>
+</footer>
+
 </body>
 </html>
