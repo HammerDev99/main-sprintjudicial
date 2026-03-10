@@ -323,6 +323,86 @@ const SprintJudicial = (() => {
     mql.addEventListener('change', handleResize);
   }
 
+  // --- Blog Feed ---
+
+  function initBlogFeed() {
+    var grid = document.getElementById('blog-feed');
+    var fallback = document.getElementById('blog-fallback');
+    if (!grid) return;
+
+    var BLOG_RSS = 'https://blog.sprintjudicial.com/index.xml';
+    var MAX_POSTS = 3;
+
+    fetch(BLOG_RSS)
+      .then(function (res) {
+        if (!res.ok) throw new Error('RSS fetch failed');
+        return res.text();
+      })
+      .then(function (text) {
+        var parser = new DOMParser();
+        var xml = parser.parseFromString(text, 'text/xml');
+        var items = xml.querySelectorAll('item');
+
+        if (items.length === 0) throw new Error('No items');
+
+        var count = 0;
+        var html = '';
+
+        items.forEach(function (item) {
+          if (count >= MAX_POSTS) return;
+
+          var title = item.querySelector('title');
+          var link = item.querySelector('link');
+          var description = item.querySelector('description');
+          var pubDate = item.querySelector('pubDate');
+
+          if (!title || !link) return;
+
+          var titleText = title.textContent;
+          var linkText = link.textContent;
+
+          // Skip non-article pages
+          if (titleText === 'Archives' || titleText === 'Tags') return;
+
+          var excerpt = '';
+          if (description) {
+            var tmp = document.createElement('div');
+            tmp.innerHTML = description.textContent;
+            excerpt = tmp.textContent.substring(0, 150);
+            if (tmp.textContent.length > 150) excerpt += '…';
+          }
+
+          var dateStr = '';
+          if (pubDate) {
+            var d = new Date(pubDate.textContent);
+            if (!isNaN(d)) {
+              dateStr = d.toLocaleDateString('es-CO', {
+                year: 'numeric', month: 'long', day: 'numeric'
+              });
+            }
+          }
+
+          html += '<a href="' + linkText + '" class="blog__card" target="_blank" rel="noopener noreferrer">';
+          if (dateStr) html += '<span class="blog__card-date">' + dateStr + '</span>';
+          html += '<h3 class="blog__card-title">' + titleText + '</h3>';
+          if (excerpt) html += '<p class="blog__card-excerpt">' + excerpt + '</p>';
+          html += '<span class="blog__card-link">Leer m&aacute;s &rarr;</span>';
+          html += '</a>';
+
+          count++;
+        });
+
+        if (count > 0) {
+          grid.innerHTML = html;
+          if (fallback) fallback.style.display = 'none';
+        }
+      })
+      .catch(function () {
+        // CORS or network error: show fallback link
+        grid.style.display = 'none';
+      });
+  }
+
   // --- Public API ---
 
   return {
@@ -334,6 +414,7 @@ const SprintJudicial = (() => {
       initSmoothScroll();
       initResizeHandler();
       initActiveNav();
+      initBlogFeed();
     }
   };
 

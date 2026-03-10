@@ -1026,6 +1026,76 @@ section {
   line-height: 1.7;
 }
 
+/* ----- Blog ----- */
+
+.blog {
+  padding: var(--space-4xl) 0;
+}
+
+.blog__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+.blog__card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.blog__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.blog__card-date {
+  font-size: 0.78rem;
+  color: var(--accent-light);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.blog__card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.4;
+}
+
+.blog__card-excerpt {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog__card-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  margin-top: auto;
+  transition: color 0.3s;
+}
+
+.blog__card-link:hover {
+  color: var(--white);
+}
+
+.blog__fallback {
+  text-align: center;
+  margin-top: var(--space-xl);
+}
+
 /* ----- CTA Section ----- */
 
 .cta-section {
@@ -1262,6 +1332,10 @@ section {
 
   .faq__question {
     font-size: 1.05rem;
+  }
+
+  .blog__grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .footer__grid {

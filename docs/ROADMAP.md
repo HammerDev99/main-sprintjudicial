@@ -52,9 +52,9 @@ para abogados litigantes en Colombia, con IA y automatización como diferenciado
 | CTAs en tarjetas de servicios | P1 | ✅ Completado | Audit UX |
 | Active nav state (scroll tracking) | P1 | ✅ Completado | Audit UX |
 | Botón "Volver arriba" | P2 | ✅ Completado | Audit UX |
-| Blog feed (últimos 3 artículos) | P2 | ⬜ Pendiente | SPEC-001 |
+| Blog feed (últimos 3 artículos vía RSS) | P2 | ✅ Completado | SPEC-001 |
 | Foto profesional en "Sobre mí" | P2 | ⬜ Pendiente (requiere asset) | Audit UX |
-| Email corporativo (@sprintjudicial.com) | P2 | ⬜ Pendiente (requiere config DNS) | Audit UX |
+| Email corporativo (@sprintjudicial.com) | P2 | ✅ Completado | Audit UX |
 
 ## Fase 2: Nuevos Servicios y Plataforma
 **Estado**: ⬜ Investigación
