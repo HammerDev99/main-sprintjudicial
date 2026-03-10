@@ -1,7 +1,7 @@
 # PLAN-002: Refactoring y Arquitectura
 
 > Fecha: 2026-03-10
-> Estado: En progreso
+> Estado: Completado
 > Spec asociada: SPEC-001-landing-v2
 > Ejecutor: Agente de Arquitectura (worktree aislado)
 > Skills utilizados: `.claude/skills/refactoring/`, `.claude/skills/design-patterns/`
@@ -39,28 +39,28 @@ aplicando técnicas de refactoring y patrones de diseño apropiados para fronten
 
 | # | Tarea | Estado |
 |---|-------|--------|
-| R1 | Extraer CSS a `css/styles.css` | 🔄 En progreso |
-| R2 | Extraer animaciones a `css/animations.css` | 🔄 En progreso |
-| R3 | Crear `js/main.js` con lógica de UI | 🔄 En progreso |
-| R4 | Crear `js/analytics.js` (placeholder) | 🔄 En progreso |
-| R5 | Limpiar index.html (solo HTML semántico) | 🔄 En progreso |
+| R1 | Extraer CSS a `css/styles.css` | ✅ Completado |
+| R2 | Extraer animaciones a `css/animations.css` | ✅ Completado |
+| R3 | Crear `js/main.js` con lógica de UI | ✅ Completado |
+| R4 | Crear `js/analytics.js` (placeholder) | ✅ Completado |
+| R5 | Limpiar index.html (solo HTML semántico) | ✅ Completado |
 
 ### P1 — Mejora de estructura
 
 | # | Tarea | Estado |
 |---|-------|--------|
-| R6 | Aplicar BEM naming convention a todas las clases CSS | ⬜ Pendiente |
-| R7 | Organizar CSS con ITCSS (Settings → Tools → Generic → Elements → Objects → Components → Utilities) | ⬜ Pendiente |
-| R8 | Agregar HTML semántico (main, article, header, nav) | ⬜ Pendiente |
-| R9 | Agregar roles ARIA donde corresponda | ⬜ Pendiente |
+| R6 | Aplicar BEM naming convention a todas las clases CSS | ✅ Completado |
+| R7 | Organizar CSS con ITCSS (Settings → Tools → Generic → Elements → Objects → Components → Utilities) | ✅ Completado |
+| R8 | Agregar HTML semántico (main, article, header, nav) | ✅ Completado |
+| R9 | Agregar roles ARIA donde corresponda | ✅ Completado |
 
 ### P2 — Archivos de soporte
 
 | # | Tarea | Estado |
 |---|-------|--------|
-| R10 | Crear robots.txt | 🔄 En progreso |
-| R11 | Crear sitemap.xml | 🔄 En progreso |
-| R12 | Crear .htaccess con headers de seguridad | 🔄 En progreso |
+| R10 | Crear robots.txt | ✅ Completado |
+| R11 | Crear sitemap.xml | ✅ Completado |
+| R12 | Crear .htaccess con headers de seguridad | ✅ Completado |
 
 ---
 

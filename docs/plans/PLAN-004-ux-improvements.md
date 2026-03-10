@@ -1,7 +1,7 @@
 # PLAN-004: Mejoras UX/UI Detalladas (del Agente UX/UI)
 
 > Fecha: 2026-03-10
-> Estado: Planificado
+> Estado: Completado
 > Spec asociada: SPEC-001-landing-v2
 > Origen: Agente UX/UI (no pudo escribir código, plan capturado)
 
