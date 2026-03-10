@@ -13,7 +13,8 @@
     "test:css": "node tests/test-css.js",
     "lint:css": "stylelint \"css/**/*.css\" --fix",
     "lint:js": "eslint js/ --fix",
-    "serve": "npx http-server -p 8000 -c-1"
+    "serve": "npx http-server -p 8000 -c-1",
+    "start": "npx http-server -p 3000 -c-1 --gzip"
   },
   "devDependencies": {
     "html-validate": "^9.0.0",
