@@ -39,7 +39,7 @@
   "description": "IA y automatización para abogados litigantes en Colombia",
   "url": "https://sprintjudicial.com",
   "telephone": "+573015771258",
-  "email": "daniel.arbelaez.alvarez@gmail.com",
+  "email": "contacto@sprintjudicial.com",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Bello",

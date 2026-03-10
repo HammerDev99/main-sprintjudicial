@@ -52,7 +52,7 @@ check(html.includes('wa.me/573015771258'), 'Link de WhatsApp correcto');
 
 // Email CTA
 check(
-  html.includes('daniel.arbelaez.alvarez@gmail.com'),
+  html.includes('contacto@sprintjudicial.com'),
   'Email de contacto presente'
 );
 
