@@ -46,7 +46,7 @@ console.log('\n--- CTAs externos ---\n');
 const requiredLinks = [
   { pattern: 'wa.me/573015771258', name: 'WhatsApp CTA' },
   { pattern: 'contacto@sprintjudicial.com', name: 'Email CTA' },
-  { pattern: 'linkedin.com/in/daniel-arbelaez-alvarez', name: 'LinkedIn link' },
+  { pattern: 'linkedin.com/in/daniel-arbelaez-', name: 'LinkedIn link' },
   { pattern: 'github.com/HammerDev99', name: 'GitHub link' },
   { pattern: 'blog.sprintjudicial.com', name: 'Blog link' },
 ];

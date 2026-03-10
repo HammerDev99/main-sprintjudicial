@@ -50,7 +50,7 @@
     "@type": "Person",
     "name": "Daniel Arbelaez Alvarez",
     "jobTitle": "Ingeniero en Software",
-    "url": "https://linkedin.com/in/daniel-arbelaez-"
+    "url": "https://www.linkedin.com/in/daniel-arbelaez-"
   },
   "areaServed": "CO",
   "serviceType": ["Legal Technology", "AI Legal Assistant", "Document Automation"]
