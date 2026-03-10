@@ -224,7 +224,14 @@ const SprintJudicial = (() => {
   function initUnifiedScroll() {
     var navbar = $('.navbar');
     var indicator = initScrollIndicator();
+    var backToTop = $('.back-to-top');
     var ticking = false;
+
+    if (backToTop) {
+      backToTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
 
     function onScroll() {
       if (!ticking) {
@@ -245,6 +252,11 @@ const SprintJudicial = (() => {
             indicator.style.opacity = Math.max(0, 1 - scrollY / 300);
           }
 
+          // Back to top visibility
+          if (backToTop) {
+            backToTop.classList.toggle('is-visible', scrollY > 500);
+          }
+
           ticking = false;
         });
         ticking = true;
@@ -253,6 +265,40 @@ const SprintJudicial = (() => {
 
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+  }
+
+  // --- Active Nav Tracking ---
+
+  function initActiveNav() {
+    var navLinks = $$('.navbar__link[href^="#"]');
+    if (navLinks.length === 0) return;
+
+    var sections = [];
+    navLinks.forEach(function (link) {
+      var id = link.getAttribute('href').slice(1);
+      var section = document.getElementById(id);
+      if (section) {
+        sections.push({ el: section, link: link });
+      }
+    });
+
+    if (sections.length === 0) return;
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          navLinks.forEach(function (l) { l.classList.remove('is-active'); });
+          var match = sections.find(function (s) { return s.el === entry.target; });
+          if (match) {
+            match.link.classList.add('is-active');
+          }
+        }
+      });
+    }, {
+      rootMargin: '-20% 0px -60% 0px'
+    });
+
+    sections.forEach(function (s) { observer.observe(s.el); });
   }
 
   // --- Resize Handler ---
@@ -287,6 +333,7 @@ const SprintJudicial = (() => {
       initCounters();
       initSmoothScroll();
       initResizeHandler();
+      initActiveNav();
     }
   };
 

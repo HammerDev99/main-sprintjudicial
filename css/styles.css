@@ -215,10 +215,12 @@ section {
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
+  padding: 10px 4px;
   transition: color 0.3s;
 }
 
-.navbar__link:hover {
+.navbar__link:hover,
+.navbar__link.is-active {
   color: var(--white);
 }
 
@@ -447,7 +449,7 @@ section {
 
 .section__label {
   display: inline-block;
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -605,6 +607,19 @@ section {
 
 .service-card__status--development .service-card__status-dot {
   background: var(--gold);
+}
+
+.service-card__cta {
+  display: inline-block;
+  margin-top: var(--space-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  transition: color 0.3s;
+}
+
+.service-card__cta:hover {
+  color: var(--white);
 }
 
 /* ----- Process (Como Funciona) ----- */
@@ -1170,6 +1185,41 @@ section {
 
 .text-center {
   text-align: center;
+}
+
+/* ----- Back to top ----- */
+
+.back-to-top {
+  position: fixed;
+  bottom: var(--space-xl);
+  right: var(--space-xl);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface-light);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s, background 0.3s, color 0.3s;
+  pointer-events: none;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: var(--accent);
+  color: var(--white);
+  border-color: var(--accent);
 }
 
 /* ========================================

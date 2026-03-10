@@ -1,6 +1,6 @@
 # Sprint Judicial — Roadmap General
 
-> Última actualización: 2026-03-10
+> Última actualización: 2026-10-03
 
 ## Visión
 
@@ -35,6 +35,9 @@ para abogados litigantes en Colombia, con IA y automatización como diferenciado
 | security.txt, humans.txt, llms.txt | P2 | ✅ Completado | — |
 | robots.txt + sitemap.xml + Schema.org | P2 | ✅ Completado | PLAN-003 (Fase 7) |
 | Eliminar inline styles | P2 | ✅ Completado | — |
+| Tipografía: Source Serif 4 + Inter | P1 | ✅ Completado | Investigación tipográfica |
+| Comparativa "Antes vs. Después" | P1 | ✅ Completado | PLAN-003 (Fase 5) |
+| Limpieza de secciones sin valor (hero visual, testimonios placeholder, calculadora) | P1 | ✅ Completado | Audit UX |
 
 ## Fase 1: Contenido y Confianza
 **Estado**: 🔄 En progreso
@@ -42,12 +45,16 @@ para abogados litigantes en Colombia, con IA y automatización como diferenciado
 
 | Tarea | Prioridad | Estado | Spec/Plan |
 |-------|-----------|--------|-----------|
-| Sección de testimonios / casos de éxito | P0 | ⬜ Pendiente | SPEC-001 |
+| Sección de testimonios / casos de éxito | P0 | ⬜ Pendiente (requiere contenido real) | SPEC-001 |
 | Video demo embebido (3 min) | P1 | ⬜ Pendiente | SPEC-001 |
 | FAQ con preguntas de abogados escépticos | P1 | ✅ Completado (movido a Fase 0) | SPEC-001 |
-| Comparativa "Sprint Judicial vs SaaS genéricas" | P1 | ⬜ Pendiente | SPEC-001 |
+| Comparativa "Antes vs. Después" | P1 | ✅ Completado | SPEC-001 |
+| CTAs en tarjetas de servicios | P1 | ✅ Completado | Audit UX |
+| Active nav state (scroll tracking) | P1 | ✅ Completado | Audit UX |
+| Botón "Volver arriba" | P2 | ✅ Completado | Audit UX |
 | Blog feed (últimos 3 artículos) | P2 | ⬜ Pendiente | SPEC-001 |
-| Calculadora de ahorro de tiempo | P2 | ⬜ Pendiente | SPEC-001 |
+| Foto profesional en "Sobre mí" | P2 | ⬜ Pendiente (requiere asset) | Audit UX |
+| Email corporativo (@sprintjudicial.com) | P2 | ⬜ Pendiente (requiere config DNS) | Audit UX |
 
 ## Fase 2: Nuevos Servicios y Plataforma
 **Estado**: ⬜ Investigación

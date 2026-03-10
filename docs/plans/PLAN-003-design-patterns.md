@@ -1,7 +1,7 @@
 # PLAN-003: Design Patterns y Mejores Prácticas
 
 > Fecha: 2026-03-10
-> Estado: En progreso (Fases 0-5 completadas)
+> Estado: Completado (Fases 0-7 implementadas)
 > Spec asociada: SPEC-001-landing-v2
 > Ejecutor: Agente Design Patterns
 > Skills utilizados: `.claude/skills/design-patterns/`, `.claude/skills/refactoring/`
@@ -31,9 +31,9 @@ El proyecto es un **single-file HTML de 491 líneas** con CSS inline (317 línea
 
 | # | Tarea | Estado |
 |---|-------|--------|
-| 0.1 | Extraer CSS a `css/main.css` (critical CSS inline para hero/nav) | ⬜ |
-| 0.2 | Crear estructura: `css/`, `js/`, `js/modules/`, `assets/` | ⬜ |
-| 0.3 | Eliminar todos los estilos inline (L404, 406, 439, 452) | ⬜ |
+| 0.1 | Extraer CSS a `css/styles.css` + `css/animations.css` | ✅ |
+| 0.2 | Crear estructura: `css/`, `js/`, `assets/` | ✅ |
+| 0.3 | Eliminar todos los estilos inline | ✅ |
 
 ---
 
@@ -146,12 +146,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 | # | Tarea | Estado |
 |---|-------|--------|
-| 3.1 | ARIA en navbar (aria-label, aria-expanded, aria-controls, role) | ⬜ |
-| 3.2 | Skip-to-content link como primer hijo de body | ⬜ |
-| 3.3 | ARIA en service cards (article, aria-labelledby, aria-hidden en emojis) | ⬜ |
-| 3.4 | Credenciales como `<ul role="list">` semántica | ⬜ |
-| 3.5 | Auditoría de contraste (text-muted sobre surface: ~4.8:1, en el límite) | ⬜ |
-| 3.6 | Focus management (:focus-visible, focus trap en mobile menu) | ⬜ |
+| 3.1 | ARIA en navbar (aria-label, aria-expanded, aria-controls, role) | ✅ |
+| 3.2 | Skip-to-content link como primer hijo de body | ✅ |
+| 3.3 | ARIA en service cards (article, aria-labelledby, aria-hidden en emojis) | ✅ |
+| 3.4 | Credenciales como `<ul role="list">` semántica | ✅ |
+| 3.5 | Auditoría de contraste (text-muted sobre surface: 5.4:1 AA) | ✅ |
+| 3.6 | Focus management (:focus-visible, focus trap en mobile menu) | ✅ |
 
 ---
 
@@ -159,10 +159,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 | # | Tarea | Estado |
 |---|-------|--------|
-| 4.1 | Critical CSS inline (nav + hero) + deferred load del resto | ⬜ |
-| 4.2 | Google Fonts: agregar crossorigin en segundo preconnect | ⬜ |
-| 4.3 | Image optimization prep (lazy, width/height, WebP, aspect-ratio) | ⬜ |
-| 4.4 | Script loading: `<script src="js/app.js" defer>` | ⬜ |
+| 4.1 | Critical CSS inline (nav + hero) + deferred load del resto | ⬜ (futuro) |
+| 4.2 | Google Fonts: agregar crossorigin en segundo preconnect | ✅ |
+| 4.3 | Image optimization prep (lazy, width/height, WebP, aspect-ratio) | ⬜ (sin imágenes aún) |
+| 4.4 | Script loading: `<script src="js/main.js" defer>` | ✅ |
 | 4.5 | Service Worker (P2, futuro) | ⬜ |
 
 ---
@@ -171,12 +171,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 | # | Tarea | Estado |
 |---|-------|--------|
-| 5.1 | Hero: agregar visual en lado derecho (widescreen usa solo 750px de ~1440px) | ⬜ |
-| 5.2 | Trust bar post-hero: "Reconocido por: Legal Hackers, Rama Judicial..." | ⬜ |
-| 5.3 | CTA intermedio entre servicios y credenciales | ⬜ |
-| 5.4 | Reemplazar emojis en credenciales por SVGs/imágenes reales | ⬜ |
-| 5.5 | Stats strip: "981 Tests | NER F1: 85.3% | <200ms | 293+ Commits" | ⬜ |
-| 5.6 | Featured card: primera tarjeta de servicio más ancha (span 2 cols) | ⬜ |
+| 5.1 | Hero: visual decorativo eliminado (redundante con trust bar) | ✅ (descartado) |
+| 5.2 | Trust bar post-hero | ✅ |
+| 5.3 | CTA intermedio entre credenciales y sobre mí | ✅ |
+| 5.4 | SVGs reales en credenciales (reemplazaron emojis) | ✅ |
+| 5.5 | Stats strip (integrado en hero como counters animados) | ✅ |
+| 5.6 | Featured card: primera tarjeta span 2 cols en desktop | ✅ |
 
 ---
 
@@ -184,10 +184,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 | # | Tarea | Estado |
 |---|-------|--------|
-| 6.1 | data-attributes para color schemes en cards (eliminar nth-child) | ⬜ |
-| 6.2 | Config pattern: `js/config.js` con datos centralizados | ⬜ |
-| 6.3 | Template pattern: `<template>` nativo para cards repetitivas | ⬜ |
-| 6.4 | Preparar multi-página (CSS modular compartido) | ⬜ |
+| 6.1 | data-attributes para color schemes en cards (`data-color`) | ✅ |
+| 6.2 | Config pattern: `js/config.js` con datos centralizados | ⬜ (futuro) |
+| 6.3 | Template pattern: `<template>` nativo para cards repetitivas | ⬜ (futuro) |
+| 6.4 | Preparar multi-página (CSS modular compartido) | ⬜ (Fase 3) |
 
 ---
 
@@ -195,9 +195,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 | # | Tarea | Estado |
 |---|-------|--------|
-| 7.1 | Schema.org JSON-LD (ProfessionalService) | ⬜ |
-| 7.2 | Open Graph + Twitter Card meta tags | ⬜ |
-| 7.3 | Dark/Light theme prep (custom properties ya lo soportan) | ⬜ |
+| 7.1 | Schema.org JSON-LD (ProfessionalService) | ✅ |
+| 7.2 | Open Graph + Twitter Card meta tags | ✅ |
+| 7.3 | Dark/Light theme prep (custom properties ya lo soportan) | ⬜ (futuro) |
 
 ---
 
