@@ -1305,6 +1305,15 @@ section {
 /* --- Tablet (768px) --- */
 
 @media (min-width: 768px) {
+  /* Restore decorative pseudo-elements on larger screens */
+  .hero::before,
+  .hero::after,
+  .about__card::before,
+  .cta-mid::before,
+  .cta-section::before {
+    display: block;
+  }
+
   .trust-bar__grid {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -1436,6 +1445,15 @@ section {
   }
 
   .hero__scroll-indicator {
+    display: none;
+  }
+
+  /* Hide decorative pseudo-elements on mobile (iOS renders them as solid blocks) */
+  .hero::before,
+  .hero::after,
+  .about__card::before,
+  .cta-mid::before,
+  .cta-section::before {
     display: none;
   }
 }
