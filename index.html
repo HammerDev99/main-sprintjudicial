@@ -352,6 +352,27 @@
     </div>
   </section>
 
+  <!-- TESTIMONIOS (placeholder — contenido pendiente) -->
+  <section id="testimonios" class="testimonials">
+    <div class="container">
+      <span class="section__label section__label--center" data-animate>Testimonios</span>
+      <h2 class="section__title section__title--center" data-animate>Lo que dicen quienes ya usan las herramientas</h2>
+      <p class="section__description section__description--center" data-animate>
+        Abogados y funcionarios judiciales que han transformado su pr&aacute;ctica con Sprint Judicial.
+      </p>
+
+      <div class="testimonials__grid" data-animate data-stagger>
+        <blockquote class="testimonial">
+          <p class="testimonial__text">&ldquo;Pr&oacute;ximamente: testimonios reales de abogados y funcionarios que usan nuestras herramientas en su pr&aacute;ctica diaria.&rdquo;</p>
+          <footer class="testimonial__author">
+            <div class="testimonial__name">Pr&oacute;ximamente</div>
+            <div class="testimonial__role">Estamos recopilando testimonios</div>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA INTERMEDIO -->
   <section class="cta-mid" aria-label="Llamada a acci&oacute;n intermedia">
     <div class="container">
@@ -480,6 +501,45 @@
             <li class="comparison__item comparison__item--positive">Anonimizar autom&aacute;ticamente: <strong>30 segundos</strong></li>
             <li class="comparison__item comparison__item--positive">Monitoreo autom&aacute;tico de normativa: <strong>en tiempo real</strong></li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULADORA -->
+  <section id="calculadora" class="calculator">
+    <div class="container">
+      <span class="section__label section__label--center" data-animate>Calculadora</span>
+      <h2 class="section__title section__title--center" data-animate>&iquest;Cu&aacute;nto tiempo puede ahorrar al mes?</h2>
+      <p class="section__description section__description--center" data-animate>
+        Ajuste los valores seg&uacute;n su pr&aacute;ctica y vea el impacto real.
+      </p>
+
+      <div class="calculator__card" data-animate>
+        <div class="calculator__inputs">
+          <div class="calculator__field">
+            <label class="calculator__label" for="calc-searches">&iquest;Cu&aacute;ntas b&uacute;squedas de jurisprudencia hace al mes?</label>
+            <input type="range" id="calc-searches" class="calculator__range" min="0" max="40" value="10" aria-label="B&uacute;squedas de jurisprudencia por mes">
+            <div class="calculator__range-value"><span id="calc-searches-val">10</span> b&uacute;squedas</div>
+          </div>
+          <div class="calculator__field">
+            <label class="calculator__label" for="calc-documents">&iquest;Cu&aacute;ntos documentos legales redacta al mes?</label>
+            <input type="range" id="calc-documents" class="calculator__range" min="0" max="30" value="5" aria-label="Documentos legales por mes">
+            <div class="calculator__range-value"><span id="calc-documents-val">5</span> documentos</div>
+          </div>
+          <div class="calculator__field">
+            <label class="calculator__label" for="calc-anon">&iquest;Cu&aacute;ntos expedientes anonimiza al mes?</label>
+            <input type="range" id="calc-anon" class="calculator__range" min="0" max="50" value="8" aria-label="Expedientes anonimizados por mes">
+            <div class="calculator__range-value"><span id="calc-anon-val">8</span> expedientes</div>
+          </div>
+        </div>
+
+        <div class="calculator__result">
+          <div class="calculator__result-label">Ahorro estimado al mes</div>
+          <div class="calculator__result-value" id="calc-result">42</div>
+          <div class="calculator__result-unit">horas</div>
+          <p class="calculator__result-note">Eso equivale a <strong id="calc-days">5.3</strong> d&iacute;as laborales completos que puede dedicar a litigar.</p>
+          <a href="#contacto" class="btn btn--green">Ver c&oacute;mo lograrlo &rarr;</a>
         </div>
       </div>
     </div>
