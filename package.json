@@ -1,0 +1,24 @@
+{
+  "name": "sprint-judicial",
+  "version": "2.0.0",
+  "description": "Landing page - IA y Automatización para Abogados Litigantes",
+  "private": true,
+  "scripts": {
+    "test": "node tests/run-all.js",
+    "test:html": "html-validate index.html",
+    "test:links": "node tests/test-links.js",
+    "test:a11y": "node tests/test-accessibility.js",
+    "test:structure": "node tests/test-structure.js",
+    "test:seo": "node tests/test-seo.js",
+    "test:css": "node tests/test-css.js",
+    "lint:css": "stylelint \"css/**/*.css\" --fix",
+    "lint:js": "eslint js/ --fix",
+    "serve": "npx http-server -p 8000 -c-1"
+  },
+  "devDependencies": {
+    "html-validate": "^9.0.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard": "^37.0.0",
+    "eslint": "^9.0.0"
+  }
+}
