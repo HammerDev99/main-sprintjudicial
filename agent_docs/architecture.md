@@ -55,6 +55,8 @@ Decisiones clave:
 - `body::before` (grain texture): oculto en mobile por rendimiento iOS
 - Hero: `min-height: 100dvh` con fallback `100vh`
 - Section padding: 64px mobile, 100px desktop
+- **Navbar mobile overlay**: `display: none` / `display: flex` con `.is-open` (no `visibility`/`opacity` — causa ghost text en iOS)
+- **`backdrop-filter` containing block**: `.navbar` tiene `backdrop-filter` que crea un containing block CSS. Los hijos con `position: fixed` se posicionan relativo al navbar, no al viewport. Fix: `.navbar--menu-open` desactiva `backdrop-filter` al abrir el menú
 
 ## Patrones de Diseño Aplicados
 
@@ -99,6 +101,8 @@ const state = { menuOpen: false, activeSection: 'hero', scrolled: false };
 | ADR-003 | Module Pattern JS | ES Modules | Compatibilidad sin bundler, encapsulación |
 | ADR-004 | Google Fonts CDN | Self-hosted fonts | Cacheo CDN, simplicidad |
 | ADR-005 | Single page | Multi-page | Un solo producto (landing), no necesita routing |
+| ADR-006 | `display: none/flex` para menú móvil | `visibility/opacity` | `visibility: hidden` causa ghost text en iOS Safari por compositor GPU |
+| ADR-007 | Desactivar `backdrop-filter` al abrir menú | Mover `.navbar__links` fuera del DOM | `backdrop-filter` crea containing block, rompe `position: fixed` de hijos |
 
 ## Arquitectura Objetivo (Fase 3)
 

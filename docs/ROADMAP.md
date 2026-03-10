@@ -1,6 +1,6 @@
 # Sprint Judicial — Roadmap General
 
-> Última actualización: 2026-10-03
+> Última actualización: 2026-03-10
 
 ## Visión
 
@@ -35,6 +35,7 @@ para abogados litigantes en Colombia, con IA y automatización como diferenciado
 | security.txt, humans.txt, llms.txt | P2 | ✅ Completado | — |
 | robots.txt + sitemap.xml + Schema.org | P2 | ✅ Completado | PLAN-003 (Fase 7) |
 | Eliminar inline styles | P2 | ✅ Completado | — |
+| Refactor responsive mobile-first + fix menú móvil | P0 | ✅ Completado | ADR-006, ADR-007 |
 | Tipografía: Source Serif 4 + Inter | P1 | ✅ Completado | Investigación tipográfica |
 | Comparativa "Antes vs. Después" | P1 | ✅ Completado | PLAN-003 (Fase 5) |
 | Limpieza de secciones sin valor (hero visual, testimonios placeholder, calculadora) | P1 | ✅ Completado | Audit UX |

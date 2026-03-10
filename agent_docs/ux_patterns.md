@@ -66,7 +66,7 @@ El abogado escanea:
 4. CTA: centrado (punto focal)
 
 ### Spacing Pattern
-- Secciones: 100px de padding vertical (dar aire)
+- Secciones: 64px padding vertical en mobile, 100px en desktop (768px+)
 - Cards: 32px de padding interno
 - Entre grupos: 48px
 - Container: 1100px máximo (no stretchar en ultrawides)
@@ -82,9 +82,11 @@ El abogado escanea:
 
 ### Mobile Navigation
 - Hamburger menu en < 768px
-- Full-screen overlay con links
+- Full-screen overlay con links (`display: none` / `display: flex` con `.is-open`)
 - Cerrar al: click en link, click fuera, ESC key
 - Focus trap dentro del menú abierto (accesibilidad)
+- **Caveat CSS**: `.navbar` usa `backdrop-filter` que crea un containing block. Al abrir el menú, se agrega `.navbar--menu-open` que desactiva el `backdrop-filter` para que el overlay con `position: fixed` cubra el viewport completo
+- **No usar** `visibility: hidden` / `opacity: 0` para ocultar el menú — causa ghost text en iOS Safari
 
 ---
 
