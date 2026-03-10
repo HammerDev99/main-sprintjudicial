@@ -295,6 +295,19 @@ section {
   transition: all 0.3s ease;
 }
 
+/* Hamburger to X animation */
+.navbar--menu-open .navbar__toggle-bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar--menu-open .navbar__toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar--menu-open .navbar__toggle-bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
 /* ----- Buttons ----- */
 
 .btn {
@@ -1370,6 +1383,12 @@ section {
 
   .navbar__link {
     font-size: 0.9rem;
+  }
+
+  .navbar__link.is-active {
+    color: var(--white);
+    border-bottom: 2px solid var(--accent-light);
+    padding-bottom: 2px;
   }
 
   .navbar__cta {

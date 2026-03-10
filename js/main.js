@@ -92,6 +92,30 @@ const SprintJudicial = (() => {
       }
     });
 
+    // Focus trap for mobile menu
+    function handleFocusTrap(e) {
+      if (!state.menuOpen || e.key !== 'Tab') return;
+
+      var focusableElements = links.querySelectorAll('a, button');
+      var focusable = [toggle].concat(Array.from(focusableElements));
+      var firstFocusable = focusable[0];
+      var lastFocusable = focusable[focusable.length - 1];
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstFocusable) {
+          e.preventDefault();
+          lastFocusable.focus();
+        }
+      } else {
+        if (document.activeElement === lastFocusable) {
+          e.preventDefault();
+          firstFocusable.focus();
+        }
+      }
+    }
+
+    document.addEventListener('keydown', handleFocusTrap);
+
   }
 
   // --- Scroll Animations (IntersectionObserver) ---
@@ -319,6 +343,7 @@ const SprintJudicial = (() => {
         links.classList.remove('is-open');
         toggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
+        document.querySelector('.navbar').classList.remove('navbar--menu-open');
       }
     }
 
@@ -348,30 +373,31 @@ const SprintJudicial = (() => {
         if (items.length === 0) throw new Error('No items');
 
         var count = 0;
-        var html = '';
+        var fragment = document.createDocumentFragment();
 
         items.forEach(function (item) {
           if (count >= MAX_POSTS) return;
 
-          var title = item.querySelector('title');
-          var link = item.querySelector('link');
+          var itemTitle = item.querySelector('title');
+          var itemLink = item.querySelector('link');
           var description = item.querySelector('description');
           var pubDate = item.querySelector('pubDate');
 
-          if (!title || !link) return;
+          if (!itemTitle || !itemLink) return;
 
-          var titleText = title.textContent;
-          var linkText = link.textContent;
+          var titleText = itemTitle.textContent;
+          var linkText = itemLink.textContent;
 
           // Skip non-article pages
           if (titleText === 'Archives' || titleText === 'Tags') return;
 
-          var excerpt = '';
+          var excerptText = '';
           if (description) {
             var tmp = document.createElement('div');
-            tmp.innerHTML = description.textContent;
-            excerpt = tmp.textContent.substring(0, 150);
-            if (tmp.textContent.length > 150) excerpt += '…';
+            tmp.textContent = description.textContent;
+            var plainText = tmp.textContent.substring(0, 150);
+            if (tmp.textContent.length > 150) plainText += '\u2026';
+            excerptText = plainText;
           }
 
           var dateStr = '';
@@ -384,18 +410,43 @@ const SprintJudicial = (() => {
             }
           }
 
-          html += '<a href="' + linkText + '" class="blog__card" target="_blank" rel="noopener noreferrer">';
-          if (dateStr) html += '<span class="blog__card-date">' + dateStr + '</span>';
-          html += '<h3 class="blog__card-title">' + titleText + '</h3>';
-          if (excerpt) html += '<p class="blog__card-excerpt">' + excerpt + '</p>';
-          html += '<span class="blog__card-link">Leer m&aacute;s &rarr;</span>';
-          html += '</a>';
+          var card = document.createElement('a');
+          card.href = linkText;
+          card.className = 'blog__card';
+          card.target = '_blank';
+          card.rel = 'noopener noreferrer';
 
+          if (dateStr) {
+            var dateSpan = document.createElement('span');
+            dateSpan.className = 'blog__card-date';
+            dateSpan.textContent = dateStr;
+            card.appendChild(dateSpan);
+          }
+
+          var titleEl = document.createElement('h3');
+          titleEl.className = 'blog__card-title';
+          titleEl.textContent = titleText;
+          card.appendChild(titleEl);
+
+          if (excerptText) {
+            var excerptEl = document.createElement('p');
+            excerptEl.className = 'blog__card-excerpt';
+            excerptEl.textContent = excerptText;
+            card.appendChild(excerptEl);
+          }
+
+          var readMore = document.createElement('span');
+          readMore.className = 'blog__card-link';
+          readMore.textContent = 'Leer m\u00E1s \u2192';
+          card.appendChild(readMore);
+
+          fragment.appendChild(card);
           count++;
         });
 
         if (count > 0) {
-          grid.innerHTML = html;
+          grid.textContent = '';
+          grid.appendChild(fragment);
           if (fallback) fallback.style.display = 'none';
         }
       })
