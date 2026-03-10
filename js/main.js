@@ -90,25 +90,6 @@ const SprintJudicial = (() => {
       }
     });
 
-    // Scroll detection for navbar background
-    let ticking = false;
-
-    function onScroll() {
-      if (!ticking) {
-        window.requestAnimationFrame(function () {
-          const isScrolled = window.scrollY > SCROLL_THRESHOLD;
-          if (isScrolled !== state.scrolled) {
-            state.scrolled = isScrolled;
-            navbar.classList.toggle('navbar--scrolled', isScrolled);
-          }
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
   }
 
   // --- Scroll Animations (IntersectionObserver) ---
@@ -233,16 +214,37 @@ const SprintJudicial = (() => {
   // --- Scroll Indicator ---
 
   function initScrollIndicator() {
-    const indicator = $('.hero__scroll-indicator');
-    if (!indicator) return;
+    var indicator = $('.hero__scroll-indicator');
+    if (!indicator) return null;
+    return indicator;
+  }
 
-    let ticking = false;
+  // --- Unified Scroll Handler ---
+
+  function initUnifiedScroll() {
+    var navbar = $('.navbar');
+    var indicator = initScrollIndicator();
+    var ticking = false;
 
     function onScroll() {
       if (!ticking) {
         window.requestAnimationFrame(function () {
-          const opacity = Math.max(0, 1 - window.scrollY / 300);
-          indicator.style.opacity = opacity;
+          var scrollY = window.scrollY;
+
+          // Navbar scroll state
+          if (navbar) {
+            var isScrolled = scrollY > SCROLL_THRESHOLD;
+            if (isScrolled !== state.scrolled) {
+              state.scrolled = isScrolled;
+              navbar.classList.toggle('navbar--scrolled', isScrolled);
+            }
+          }
+
+          // Scroll indicator fade
+          if (indicator) {
+            indicator.style.opacity = Math.max(0, 1 - scrollY / 300);
+          }
+
           ticking = false;
         });
         ticking = true;
@@ -250,6 +252,29 @@ const SprintJudicial = (() => {
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // --- Resize Handler ---
+
+  function initResizeHandler() {
+    var toggle = $('.navbar__toggle');
+    var links = $('.navbar__links');
+
+    if (!toggle || !links) return;
+
+    var mql = window.matchMedia('(min-width: 768px)');
+
+    function handleResize() {
+      if (mql.matches && state.menuOpen) {
+        state.menuOpen = false;
+        links.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    }
+
+    mql.addEventListener('change', handleResize);
   }
 
   // --- Public API ---
@@ -257,10 +282,11 @@ const SprintJudicial = (() => {
   return {
     init: function () {
       initNavbar();
+      initUnifiedScroll();
       initScrollAnimations();
       initCounters();
       initSmoothScroll();
-      initScrollIndicator();
+      initResizeHandler();
     }
   };
 

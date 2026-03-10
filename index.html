@@ -90,7 +90,7 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__container">
+    <div class="hero__container hero__container--split">
       <div class="hero__content">
         <div class="hero__badge" data-animate>
           <span aria-hidden="true">&#9733;</span> Ganador JusticIALab 2024
@@ -121,6 +121,28 @@
           <div class="stat">
             <div class="stat__value">Nacional</div>
             <div class="stat__label">Agilex implementado en el pa&iacute;s</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero visual decorativo (visible solo en desktop) -->
+      <div class="hero__visual" aria-hidden="true">
+        <div class="hero__visual-grid">
+          <div class="hero__visual-card hero__visual-card--1">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span>An&aacute;lisis en segundos</span>
+          </div>
+          <div class="hero__visual-card hero__visual-card--2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Cumple Ley 1581</span>
+          </div>
+          <div class="hero__visual-card hero__visual-card--3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span>Documentos autom&aacute;ticos</span>
+          </div>
+          <div class="hero__visual-card hero__visual-card--4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>100% privado y seguro</span>
           </div>
         </div>
       </div>
@@ -169,9 +191,9 @@
 
       <div class="services-grid" data-animate data-stagger>
 
-        <article class="service-card" data-color="blue">
+        <article class="service-card service-card--featured" data-color="blue" aria-labelledby="svc-ai">
           <div class="service-card__icon" aria-hidden="true">&#129302;</div>
-          <h3 class="service-card__title">Asistente Legal IA</h3>
+          <h3 class="service-card__title" id="svc-ai">Asistente Legal IA</h3>
           <p class="service-card__description">Un asistente virtual privado entrenado en la normatividad y jurisprudencia de su especialidad. Disponible 24/7, trabaja con sus documentos y protege la confidencialidad de sus datos.</p>
           <span class="service-card__tag">Desde $150.000 COP/mes</span>
           <div class="service-card__status service-card__status--production">
@@ -179,9 +201,9 @@
           </div>
         </article>
 
-        <article class="service-card" data-color="teal">
+        <article class="service-card" data-color="teal" aria-labelledby="svc-search">
           <div class="service-card__icon" aria-hidden="true">&#128269;</div>
-          <h3 class="service-card__title">Buscador de Jurisprudencia</h3>
+          <h3 class="service-card__title" id="svc-search">Buscador de Jurisprudencia</h3>
           <p class="service-card__description">Suba su caso y el sistema encuentra las sentencias m&aacute;s relevantes por similitud sem&aacute;ntica. No por palabras clave: entiende el contexto de su caso.</p>
           <span class="service-card__tag">Desde $80.000 COP / 50 consultas</span>
           <div class="service-card__status service-card__status--production">
@@ -189,9 +211,9 @@
           </div>
         </article>
 
-        <article class="service-card" data-color="gold">
+        <article class="service-card" data-color="gold" aria-labelledby="svc-anon">
           <div class="service-card__icon" aria-hidden="true">&#128274;</div>
-          <h3 class="service-card__title">Anonimizador de Documentos</h3>
+          <h3 class="service-card__title" id="svc-anon">Anonimizador de Documentos</h3>
           <p class="service-card__description">Detecta y reemplaza autom&aacute;ticamente datos personales sensibles en Word, PDF y Excel. 100% local, ning&uacute;n dato sale de su computador. Cumple Ley 1581/2012.</p>
           <span class="service-card__tag">Desde $200.000 COP (pago &uacute;nico)</span>
           <div class="service-card__status service-card__status--development">
@@ -199,9 +221,9 @@
           </div>
         </article>
 
-        <article class="service-card" data-color="green">
+        <article class="service-card" data-color="green" aria-labelledby="svc-auto">
           <div class="service-card__icon" aria-hidden="true">&#9881;</div>
-          <h3 class="service-card__title">Automatizaci&oacute;n de Procesos</h3>
+          <h3 class="service-card__title" id="svc-auto">Automatizaci&oacute;n de Procesos</h3>
           <p class="service-card__description">Software construido alrededor de c&oacute;mo usted trabaja hoy. Expedientes, oficios, informes, consultas de procesos: todo lo repetitivo, automatizado.</p>
           <span class="service-card__tag">Desde $500.000 COP por proyecto</span>
           <div class="service-card__status service-card__status--production">
@@ -209,9 +231,9 @@
           </div>
         </article>
 
-        <article class="service-card" data-color="purple">
+        <article class="service-card" data-color="purple" aria-labelledby="svc-docs">
           <div class="service-card__icon" aria-hidden="true">&#128196;</div>
-          <h3 class="service-card__title">Generador de Documentos</h3>
+          <h3 class="service-card__title" id="svc-docs">Generador de Documentos</h3>
           <p class="service-card__description">Entrevistas guiadas que producen tutelas, demandas, contratos y otros documentos completos en minutos. Basado en Docassemble, la misma tecnolog&iacute;a usada por tribunales de EE.UU.</p>
           <span class="service-card__tag">Setup desde $800.000 COP</span>
           <div class="service-card__status service-card__status--production">
@@ -219,9 +241,9 @@
           </div>
         </article>
 
-        <article class="service-card" data-color="red">
+        <article class="service-card" data-color="red" aria-labelledby="svc-consult">
           <div class="service-card__icon" aria-hidden="true">&#128161;</div>
-          <h3 class="service-card__title">Consultor&iacute;a LegalTech e IA</h3>
+          <h3 class="service-card__title" id="svc-consult">Consultor&iacute;a LegalTech e IA</h3>
           <p class="service-card__description">Sesiones personalizadas para firmas y despachos que quieren integrar inteligencia artificial en sus flujos de trabajo. Diagn&oacute;stico, hoja de ruta e implementaci&oacute;n acompa&ntilde;ada.</p>
           <span class="service-card__tag">Desde $300.000 COP/sesi&oacute;n</span>
           <div class="service-card__status service-card__status--production">
@@ -292,33 +314,41 @@
         Estas herramientas no est&aacute;n en fase de idea. Ya est&aacute;n en producci&oacute;n y han sido reconocidas a nivel nacional.
       </p>
 
-      <div class="credentials__grid" data-animate data-stagger>
+      <ul class="credentials__grid" role="list" data-animate data-stagger>
 
-        <div class="credential">
-          <div class="credential__icon" aria-hidden="true">&#127942;</div>
+        <li class="credential">
+          <div class="credential__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          </div>
           <h3 class="credential__title">Ganador JusticIALab</h3>
           <p class="credential__description">Primer Concurso Nacional de Innovaci&oacute;n de la Rama Judicial &mdash; Proyecto MARDUK, categor&iacute;a Justicia Basada en Datos</p>
-        </div>
+        </li>
 
-        <div class="credential">
-          <div class="credential__icon" aria-hidden="true">&#127758;</div>
+        <li class="credential">
+          <div class="credential__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
           <h3 class="credential__title">Mapa de Innovaci&oacute;n Legal</h3>
           <p class="credential__description">Incluido por Legal Hackers Colombia en la secci&oacute;n de Automatizaci&oacute;n Documental y de Procesos</p>
-        </div>
+        </li>
 
-        <div class="credential">
-          <div class="credential__icon" aria-hidden="true">&#127891;</div>
+        <li class="credential">
+          <div class="credential__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
           <h3 class="credential__title">Conferencista</h3>
           <p class="credential__description">Jornada Acad&eacute;mica sobre IA y Justicia &mdash; Colegio de Jueces y Fiscales de Antioquia, ASOJUDICIALES, ACMJ</p>
-        </div>
+        </li>
 
-        <div class="credential">
-          <div class="credential__icon" aria-hidden="true">&#128187;</div>
+        <li class="credential">
+          <div class="credential__icon" aria-hidden="true">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
           <h3 class="credential__title">Agilex en Producci&oacute;n</h3>
           <p class="credential__description">Herramienta de automatizaci&oacute;n de expedientes electr&oacute;nicos implementada a nivel nacional en la Rama Judicial</p>
-        </div>
+        </li>
 
-      </div>
+      </ul>
     </div>
   </section>
 
@@ -419,6 +449,38 @@
           </div>
         </details>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARATIVA -->
+  <section class="comparison" aria-label="Comparativa antes y despu&eacute;s">
+    <div class="container">
+      <span class="section__label section__label--center" data-animate>Impacto real</span>
+      <h2 class="section__title section__title--center" data-animate>Antes vs. despu&eacute;s de Sprint Judicial</h2>
+      <p class="section__description section__description--center" data-animate>
+        Resultados t&iacute;picos de abogados que usan nuestras herramientas.
+      </p>
+
+      <div class="comparison__grid" data-animate>
+        <div class="comparison__column comparison__column--before">
+          <h3 class="comparison__heading">Sin Sprint Judicial</h3>
+          <ul class="comparison__list">
+            <li class="comparison__item comparison__item--negative">Buscar jurisprudencia manualmente: <strong>2-4 horas</strong></li>
+            <li class="comparison__item comparison__item--negative">Redactar tutela desde cero: <strong>3-5 horas</strong></li>
+            <li class="comparison__item comparison__item--negative">Anonimizar expediente: <strong>1-2 horas</strong></li>
+            <li class="comparison__item comparison__item--negative">Revisar cambios normativos: <strong>disperso y manual</strong></li>
+          </ul>
+        </div>
+        <div class="comparison__column comparison__column--after">
+          <h3 class="comparison__heading">Con Sprint Judicial</h3>
+          <ul class="comparison__list">
+            <li class="comparison__item comparison__item--positive">B&uacute;squeda sem&aacute;ntica de jurisprudencia: <strong>5 minutos</strong></li>
+            <li class="comparison__item comparison__item--positive">Generar tutela con entrevista guiada: <strong>15 minutos</strong></li>
+            <li class="comparison__item comparison__item--positive">Anonimizar autom&aacute;ticamente: <strong>30 segundos</strong></li>
+            <li class="comparison__item comparison__item--positive">Monitoreo autom&aacute;tico de normativa: <strong>en tiempo real</strong></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
