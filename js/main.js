@@ -46,6 +46,7 @@ const SprintJudicial = (() => {
     // Toggle mobile menu
     function openMenu() {
       state.menuOpen = true;
+      navbar.classList.add('navbar--menu-open');
       links.classList.add('is-open');
       toggle.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
@@ -53,6 +54,7 @@ const SprintJudicial = (() => {
 
     function closeMenu() {
       state.menuOpen = false;
+      navbar.classList.remove('navbar--menu-open');
       links.classList.remove('is-open');
       toggle.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';

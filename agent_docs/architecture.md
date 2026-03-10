@@ -30,18 +30,31 @@ pero el contenido, la navegación y los CTAs funcionan sin él.
 
 Nunca inline styles en HTML. Nunca lógica de presentación en JS.
 
-### 4. Mobile First
-Los estilos base son para mobile (320px). Se agregan media queries
-para pantallas más grandes:
-```css
-/* Base: mobile */
-.hero__stats { flex-direction: column; }
+### 4. Mobile First (estricto)
+**100% mobile-first**. Todos los estilos base son para mobile (320px+).
+Se usan SOLO `min-width` media queries. NO hay `max-width` queries.
 
-/* Tablet */
+Breakpoints:
+- Base: 0px+ (mobile)
+- `min-width: 768px` (tablet)
+- `min-width: 1024px` (desktop)
+
+```css
+/* Base: mobile (hidden, overlay) */
+.navbar__links { display: none; position: fixed; ... }
+.navbar__links.is-open { display: flex; }
+
+/* Tablet: inline navigation */
 @media (min-width: 768px) {
-  .hero__stats { flex-direction: row; }
+  .navbar__links { display: flex; position: static; ... }
 }
 ```
+
+Decisiones clave:
+- Pseudo-elements decorativos: `display: none` en base, `display: block` en 768px+ (iOS Safari los renderiza como bloques sólidos en mobile)
+- `body::before` (grain texture): oculto en mobile por rendimiento iOS
+- Hero: `min-height: 100dvh` con fallback `100vh`
+- Section padding: 64px mobile, 100px desktop
 
 ## Patrones de Diseño Aplicados
 
