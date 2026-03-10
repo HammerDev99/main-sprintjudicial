@@ -68,6 +68,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Focus visible global */
@@ -328,6 +329,7 @@ section {
   align-items: center;
   padding-top: 80px;
   position: relative;
+  overflow: hidden;
 }
 
 .hero::before {
@@ -887,6 +889,7 @@ section {
 
 .comparison {
   padding: var(--space-4xl) 0;
+  overflow: hidden;
 }
 
 .comparison__grid {
@@ -1104,6 +1107,7 @@ section {
   text-align: center;
   padding: var(--space-4xl) 0;
   position: relative;
+  overflow: hidden;
 }
 
 .cta-section::before {
@@ -1425,6 +1429,10 @@ section {
   .hero__stats {
     gap: var(--space-lg);
     flex-wrap: wrap;
+  }
+
+  .stat__value {
+    font-size: 1.5rem;
   }
 
   .hero__scroll-indicator {
