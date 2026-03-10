@@ -10,38 +10,41 @@ para abogados litigantes en Colombia, con IA y automatización como diferenciado
 ---
 
 ## Fase 0: Landing Page v2 (Actual)
-**Estado**: 🔄 En progreso
+**Estado**: ✅ Completada
 **Objetivo**: Mejorar la landing page actual en UX/UI, arquitectura y performance.
 
 | Tarea | Prioridad | Estado | Spec/Plan |
 |-------|-----------|--------|-----------|
-| Separar archivos (CSS/JS/HTML) | P0 | ⬜ Planificado | PLAN-002, PLAN-003 (Fase 0) |
-| CSS Architecture (tokens, BEM, ITCSS) | P0 | ⬜ Planificado | PLAN-003 (Fase 1) |
-| JS Patterns (state, navbar, animations) | P0 | ⬜ Planificado | PLAN-003 (Fase 2) |
-| Accesibilidad (ARIA, focus, skip-nav) | P0 | ⬜ Planificado | PLAN-003 (Fase 3) |
-| Hamburger menu mobile | P0 | ⬜ Planificado | PLAN-004 (#2) |
-| Scroll animations (IntersectionObserver) | P0 | ⬜ Planificado | PLAN-004 (#1) |
-| Counter animation en stats | P0 | ⬜ Planificado | PLAN-004 (#5) |
-| Actualizar a 6 servicios + status badges | P1 | ⬜ Planificado | PLAN-004 (#3, #4) |
-| Sección "Cómo funciona" (4 pasos) | P1 | ⬜ Planificado | PLAN-004 (#8) |
-| Footer mejorado (4 columnas) | P1 | ⬜ Planificado | PLAN-004 (#10) |
-| Credenciales con glassmorphism | P1 | ⬜ Planificado | PLAN-004 (#9) |
-| Open Graph + Twitter Card meta tags | P1 | ⬜ Planificado | PLAN-004 (#12) |
-| CTAs verdes para conversión | P1 | ⬜ Planificado | PLAN-004 (#11) |
-| Trust bar post-hero | P1 | ⬜ Planificado | PLAN-003 (Fase 5) |
-| Performance (critical CSS, fonts, defer) | P2 | ⬜ Planificado | PLAN-003 (Fase 4) |
-| Scalability (data-attrs, config, templates) | P2 | ⬜ Planificado | PLAN-003 (Fase 6) |
-| robots.txt + sitemap.xml + Schema.org | P2 | ⬜ Planificado | PLAN-003 (Fase 7) |
+| Separar archivos (CSS/JS/HTML) | P0 | ✅ Completado | PLAN-002, PLAN-003 (Fase 0) |
+| CSS Architecture (tokens, BEM, ITCSS) | P0 | ✅ Completado | PLAN-003 (Fase 1) |
+| JS Patterns (state, navbar, animations) | P0 | ✅ Completado | PLAN-003 (Fase 2) |
+| Accesibilidad (ARIA, focus, skip-nav) | P0 | ✅ Completado | PLAN-003 (Fase 3) |
+| Hamburger menu mobile | P0 | ✅ Completado | PLAN-004 (#2) |
+| Scroll animations (IntersectionObserver) | P0 | ✅ Completado | PLAN-004 (#1) |
+| Counter animation en stats | P0 | ✅ Completado | PLAN-004 (#5) |
+| Actualizar a 6 servicios + status badges | P1 | ✅ Completado | PLAN-004 (#3, #4) |
+| Sección "Cómo funciona" (4 pasos) | P1 | ✅ Completado | PLAN-004 (#8) |
+| Footer mejorado (4 columnas) | P1 | ✅ Completado | PLAN-004 (#10) |
+| Credenciales con glassmorphism | P1 | ✅ Completado | PLAN-004 (#9) |
+| Open Graph + Twitter Card meta tags | P1 | ✅ Completado | PLAN-004 (#12) |
+| CTAs verdes para conversión | P1 | ✅ Completado | PLAN-004 (#11) |
+| Trust bar post-hero | P1 | ✅ Completado | PLAN-003 (Fase 5) |
+| FAQ para abogados escépticos | P1 | ✅ Completado | PLAN-001 (3.5) |
+| CTA intermedio entre secciones | P1 | ✅ Completado | PLAN-003 (Fase 5) |
+| favicon.ico + favicon.svg | P1 | ✅ Completado | — |
+| security.txt, humans.txt, llms.txt | P2 | ✅ Completado | — |
+| robots.txt + sitemap.xml + Schema.org | P2 | ✅ Completado | PLAN-003 (Fase 7) |
+| Eliminar inline styles | P2 | ✅ Completado | — |
 
 ## Fase 1: Contenido y Confianza
-**Estado**: ⬜ Planificación
+**Estado**: 🔄 En progreso
 **Objetivo**: Agregar elementos de prueba social, casos de éxito y contenido educativo.
 
 | Tarea | Prioridad | Estado | Spec/Plan |
 |-------|-----------|--------|-----------|
 | Sección de testimonios / casos de éxito | P0 | ⬜ Pendiente | SPEC-001 |
 | Video demo embebido (3 min) | P1 | ⬜ Pendiente | SPEC-001 |
-| FAQ con preguntas de abogados escépticos | P1 | ⬜ Pendiente | SPEC-001 |
+| FAQ con preguntas de abogados escépticos | P1 | ✅ Completado (movido a Fase 0) | SPEC-001 |
 | Comparativa "Sprint Judicial vs SaaS genéricas" | P1 | ⬜ Pendiente | SPEC-001 |
 | Blog feed (últimos 3 artículos) | P2 | ⬜ Pendiente | SPEC-001 |
 | Calculadora de ahorro de tiempo | P2 | ⬜ Pendiente | SPEC-001 |

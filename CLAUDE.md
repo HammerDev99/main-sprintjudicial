@@ -113,8 +113,8 @@ docker build -t sprint-judicial . && docker run -p 80:80 sprint-judicial
 ## Estado Actual
 
 ```
-Fase 0 - Landing v2:  [████████░░░░░░░░░░░░] 40%
-Fase 1 - Contenido:   [░░░░░░░░░░░░░░░░░░░░]  0%
+Fase 0 - Landing v2:  [████████████████████] 100% ✅
+Fase 1 - Contenido:   [██░░░░░░░░░░░░░░░░░░] 10% (FAQ completado)
 Fase 2 - Servicios:   [██░░░░░░░░░░░░░░░░░░] 10% (investigación)
 ```
 

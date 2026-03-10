@@ -466,6 +466,21 @@ section {
   margin-bottom: var(--space-2xl);
 }
 
+.section__label--center {
+  display: block;
+  text-align: center;
+}
+
+.section__title--center {
+  text-align: center;
+}
+
+.section__description--center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* ----- Service cards ----- */
 
 .services-grid {
@@ -779,6 +794,145 @@ section {
   padding: 10px 18px;
 }
 
+/* ----- Trust Bar ----- */
+
+.trust-bar {
+  padding: var(--space-2xl) 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.trust-bar__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  text-align: center;
+}
+
+.trust-bar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.trust-bar__icon {
+  font-size: 1.5rem;
+}
+
+.trust-bar__text {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* ----- CTA Intermedio ----- */
+
+.cta-mid {
+  padding: var(--space-3xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-mid::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 60%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.cta-mid__content {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-mid__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+}
+
+.cta-mid__description {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-xl);
+}
+
+/* ----- FAQ ----- */
+
+.faq {
+  padding: var(--space-4xl) 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.faq__list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--border);
+}
+
+.faq__question {
+  padding: var(--space-lg) 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-md);
+  transition: color 0.3s;
+}
+
+.faq__question:hover {
+  color: var(--accent-light);
+}
+
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.faq__question::after {
+  content: '+';
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--accent-light);
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.faq__item[open] .faq__question::after {
+  content: '−';
+  transform: rotate(180deg);
+}
+
+.faq__answer {
+  padding: 0 0 var(--space-lg);
+}
+
+.faq__answer p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
 /* ----- CTA Section ----- */
 
 .cta-section {
@@ -947,6 +1101,15 @@ section {
 /* --- Tablet (768px) --- */
 
 @media (min-width: 768px) {
+  .trust-bar__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .trust-bar__item {
+    flex-direction: row;
+    gap: var(--space-sm);
+  }
+
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -963,6 +1126,10 @@ section {
   .process__grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-2xl);
+  }
+
+  .faq__question {
+    font-size: 1.05rem;
   }
 
   .footer__grid {
