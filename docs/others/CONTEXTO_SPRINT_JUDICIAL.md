@@ -201,7 +201,7 @@ https://wa.me/573015771258?text=Hola%20Daniel%2C%20me%20interesa%20conocer%20las
 Sprint Judicial | IA y Automatización para Abogados Litigantes
 
 ### Descripción meta
-Herramientas de inteligencia artificial y automatización para abogados litigantes en Colombia. Asistente legal IA, buscador de jurisprudencia por similitud, generador de documentos, automatización de procesos. Desarrollado por un ingeniero con +10 años en la Rama Judicial.
+Herramientas de inteligencia artificial y automatización para abogados litigantes en Colombia. Asistente legal IA, buscador de jurisprudencia por similitud, generador de documentos, automatización de procesos. Desarrollado por un ingeniero con +10 años de experiencia en la Rama Judicial.
 
 ### Keywords objetivo
 - IA para abogados Colombia
@@ -245,7 +245,7 @@ El landing actual es un HTML/CSS/JS estático de una sola página. Para iterar c
 El landing cuenta esta historia en 4 actos:
 
 ### Acto 1: Identificación (Hero)
-"Usted pierde horas en tareas que una máquina puede hacer en segundos. Lo sé porque yo también las hacía — durante 10 años dentro de los juzgados."
+"Usted pierde horas en tareas que una máquina puede hacer en segundos. Lo sé porque yo también las hacía — durante 10 años de experiencia dentro de los juzgados."
 
 ### Acto 2: Solución (Servicios)
 "Construí 6 herramientas que resuelven exactamente esos problemas. Cada una nació de un dolor real que viví en primera persona."

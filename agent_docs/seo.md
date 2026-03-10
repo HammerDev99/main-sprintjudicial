@@ -15,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sprintjudicial.com">
 <meta property="og:title" content="Sprint Judicial | IA y Automatización para Abogados Litigantes">
-<meta property="og:description" content="6 herramientas de IA para abogados litigantes en Colombia. Desarrolladas por un ingeniero con +10 años en la Rama Judicial.">
+<meta property="og:description" content="6 herramientas de IA para abogados litigantes en Colombia. Desarrolladas por un ingeniero con +10 años de experiencia en la Rama Judicial.">
 <meta property="og:image" content="https://sprintjudicial.com/assets/og-image.png">
 <meta property="og:locale" content="es_CO">
 <meta property="og:site_name" content="Sprint Judicial">
