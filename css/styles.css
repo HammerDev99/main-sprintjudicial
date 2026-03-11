@@ -1283,10 +1283,8 @@ section {
   max-height: 48px;
   width: auto;
   object-fit: contain;
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 8px;
-  padding: 6px 10px;
-  opacity: 0.88;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
+  opacity: 0.9;
   transition: opacity 0.3s;
 }
 
