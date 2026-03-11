@@ -127,7 +127,7 @@ Fase 2 - Servicios:   [██░░░░░░░░░░░░░░░░░
 | Métrica | Valor |
 |---------|-------|
 | Servicios definidos | 6 actuales + 7 propuestos |
-| Specs completadas | SPEC-001 (landing), SPEC-002 (servicios), SPEC-003 (evolución estratégica ~85%) |
+| Specs completadas | SPEC-001 (landing), SPEC-002 (servicios), SPEC-003 (evolución estratégica ~68%) |
 | Research completado | RES-001 (benchmark LegalTech), RES-002 (análisis estratégico) |
 | Secciones landing | 19 (incluyendo pipeline, diferenciadores, seguridad, timeline) |
 | Logos trust-bar | 4 (JusticIALab, Legal Hackers, Rama Judicial, Agilex) |

@@ -1,7 +1,7 @@
 # SPEC-003: Evolución Estratégica — Landing Page Comercial
 
 > Fecha: 2026-03-10
-> Estado: 🔄 En progreso (~85%)
+> Estado: 🔄 En progreso (~75%)
 > Prioridad: P0
 > Dependencias: SPEC-001 (landing page v2 — ✅ completada), RES-002 (análisis estratégico)
 > Origen: Recomendaciones de `docs/research/RES-002-analisis-estrategico.md`
@@ -58,7 +58,8 @@ Estructura por servicio:
 - [x] Badge de estado: "En producción" / "En desarrollo"
 - [x] CTAs duales en servicios clave: card 1 (TutelaBot → Streamlit) y card 6 (DisciplinaJudicial → Streamlit)
 - [x] Hover effects con glassmorphism
-- [ ] Precio "desde" visible en cada tarjeta (rangos definidos en RES-002)
+- [x] Precio "desde" visible en cada tarjeta ($150K, $80K, $200K, $500K, $800K, $300K)
+- [ ] "Cómo funciona" per servicio: 3 pasos simples sin jerga técnica (RES-002 §Presentación de servicios)
 - [ ] Testimonio/métrica de uso real por servicio
 
 ### RF-05: Sección "Cómo Funciona"
@@ -112,13 +113,41 @@ Estructura por servicio:
 - [x] CSS puro con tooltip
 - [x] Enlace directo a wa.me con mensaje pre-armado
 
-### RF-13: Elementos Adicionales de Conversión
+### RF-13: Garantía de Calidad / Confiabilidad IA
+**Referente:** RES-002 §"El miedo a las alucinaciones" — Lexroom.ai, EvenUp, CoCounsel
+
+RES-002 propone una sección visible titulada "¿Cómo garantizamos la calidad?" con 4 puntos:
+- [ ] "Cada respuesta incluye la fuente normativa y jurisprudencial citada"
+- [ ] "Nuestros modelos están entrenados exclusivamente en normas y jurisprudencia colombiana verificada"
+- [x] "Tus datos nunca salen de tu servidor. Nunca entrenan modelos de terceros" (cubierto en §Seguridad)
+- [x] "El criterio final siempre es del abogado" (cubierto en FAQ: "la IA asiste, no decide")
+
+**Estado:** Parcialmente cubierto entre FAQ y Seguridad, pero NO existe como sección dedicada con alta visibilidad. Evaluar si se crea sección propia o se fortalecen las existentes.
+
+### RF-14: Nombre del Ecosistema / Branding de Plataforma
+**Referente:** RES-002 §"El nombre del ecosistema" — Clio Suite, EvenUp Claims Intelligence Platform, Aline AI Legal OS
+
+- [ ] Definir nombre unificador del ecosistema (sugerencias RES-002: "La Plataforma de Litigio Inteligente" o "El Sistema Operativo Legal para Abogados Colombianos")
+- [ ] Incorporar en hero, pipeline y footer como identidad de marca
+
+**Estado:** No implementado. Pipeline usa "Plataforma integral" como label pero sin nombre propio.
+
+### RF-15: Elementos Adicionales de Conversión
 **Referente:** Aline.co (demos, trials, lead magnets)
 
 - [ ] Página de precios transparentes (/precios) con rangos y calculador ROI
 - [ ] Lead magnet: guía descargable "5 formas en que la IA ahorra tiempo a abogados litigantes"
-- [ ] Spotlight/feature dedicado para TutelaBot como producto estrella ("la cuña")
+- [ ] Spotlight/feature dedicado para TutelaBot como producto estrella ("la cuña") con screenshot/GIF + 3 bullets de resultado + CTA trial 7 días
 - [ ] Screenshots o GIFs animados de interfaces de productos
+- [ ] Caso de estudio Agilex: "Cómo automatizamos procesos en 293+ iteraciones para la Rama Judicial"
+
+### RF-16: Blog Estratégico
+**Referente:** RES-002 §"Elementos adicionales" — SEO + thought leadership
+
+- [ ] Redirigir contenido del blog hacia temas que buscan abogados (no desarrolladores)
+- [ ] Ejemplos: "5 formas de usar IA en tu práctica de tutelas", "Cómo buscar jurisprudencia más rápido en 2026"
+- [x] Blog ya separado en blog.sprintjudicial.com
+- [x] Feed RSS integrado en landing (últimos 3 artículos)
 
 ## 3. Requisitos No Funcionales
 
@@ -128,7 +157,17 @@ Estructura por servicio:
 - [x] Lenguaje de resultados, no de features técnicos
 - [x] Tono profesional-cercano, sin jerga técnica
 - [x] Posicionamiento: "IA asiste, no decide" — amplificación, no reemplazo
-- [x] Frases clave: "Diseñado desde adentro", "Tu criterio, amplificado por IA", "Tus datos nunca salen de tu servidor"
+- [x] Frases clave usadas:
+  - [x] "Construido desde adentro" (variante de "Diseñado desde adentro") — §¿Por qué?
+  - [x] "Sus datos nunca salen de su servidor" — §¿Por qué? + §Seguridad
+  - [ ] "Tu criterio, amplificado por IA" — **NO encontrada en el sitio**
+  - [ ] "Menos de lo que cuesta una hora de un asociado" (ancla de precio) — **NO encontrada**
+  - [ ] "Sin contratos largos. Cancela cuando quieras." (reducción de riesgo) — **NO encontrada**
+- [x] Frases a evitar (todas AUSENTES del sitio ✅):
+  - ✅ No usa "inteligencia artificial de última generación"
+  - ✅ No usa "machine learning" ni "procesamiento de lenguaje natural"
+  - ✅ No usa "disruptivo" ni "revolucionario"
+  - ✅ No usa "reemplaza horas de trabajo" (usa "reduce", que es correcto)
 
 ### RNF-02: Bug Fixes Técnicos (previos a evolución)
 - [x] JSON-LD: Medellín con UTF-8 correcto (tilde)
@@ -173,15 +212,20 @@ Estructura por servicio:
 2. ✅ Trust bar muestra logos institucionales reales (no emojis)
 3. ✅ Pipeline visual comunica las 4 fases del ciclo de litigio
 4. ✅ Service cards usan framework dolor/resultado (no features técnicos)
-5. ✅ Sección "¿Por qué?" presenta 4 diferenciadores claros
-6. ✅ Sección de seguridad menciona Ley 1581 y CONPES 3975
-7. ✅ Timeline "Tu Primer Mes" reduce fricción de adopción
-8. ✅ WhatsApp flotante funciona como canal principal de conversión
-9. ✅ CTAs duales en hero y en cards de servicio (demo + prueba)
-10. ✅ Copywriting usa lenguaje de resultados, no de features
-11. ⬜ Testimonios reales de al menos 3 usuarios (requiere insumo)
-12. ⬜ Precios transparentes visibles (requiere decisión de negocio)
-13. ⬜ Video demo de 60-90 segundos (requiere grabación)
+5. ✅ Precios "desde" visibles en las 6 tarjetas de servicio
+6. ✅ Sección "¿Por qué?" presenta 4 diferenciadores claros
+7. ✅ Sección de seguridad menciona Ley 1581 y CONPES 3975
+8. ✅ Timeline "Tu Primer Mes" reduce fricción de adopción
+9. ✅ WhatsApp flotante funciona como canal principal de conversión
+10. ✅ CTAs duales en hero y en cards de servicio (demo + prueba)
+11. ✅ Copywriting usa lenguaje de resultados, no de features
+12. ✅ Ningún anti-pattern de copywriting presente (sin jerga técnica, sin hype)
+13. ⬜ Testimonios reales de al menos 3 usuarios (requiere insumo)
+14. ⬜ Video demo de 60-90 segundos (requiere grabación)
+15. ⬜ Frases clave faltantes incorporadas ("Tu criterio, amplificado", "Menos de lo que cuesta una hora", "Sin contratos largos")
+16. ⬜ Sección de garantía de calidad IA con alta visibilidad
+17. ⬜ Nombre del ecosistema definido e incorporado
+18. ⬜ "Cómo funciona" (3 pasos) por cada servicio
 
 ## 6. Resumen de Estado
 
@@ -189,26 +233,48 @@ Estructura por servicio:
 |-----------|--------------|------------|---|
 | Secciones nuevas (pipeline, ¿por qué?, seguridad, primer mes) | 4/4 | 0 | 100% |
 | Hero + trust bar + WhatsApp | 3/3 | 0 | 100% |
-| Service cards (dolor/resultado + CTAs) | 1/1 | 0 | 100% |
+| Service cards (dolor/resultado + CTAs + precios) | 3/3 | 0 | 100% |
 | Bug fixes técnicos | 6/6 | 0 | 100% |
 | Security hardening | 3/3 | 0 | 100% |
-| Contenido que requiere insumo externo | 0/4 | 4 | 0% |
-| Conversión avanzada (precios, lead magnet, spotlight) | 0/4 | 4 | 0% |
+| Copywriting (tono, anti-patterns) | 2/2 | 0 | 100% |
+| Frases clave de poder (RES-002) | 2/5 | 3 | 40% |
+| "Cómo funciona" per servicio | 0/1 | 1 | 0% |
+| Garantía calidad IA (sección dedicada) | 0/1 | 1 | 0% |
+| Nombre ecosistema / branding | 0/1 | 1 | 0% |
+| Contenido externo (testimonios, video, foto) | 0/3 | 3 | 0% |
+| Conversión avanzada (pricing page, lead magnet, spotlight, caso estudio) | 0/5 | 5 | 0% |
+| Blog estratégico (redirigir contenido) | 0/1 | 1 | 0% |
 
-**Total implementado:** ~85% de lo que se puede hacer desde el codebase.
-**Pendiente:** elementos que requieren insumo del usuario o decisiones de negocio.
+**Total:** 23/34 items implementados (**~68%**)
+**Implementable desde codebase sin insumo externo:** frases clave, "cómo funciona" per servicio, nombre ecosistema, sección calidad IA
+**Requiere insumo externo:** testimonios, video, foto, caso estudio, decisiones de negocio (pricing page, lead magnet)
 
-## 7. Pendientes (requieren insumo externo)
+## 7. Pendientes
 
-| Item | Bloqueo | Acción requerida |
-|------|---------|------------------|
-| Testimonios reales | Requiere contactar usuarios | Pedir citas a 3-5 usuarios de TutelaBot/Sherlock/Agilex |
-| Video demo | Requiere grabación | Grabar video 60-90s explicando Sprint Judicial + demo TutelaBot |
-| Foto profesional | Requiere asset | Sesión de fotos para sección "Sobre mí" |
-| Precios en tarjetas | Decisión de negocio | Definir si publicar rangos de precios (RES-002 lo recomienda) |
-| Badge hero | Decisión editorial | Reevaluar badge "Tecnología Legal Colombiana" |
-| og-image.png | Requiere diseño | Crear imagen para compartir en redes sociales |
-| Uniformar logos trust-bar | Decisión visual | Monocromático vs colores originales |
+### A) Implementables desde codebase (no requieren insumo externo)
+
+| # | Item | Esfuerzo | RF |
+|---|------|----------|-----|
+| 1 | Agregar frases clave faltantes al copy | Bajo | RNF-01 |
+| 2 | "Cómo funciona" (3 pasos) por servicio en cards | Medio | RF-04 |
+| 3 | Sección/subsección "¿Cómo garantizamos la calidad?" | Medio | RF-13 |
+| 4 | Definir e incorporar nombre del ecosistema | Bajo | RF-14 |
+| 5 | Uniformar logos trust-bar | Bajo | RF-02 |
+| 6 | Badge hero "Tecnología Legal Colombiana" | Bajo | RF-01 |
+
+### B) Requieren insumo externo o decisiones de negocio
+
+| # | Item | Bloqueo | Acción requerida |
+|---|------|---------|------------------|
+| 7 | Testimonios reales (3-5) | Contactar usuarios | Pedir citas a usuarios TutelaBot/Sherlock/Agilex |
+| 8 | Video demo (60-90s) | Grabación | Grabar explicación + demo TutelaBot |
+| 9 | Foto profesional | Sesión fotos | Para sección "Sobre mí" |
+| 10 | og-image.png | Diseño | Imagen para redes sociales |
+| 11 | Página de precios (/precios) | Decisión negocio | Publicar rangos + calculador ROI |
+| 12 | Lead magnet (guía descargable) | Crear contenido | "5 formas IA ahorra tiempo a abogados" |
+| 13 | Spotlight TutelaBot + screenshots/GIFs | Screenshots | Capturar interfaces de productos |
+| 14 | Caso de estudio Agilex | Redactar | "293+ iteraciones para la Rama Judicial" |
+| 15 | Blog estratégico (contenido legal) | Estrategia editorial | Redirigir blog a temas de abogados |
 
 ---
 
