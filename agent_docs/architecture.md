@@ -157,7 +157,7 @@ Visitante llega
 
 | ADR | Decisión | Alternativa descartada | Razón |
 |-----|----------|----------------------|-------|
-| ADR-008 | Logos con `filter: brightness(0) invert(1)` | Versiones blancas de logos | Reutilizar PNGs existentes sin crear assets adicionales |
+| ADR-008 | ~~`filter: brightness(0) invert(1)`~~ → Fondo blanco `rgba(255,255,255,0.92)` con `border-radius: 8px` | Filter brightness/invert (destruye logos multicolor con fondo opaco) | Los PNGs reales son multicolor con fondo blanco/opaco; el filtro invertía todo a blanco/negro irreconocible |
 | ADR-009 | Hero rotativo con setInterval | Librería de animación (GSAP) | Zero deps, respeta prefers-reduced-motion, simple |
 | ADR-010 | Pipeline como `<a>` clickeables | Divs estáticos | Mejora UX: click lleva a #servicios, semántico |
 | ADR-011 | WhatsApp flotante CSS puro | JS con lógica de visibilidad | No requiere JS, siempre visible, tooltip CSS |
