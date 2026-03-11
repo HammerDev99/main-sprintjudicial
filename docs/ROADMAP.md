@@ -77,6 +77,15 @@ para abogados litigantes en Colombia, con IA y automatización como diferenciado
 | Sección "Seguridad y Cumplimiento" | P1 | ✅ Completado | RES-002 |
 | Sección "Tu Primer Mes" (timeline onboarding) | P2 | ✅ Completado | RES-002 |
 | Botón flotante WhatsApp | P2 | ✅ Completado | RES-002 |
+| Trust Bar: logos sin fondo (PNGs transparentes) | P1 | ✅ Completado | Fix visual |
+| Trust Bar: Agilex ICO → PNG (formato web estándar) | P1 | ✅ Completado | Fix formato |
+| Dockerfile: agregar COPY src/ (logos 404 en producción) | P0 | ✅ Completado | Fix deploy |
+| Hero: comentar badge JusticIALab (decisión editorial) | P2 | ✅ Completado | UX review |
+| Trust Bar: uniformar colores logos (monocromático vs original) | P1 | ⬜ Pendiente | UX review |
+| Security headers nginx (HSTS, CSP, X-Frame, Permissions-Policy) | P0 | ✅ Completado | PLAN-005 |
+| nginx/default.conf con gzip + cache headers | P1 | ✅ Completado | PLAN-005 |
+| Dockerfile actualizado con nginx config | P0 | ✅ Completado | PLAN-005 |
+| SPEC-001 actualizada a estado completado | P2 | ✅ Completado | Documentación |
 
 ## Fase 2: Nuevos Servicios y Plataforma
 **Estado**: ⬜ Investigación

@@ -37,6 +37,9 @@ main-sprintjudicial/
 ├── js/
 │   ├── main.js                  # Lógica de UI
 │   └── analytics.js             # Tracking (placeholder)
+├── nginx/
+│   └── default.conf             # Security headers + performance (OWASP)
+├── src/                         # Logos e imágenes de marca (trust-bar)
 ├── assets/                      # Imágenes y recursos
 ├── docs/                        # Specs, research, plans, ADRs
 │   ├── ROADMAP.md               # Hoja de ruta general
@@ -84,6 +87,7 @@ docker build -t sprint-judicial . && docker run -p 80:80 sprint-judicial
 | Análisis estratégico (Aline.co, plan evolución) | `docs/research/RES-002-analisis-estrategico.md` |
 | Especificaciones (contratos de lo que se debe construir) | `docs/specs/SPEC-001-landing-v2.md` |
 | Informe de seguridad (ADR, sprint futuro) | `docs/architecture/ADR-001-informe-seguridad.md` |
+| Plan remediación seguridad servidor | `docs/plans/PLAN-005-security-remediation.md` |
 
 ## Design Tokens (referencia rápida)
 
@@ -103,7 +107,7 @@ docker build -t sprint-judicial . && docker run -p 80:80 sprint-judicial
 3. **Accesible**: aria-labels, focus visible, contraste AA, skip-to-content
 4. **Performante**: No frameworks, font-display: swap, lazy loading
 5. **Responsive**: Mobile first (320px → 768px → 1024px → 1440px)
-6. **Seguro**: CSP headers, no inline event handlers, sanitizar inputs
+6. **Seguro**: CSP headers (nginx/default.conf), HSTS, no inline event handlers, sanitizar inputs
 
 ## Skills Disponibles
 
@@ -116,7 +120,7 @@ docker build -t sprint-judicial . && docker run -p 80:80 sprint-judicial
 
 ```
 Fase 0 - Landing v2:  [████████████████████] 100% ✅
-Fase 1 - Contenido:   [██████████████████░░] 90% (Evolución estratégica completada; pendiente: testimonios, video, foto)
+Fase 1 - Contenido:   [███████████████████░] 95% (pendiente: testimonios, video, foto, uniformar logos trust-bar)
 Fase 2 - Servicios:   [██░░░░░░░░░░░░░░░░░░] 10% (investigación)
 ```
 
@@ -126,6 +130,7 @@ Fase 2 - Servicios:   [██░░░░░░░░░░░░░░░░░
 | Specs completadas | SPEC-001 (landing), SPEC-002 (servicios) |
 | Research completado | RES-001 (benchmark LegalTech), RES-002 (análisis estratégico) |
 | Secciones landing | 19 (incluyendo pipeline, diferenciadores, seguridad, timeline) |
+| Logos trust-bar | 4 (JusticIALab, Legal Hackers, Rama Judicial, Agilex) |
 
 ## Compact Instructions
 
@@ -139,5 +144,5 @@ Al compactar, SIEMPRE preservar:
 
 ---
 
-**Versión**: 1.3
+**Versión**: 1.4
 **Fecha**: 2026-03-10

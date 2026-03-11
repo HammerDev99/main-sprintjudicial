@@ -3,7 +3,7 @@
 > Fecha: 2026-03-10
 > Estado: Investigación
 > Prioridad: P1 (Fase 2)
-> Dependencias: SPEC-001 (landing page v2 completada)
+> Dependencias: SPEC-001 (landing page v2 — ✅ completada 2026-03-10)
 
 ---
 

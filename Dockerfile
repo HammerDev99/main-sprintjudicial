@@ -11,5 +11,6 @@ COPY security.txt /usr/share/nginx/html/
 COPY humans.txt /usr/share/nginx/html/
 COPY llms.txt /usr/share/nginx/html/
 COPY .well-known/ /usr/share/nginx/html/.well-known/
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

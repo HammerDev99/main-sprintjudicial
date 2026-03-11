@@ -1,7 +1,7 @@
 # SPEC-001: Landing Page v2
 
 > Fecha: 2026-03-10
-> Estado: En desarrollo
+> Estado: ✅ Completada
 > Prioridad: P0
 > Dependencias: ninguna
 
@@ -13,98 +13,99 @@ Transformar la landing page actual (HTML estático single-file) en una landing p
 accesible, performante y con arquitectura mantenible que refleje el posicionamiento premium
 de Sprint Judicial en el mercado LegalTech colombiano.
 
-## 2. Estado Actual (as-is)
+## 2. Estado Actual
 
-- Single file `index.html` (~490 líneas) con CSS inline y sin JavaScript
-- 5 secciones: Hero, Servicios (5 tarjetas), Credenciales, Sobre mí, CTA
-- Responsive básico (solo oculta nav links en mobile)
-- Sin animaciones de scroll, sin menú mobile, sin counters animados
-- Sin Open Graph tags, sin sitemap, sin robots.txt
-- Performance: no medida (estimada ~85 Lighthouse)
+- Arquitectura modular: `index.html` + `css/styles.css` + `css/animations.css` + `js/main.js`
+- 19 secciones: Hero (rotativo), Trust Bar (4 logos), Pipeline, Servicios (6), Cómo Funciona, Comparativa, ¿Por qué?, Credenciales, CTA Mid, Seguridad, Sobre Mí, Tu Primer Mes, FAQ, Blog, CTA Final, Footer, WhatsApp Float, Back-to-top
+- Responsive mobile-first (320px → 768px → 1024px → 1440px)
+- Animaciones IntersectionObserver, menú hamburguesa, counters animados
+- SEO completo: OG, Twitter Card, Schema.org (Organization + FAQPage), canonical, sitemap, robots.txt
+- Tipografía: Source Serif 4 + Inter
+- Security headers: HSTS, CSP, X-Frame-Options, X-Content-Type-Options (nginx/default.conf)
 
 ## 3. Requisitos Funcionales
 
 ### RF-01: Navegación
-- [ ] Menú hamburguesa funcional en mobile (< 768px)
-- [ ] Navbar cambia background on scroll (más opaco al scrollear)
-- [ ] Smooth scroll para anchor links
-- [ ] Skip-to-content link para accesibilidad
-- [ ] Logo clickeable lleva al hero
+- [x] Menú hamburguesa funcional en mobile (< 768px)
+- [x] Navbar cambia background on scroll (más opaco al scrollear)
+- [x] Smooth scroll para anchor links
+- [x] Skip-to-content link para accesibilidad
+- [x] Logo clickeable lleva al hero
 
 ### RF-02: Hero Section
-- [ ] Animaciones fade-up escalonadas (ya implementadas con CSS, activar con JS)
-- [ ] Counter animation para estadísticas (10+, 6, Nacional)
-- [ ] Actualizar "5 Herramientas" → "6 Herramientas" (el contexto define 6 servicios)
-- [ ] Scroll indicator (chevron/flecha animada) al fondo del hero
+- [x] Animaciones fade-up escalonadas (ya implementadas con CSS, activar con JS)
+- [x] Counter animation para estadísticas (10+, 6, Nacional)
+- [x] Actualizar "5 Herramientas" → "6 Herramientas" (el contexto define 6 servicios)
+- [x] Scroll indicator (chevron/flecha animada) al fondo del hero
 
 ### RF-03: Servicios
-- [ ] Mostrar 6 servicios (agregar Anonimizador como servicio diferenciado si falta)
-- [ ] Badge de estado por servicio: "En producción" / "En desarrollo"
-- [ ] Hover effects mejorados con glassmorphism sutil
-- [ ] Precio de referencia visible en cada tarjeta
+- [x] Mostrar 6 servicios (agregar Anonimizador como servicio diferenciado si falta)
+- [x] Badge de estado por servicio: "En producción" / "En desarrollo"
+- [x] Hover effects mejorados con glassmorphism sutil
+- [x] Precio de referencia visible en cada tarjeta
 
 ### RF-04: Sección "Cómo Funciona" (NUEVA)
-- [ ] 4 pasos: Agende demo → Evaluamos necesidad → Implementamos → Soporte continuo
-- [ ] Diseño tipo timeline o steps horizontales
-- [ ] Iconografía consistente con el design system
-- [ ] Ubicar entre Servicios y Credenciales
+- [x] 4 pasos: Agende demo → Evaluamos necesidad → Implementamos → Soporte continuo
+- [x] Diseño tipo timeline o steps horizontales
+- [x] Iconografía consistente con el design system
+- [x] Ubicar entre Servicios y Credenciales
 
 ### RF-05: Credenciales
-- [ ] Cards con efecto glass/glassmorphism
-- [ ] Métricas numéricas verificables (981 tests, 85.3% F1, <200ms, 293+ commits)
-- [ ] Links de verificación donde sea posible
+- [x] Cards con efecto glass/glassmorphism
+- [x] Métricas numéricas verificables (981 tests, 85.3% F1, <200ms, 293+ commits)
+- [x] Links de verificación donde sea posible
 
 ### RF-06: Sección Sobre Mí
-- [ ] Mantener estructura actual (está bien lograda)
-- [ ] Agregar links a certificaciones/verificaciones
+- [x] Mantener estructura actual (está bien lograda)
+- [x] Agregar links a certificaciones/verificaciones
 
 ### RF-07: CTA Final
-- [ ] WhatsApp como CTA principal (ya implementado)
-- [ ] Email como secundario
-- [ ] Agregar opción de agendar por Calendly o similar (futuro)
+- [x] WhatsApp como CTA principal (ya implementado)
+- [x] Email como secundario
+- [ ] Agregar opción de agendar por Calendly o similar (futuro — Fase 2)
 
 ### RF-08: Footer
-- [ ] Rediseñar en 3-4 columnas: Navegación, Servicios, Contacto, Legal
-- [ ] Logo + descripción breve de Sprint Judicial
-- [ ] Links a redes sociales (LinkedIn, GitHub, Blog)
-- [ ] Badges de seguridad/privacidad (Ley 1581)
-- [ ] Copyright actualizado a 2026
+- [x] Rediseñar en 3-4 columnas: Navegación, Servicios, Contacto, Legal
+- [x] Logo + descripción breve de Sprint Judicial
+- [x] Links a redes sociales (LinkedIn, GitHub, Blog)
+- [x] Badges de seguridad/privacidad (Ley 1581)
+- [x] Copyright actualizado a 2026
 
 ## 4. Requisitos No Funcionales
 
 ### RNF-01: Performance
-- [ ] Lighthouse Performance > 90
-- [ ] First Contentful Paint < 1.5s
-- [ ] font-display: swap en Google Fonts
-- [ ] CSS crítico inline, CSS no-crítico deferred
+- [x] Lighthouse Performance > 90
+- [x] First Contentful Paint < 1.5s
+- [x] font-display: swap en Google Fonts
+- [x] CSS crítico inline, CSS no-crítico deferred
 
 ### RNF-02: SEO
-- [ ] Open Graph meta tags (og:title, og:description, og:image, og:url)
-- [ ] Twitter Card meta tags
-- [ ] Schema.org structured data (Organization, LocalBusiness)
-- [ ] robots.txt con reglas básicas
-- [ ] sitemap.xml con URL principal
+- [x] Open Graph meta tags (og:title, og:description, og:image, og:url)
+- [x] Twitter Card meta tags
+- [x] Schema.org structured data (ProfessionalService + FAQPage)
+- [x] robots.txt con reglas básicas
+- [x] sitemap.xml con URL principal
 
 ### RNF-03: Accesibilidad (WCAG 2.1 AA)
-- [ ] Contraste mínimo 4.5:1 para texto normal, 3:1 para texto grande
-- [ ] Todos los elementos interactivos alcanzables por teclado
-- [ ] aria-labels en botones y links con iconos
-- [ ] HTML semántico: main, article, section, header, footer, nav
-- [ ] Skip-to-content link
-- [ ] Focus visible en todos los elementos interactivos
+- [x] Contraste mínimo 4.5:1 para texto normal, 3:1 para texto grande
+- [x] Todos los elementos interactivos alcanzables por teclado
+- [x] aria-labels en botones y links con iconos
+- [x] HTML semántico: main, article, section, header, footer, nav
+- [x] Skip-to-content link
+- [x] Focus visible en todos los elementos interactivos
 
 ### RNF-04: Responsive
-- [ ] Mobile first: 320px → 768px → 1024px → 1440px
-- [ ] Menú hamburguesa funcional en mobile
-- [ ] Imágenes/gráficos responsive (si se agregan)
-- [ ] Touch targets mínimo 44x44px en mobile
+- [x] Mobile first: 320px → 768px → 1024px → 1440px
+- [x] Menú hamburguesa funcional en mobile
+- [x] Imágenes/gráficos responsive (si se agregan)
+- [x] Touch targets mínimo 44x44px en mobile
 
 ### RNF-05: Arquitectura
-- [ ] Separar: index.html, css/styles.css, css/animations.css, js/main.js
-- [ ] Metodología BEM para nombres de clases CSS
-- [ ] CSS custom properties para design tokens
-- [ ] JavaScript modular (sin dependencias externas)
-- [ ] Comentarios de sección en cada archivo
+- [x] Separar: index.html, css/styles.css, css/animations.css, js/main.js
+- [x] Metodología BEM para nombres de clases CSS
+- [x] CSS custom properties para design tokens
+- [x] JavaScript modular (sin dependencias externas)
+- [x] Comentarios de sección en cada archivo
 
 ## 5. Design Tokens (Contrato de Diseño)
 
@@ -125,8 +126,8 @@ de Sprint Judicial en el mercado LegalTech colombiano.
 --border: rgba(255,255,255,0.08);
 
 /* Tipografía */
---font-display: 'Playfair Display', serif;  /* Títulos */
---font-body: 'DM Sans', sans-serif;         /* Cuerpo */
+--font-display: 'Source Serif 4', serif;    /* Títulos */
+--font-body: 'Inter', sans-serif;           /* Cuerpo */
 
 /* Breakpoints */
 --bp-mobile: 480px;
@@ -156,21 +157,29 @@ de Sprint Judicial en el mercado LegalTech colombiano.
 
 ```
 main-sprintjudicial/
-├── index.html              # HTML semántico
+├── index.html              # HTML semántico (19 secciones)
 ├── css/
 │   ├── styles.css          # Estilos principales (BEM)
 │   └── animations.css      # Keyframes y animaciones
 ├── js/
 │   ├── main.js             # Lógica principal
 │   └── analytics.js        # Analytics (placeholder)
-├── assets/
-│   └── (imágenes futuras)
+├── nginx/
+│   └── default.conf        # Security headers + performance (OWASP)
+├── src/                    # Logos trust-bar (PNGs transparentes)
+├── assets/                 # Imágenes y recursos
+├── .well-known/            # security.txt
 ├── robots.txt
 ├── sitemap.xml
-├── .htaccess               # Headers de seguridad
-├── docs/                   # Esta documentación
+├── favicon.ico
+├── favicon.svg
+├── security.txt
+├── humans.txt
+├── llms.txt
+├── docs/                   # Specs, research, plans, ADRs
+├── agent_docs/             # Documentación técnica por tema
 ├── Dockerfile
-└── CONTEXTO_SPRINT_JUDICIAL.md
+└── CLAUDE.md               # Mapa del proyecto
 ```
 
 ## 7. Criterios de Aceptación
