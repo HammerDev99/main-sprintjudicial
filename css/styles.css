@@ -1295,16 +1295,12 @@ section {
 /* ----- Hero Rotator ----- */
 
 .hero__rotator {
-  display: block;
-  position: relative;
+  display: grid;
 }
 
 .hero__rotator-item {
+  grid-area: 1 / 1;
   opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
   transition: opacity 0.5s ease;
   background: linear-gradient(135deg, var(--accent-light), var(--teal));
   -webkit-background-clip: text;
@@ -1314,7 +1310,6 @@ section {
 
 .hero__rotator-item.is-active {
   opacity: 1;
-  position: relative;
 }
 
 /* ----- Service Card Actions ----- */
