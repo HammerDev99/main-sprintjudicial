@@ -78,13 +78,14 @@ El abogado escanea:
 ### Scroll-based Navigation
 - Smooth scroll para anchor links
 - Active state en navbar según sección visible (IntersectionObserver)
+- Indicador visual en nav link activo: `border-bottom: 2px solid var(--accent-light)` (solo desktop)
 - Navbar con backdrop-blur que cambia opacidad al scrollear
 
 ### Mobile Navigation
-- Hamburger menu en < 768px
+- Hamburger menu en < 768px con animación → X al abrir (`.navbar--menu-open .navbar__toggle-bar`)
 - Full-screen overlay con links (`display: none` / `display: flex` con `.is-open`)
 - Cerrar al: click en link, click fuera, ESC key
-- Focus trap dentro del menú abierto (accesibilidad)
+- Focus trap dentro del menú abierto (Tab/Shift+Tab ciclan entre toggle + links)
 - **Caveat CSS**: `.navbar` usa `backdrop-filter` que crea un containing block. Al abrir el menú, se agrega `.navbar--menu-open` que desactiva el `backdrop-filter` para que el overlay con `position: fixed` cubra el viewport completo
 - **No usar** `visibility: hidden` / `opacity: 0` para ocultar el menú — causa ghost text en iOS Safari
 
@@ -101,9 +102,12 @@ El abogado escanea:
 ### Screen Readers
 - Heading hierarchy: un solo h1, h2 por sección, h3 por card
 - aria-label en links/botones con solo iconos
+- aria-label únicos en CTAs de servicios ("Solicitar demo de [servicio]")
 - aria-expanded en hamburger menu
 - aria-current en nav link activo
-- sr-only class para texto solo para screen readers
+- sr-only class para texto solo para screen readers (contexto en comparativa Antes/Después)
+- role="list" en listas con `list-style: none` (fix VoiceOver/Safari)
+- Footer link columns envueltas en `<nav aria-label="...">`
 
 ### Contraste mínimo
 - Texto normal (< 18px): 4.5:1 ratio

@@ -29,7 +29,7 @@
 <meta name="twitter:image" content="https://sprintjudicial.com/assets/og-image.png">
 ```
 
-### Schema.org (JSON-LD)
+### Schema.org (JSON-LD) — ProfessionalService
 ```html
 <script type="application/ld+json">
 {
@@ -53,10 +53,29 @@
     "url": "https://www.linkedin.com/in/daniel-arbelaez-"
   },
   "areaServed": "CO",
-  "serviceType": ["Legal Technology", "AI Legal Assistant", "Document Automation"]
+  "serviceType": ["Legal Technology", "AI Legal Assistant", "Document Automation"],
+  "sameAs": [
+    "https://www.linkedin.com/in/daniel-arbelaez-",
+    "https://github.com/HammerDev99",
+    "https://blog.sprintjudicial.com"
+  ]
 }
 </script>
 ```
+
+### Schema.org (JSON-LD) — FAQPage
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "¿Pregunta?", "acceptedAnswer": { "@type": "Answer", "text": "Respuesta." } }
+  ]
+}
+</script>
+```
+> Las 6 preguntas del FAQ están implementadas en `index.html` con el schema completo.
 
 ---
 
@@ -103,20 +122,22 @@ Sitemap: https://sprintjudicial.com/sitemap.xml
 
 ## Checklist SEO
 
-- [ ] Title tag único y descriptivo (< 60 chars)
-- [ ] Meta description (< 155 chars, con call to action)
-- [ ] Open Graph tags completos
-- [ ] Twitter Card tags
-- [ ] Schema.org JSON-LD
-- [ ] H1 único por página
-- [ ] Heading hierarchy correcta (h1 > h2 > h3)
-- [ ] Alt text en todas las imágenes
-- [ ] URLs limpias y descriptivas
-- [ ] robots.txt
-- [ ] sitemap.xml
-- [ ] Canonical URL
-- [ ] lang="es" en html
-- [ ] Viewport meta tag
-- [ ] HTTPS (obligatorio)
-- [ ] Velocidad de carga < 3s
-- [ ] Mobile-friendly (responsive)
+- [x] Title tag único y descriptivo (< 60 chars)
+- [x] Meta description (< 155 chars, con call to action)
+- [x] Open Graph tags completos (incluye og:image)
+- [x] Twitter Card tags (incluye twitter:image)
+- [x] Schema.org JSON-LD — ProfessionalService (con sameAs y founder.url)
+- [x] Schema.org JSON-LD — FAQPage (6 preguntas, rich results)
+- [x] H1 único por página
+- [x] Heading hierarchy correcta (h1 > h2 > h3)
+- [ ] Alt text en todas las imágenes (pendiente: no hay imágenes aún)
+- [x] URLs limpias y descriptivas
+- [x] robots.txt
+- [x] sitemap.xml
+- [x] Canonical URL (`<link rel="canonical">`)
+- [x] lang="es" en html
+- [x] Viewport meta tag
+- [x] HTTPS (obligatorio)
+- [x] Velocidad de carga < 3s
+- [x] Mobile-friendly (responsive, mobile-first)
+- [ ] og-image.png (pendiente: crear asset en assets/)

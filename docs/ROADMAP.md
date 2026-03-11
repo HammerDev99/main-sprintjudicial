@@ -41,13 +41,13 @@ para abogados litigantes en Colombia, con IA y automatización como diferenciado
 | Limpieza de secciones sin valor (hero visual, testimonios placeholder, calculadora) | P1 | ✅ Completado | Audit UX |
 
 ## Fase 1: Contenido y Confianza
-**Estado**: 🔄 En progreso
+**Estado**: 🔄 En progreso (70%)
 **Objetivo**: Agregar elementos de prueba social, casos de éxito y contenido educativo.
 
 | Tarea | Prioridad | Estado | Spec/Plan |
 |-------|-----------|--------|-----------|
 | Sección de testimonios / casos de éxito | P0 | ⬜ Pendiente (requiere contenido real) | SPEC-001 |
-| Video demo embebido (3 min) | P1 | ⬜ Pendiente | SPEC-001 |
+| Video demo embebido (3 min) | P1 | ⬜ Pendiente (requiere grabación) | SPEC-001 |
 | FAQ con preguntas de abogados escépticos | P1 | ✅ Completado (movido a Fase 0) | SPEC-001 |
 | Comparativa "Antes vs. Después" | P1 | ✅ Completado | SPEC-001 |
 | CTAs en tarjetas de servicios | P1 | ✅ Completado | Audit UX |
@@ -56,6 +56,17 @@ para abogados litigantes en Colombia, con IA y automatización como diferenciado
 | Blog feed (últimos 3 artículos vía RSS) | P2 | ✅ Completado | SPEC-001 |
 | Foto profesional en "Sobre mí" | P2 | ⬜ Pendiente (requiere asset) | Audit UX |
 | Email corporativo (@sprintjudicial.com) | P2 | ✅ Completado | Audit UX |
+| Canonical URL + og:image + twitter:image | P1 | ✅ Completado | SEO Audit |
+| FAQPage Schema.org (rich results Google) | P1 | ✅ Completado | SEO Audit |
+| Schema.org sameAs + founder.url | P2 | ✅ Completado | SEO Audit |
+| Focus trap en menú móvil (WCAG) | P1 | ✅ Completado | A11y Audit |
+| aria-labels únicos en CTAs de servicios | P1 | ✅ Completado | A11y Audit |
+| Footer columns envueltas en `<nav>` | P2 | ✅ Completado | A11y Audit |
+| sr-only en comparativa + role="list" | P2 | ✅ Completado | A11y Audit |
+| Animación hamburger → X | P2 | ✅ Completado | UX Audit |
+| Indicador visual nav link activo (desktop) | P2 | ✅ Completado | UX Audit |
+| Fix XSS blog feed (innerHTML → DOM API) | P0 | ✅ Completado | Security Audit |
+| Fix navbar--menu-open no removido en resize | P1 | ✅ Completado | Bug fix |
 
 ## Fase 2: Nuevos Servicios y Plataforma
 **Estado**: ⬜ Investigación

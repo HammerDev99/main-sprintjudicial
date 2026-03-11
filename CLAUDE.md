@@ -114,7 +114,7 @@ docker build -t sprint-judicial . && docker run -p 80:80 sprint-judicial
 
 ```
 Fase 0 - Landing v2:  [████████████████████] 100% ✅
-Fase 1 - Contenido:   [████████░░░░░░░░░░░░] 40% (blog, CTAs, active nav, back-to-top, email, responsive)
+Fase 1 - Contenido:   [██████████████░░░░░░] 70% (SEO, a11y, seguridad, UX completados; pendiente: testimonios, video, foto)
 Fase 2 - Servicios:   [██░░░░░░░░░░░░░░░░░░] 10% (investigación)
 ```
 
@@ -136,5 +136,5 @@ Al compactar, SIEMPRE preservar:
 
 ---
 
-**Versión**: 1.1
+**Versión**: 1.2
 **Fecha**: 2026-03-10
