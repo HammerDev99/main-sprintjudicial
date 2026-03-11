@@ -81,7 +81,9 @@ docker build -t sprint-judicial . && docker run -p 80:80 sprint-judicial
 | Workflow CDAID (specs, checklists, compactación) | `agent_docs/workflow.md` |
 | Estado proyecto (roadmap, sprints, métricas) | `docs/ROADMAP.md` |
 | Investigación LegalTech (benchmarks, competidores) | `docs/research/RES-001-legaltech-benchmark.md` |
+| Análisis estratégico (Aline.co, plan evolución) | `docs/research/RES-002-analisis-estrategico.md` |
 | Especificaciones (contratos de lo que se debe construir) | `docs/specs/SPEC-001-landing-v2.md` |
+| Informe de seguridad (ADR, sprint futuro) | `docs/architecture/ADR-001-informe-seguridad.md` |
 
 ## Design Tokens (referencia rápida)
 
@@ -114,7 +116,7 @@ docker build -t sprint-judicial . && docker run -p 80:80 sprint-judicial
 
 ```
 Fase 0 - Landing v2:  [████████████████████] 100% ✅
-Fase 1 - Contenido:   [██████████████░░░░░░] 70% (SEO, a11y, seguridad, UX completados; pendiente: testimonios, video, foto)
+Fase 1 - Contenido:   [██████████████████░░] 90% (Evolución estratégica completada; pendiente: testimonios, video, foto)
 Fase 2 - Servicios:   [██░░░░░░░░░░░░░░░░░░] 10% (investigación)
 ```
 
@@ -122,7 +124,8 @@ Fase 2 - Servicios:   [██░░░░░░░░░░░░░░░░░
 |---------|-------|
 | Servicios definidos | 6 actuales + 7 propuestos |
 | Specs completadas | SPEC-001 (landing), SPEC-002 (servicios) |
-| Research completado | RES-001 (benchmark LegalTech) |
+| Research completado | RES-001 (benchmark LegalTech), RES-002 (análisis estratégico) |
+| Secciones landing | 19 (incluyendo pipeline, diferenciadores, seguridad, timeline) |
 
 ## Compact Instructions
 
@@ -136,5 +139,5 @@ Al compactar, SIEMPRE preservar:
 
 ---
 
-**Versión**: 1.2
+**Versión**: 1.3
 **Fecha**: 2026-03-10

@@ -10,14 +10,12 @@ const SprintJudicial = (() => {
   const SCROLL_THRESHOLD = 50;
   const ANIMATION_DURATION = 2000;
   const OBSERVER_THRESHOLD = 0.15;
-  const COUNTER_FPS = 60;
 
   // --- State (Singleton) ---
   const state = {
     menuOpen: false,
     scrolled: false,
-    prefersReducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
-    countersAnimated: false
+    prefersReducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches
   };
 
   // --- Helpers ---
@@ -360,8 +358,12 @@ const SprintJudicial = (() => {
     var BLOG_RSS = 'https://blog.sprintjudicial.com/index.xml';
     var MAX_POSTS = 3;
 
-    fetch(BLOG_RSS)
+    var controller = new AbortController();
+    var timeoutId = setTimeout(function () { controller.abort(); }, 8000);
+
+    fetch(BLOG_RSS, { signal: controller.signal })
       .then(function (res) {
+        clearTimeout(timeoutId);
         if (!res.ok) throw new Error('RSS fetch failed');
         return res.text();
       })
@@ -456,6 +458,29 @@ const SprintJudicial = (() => {
       });
   }
 
+  // --- Hero Rotator ---
+
+  function initHeroRotator() {
+    var container = $('.hero__rotator');
+    if (!container) return;
+
+    var items = $$('.hero__rotator-item', container);
+    if (items.length < 2) return;
+
+    if (state.prefersReducedMotion) return;
+
+    var current = 0;
+    setInterval(function () {
+      items[current].classList.remove('is-active');
+      items[current].setAttribute('aria-hidden', 'true');
+
+      current = (current + 1) % items.length;
+
+      items[current].classList.add('is-active');
+      items[current].removeAttribute('aria-hidden');
+    }, 3500);
+  }
+
   // --- Public API ---
 
   return {
@@ -467,6 +492,7 @@ const SprintJudicial = (() => {
       initSmoothScroll();
       initResizeHandler();
       initActiveNav();
+      initHeroRotator();
       initBlogFeed();
     }
   };

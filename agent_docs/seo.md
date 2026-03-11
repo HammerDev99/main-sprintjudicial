@@ -13,7 +13,7 @@
 ### Open Graph (Facebook, LinkedIn, WhatsApp)
 ```html
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://sprintjudicial.com">
+<meta property="og:url" content="https://sprintjudicial.com/">
 <meta property="og:title" content="Sprint Judicial | IA y Automatización para Abogados Litigantes">
 <meta property="og:description" content="6 herramientas de IA para abogados litigantes en Colombia. Desarrolladas por un ingeniero con +10 años de experiencia en la Rama Judicial.">
 <meta property="og:image" content="https://sprintjudicial.com/assets/og-image.png">
@@ -130,7 +130,7 @@ Sitemap: https://sprintjudicial.com/sitemap.xml
 - [x] Schema.org JSON-LD — FAQPage (6 preguntas, rich results)
 - [x] H1 único por página
 - [x] Heading hierarchy correcta (h1 > h2 > h3)
-- [ ] Alt text en todas las imágenes (pendiente: no hay imágenes aún)
+- [x] Alt text en todas las imágenes (trust bar logos con alt descriptivo)
 - [x] URLs limpias y descriptivas
 - [x] robots.txt
 - [x] sitemap.xml

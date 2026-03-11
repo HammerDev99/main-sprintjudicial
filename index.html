@@ -16,7 +16,7 @@
   <!-- Open Graph -->
   <meta property="og:title" content="Sprint Judicial | IA y Automatizaci&oacute;n para Abogados Litigantes">
   <meta property="og:description" content="Herramientas de inteligencia artificial y automatizaci&oacute;n para abogados litigantes en Colombia. Asistente legal IA, buscador de jurisprudencia, generador de documentos.">
-  <meta property="og:url" content="https://sprintjudicial.com">
+  <meta property="og:url" content="https://sprintjudicial.com/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CO">
   <meta property="og:site_name" content="Sprint Judicial">
@@ -40,7 +40,7 @@
     "email": "contacto@sprintjudicial.com",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Medell&iacute;n",
+      "addressLocality": "Medellín",
       "addressRegion": "Antioquia",
       "addressCountry": "CO"
     },
@@ -170,16 +170,22 @@
         </div>
 
         <h1 class="hero__title" data-animate>
-          Inteligencia artificial y automatizaci&oacute;n para <span class="hero__title-highlight">abogados litigantes</span>
+          Inteligencia artificial que
+          <span class="hero__rotator" aria-live="polite">
+            <span class="hero__rotator-item is-active">redacta tutelas en 15 minutos</span>
+            <span class="hero__rotator-item" aria-hidden="true">encuentra jurisprudencia en segundos</span>
+            <span class="hero__rotator-item" aria-hidden="true">automatiza lo repetitivo de su pr&aacute;ctica</span>
+            <span class="hero__rotator-item" aria-hidden="true">protege los datos de sus clientes</span>
+          </span>
         </h1>
 
         <p class="hero__subtitle" data-animate>
-          Herramientas que reducen horas de trabajo administrativo a minutos. Desarrolladas por un ingeniero con m&aacute;s de 10 a&ntilde;os de experiencia dentro de la Rama Judicial de Colombia.
+          Herramientas para <strong>abogados litigantes en Colombia</strong> que reducen horas de trabajo administrativo a minutos. Desarrolladas por un ingeniero con m&aacute;s de 10 a&ntilde;os de experiencia dentro de la Rama Judicial.
         </p>
 
         <div class="hero__actions" data-animate>
           <a href="#contacto" class="btn btn--primary">Agendar demo gratuita &rarr;</a>
-          <a href="#servicios" class="btn btn--outline">Ver servicios</a>
+          <a href="https://tutela-bot.streamlit.app/" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Prueba el asistente &rarr;</a>
         </div>
 
         <div class="hero__stats" data-animate>
@@ -213,21 +219,72 @@
     <div class="container">
       <div class="trust-bar__grid" data-animate>
         <div class="trust-bar__item">
-          <span class="trust-bar__icon" aria-hidden="true">&#127942;</span>
+          <img class="trust-bar__logo" src="src/JusticiaLab-Logo-3.png" alt="Logo JusticIALab - Rama Judicial" width="40" height="40" loading="lazy">
           <span class="trust-bar__text">Ganador JusticIALab 2024</span>
         </div>
         <div class="trust-bar__item">
-          <span class="trust-bar__icon" aria-hidden="true">&#127758;</span>
+          <img class="trust-bar__logo" src="src/Legal-Hackers-Logo-2.png" alt="Logo Legal Hackers Colombia" width="40" height="40" loading="lazy">
           <span class="trust-bar__text">Mapa de Innovaci&oacute;n Legal</span>
         </div>
         <div class="trust-bar__item">
-          <span class="trust-bar__icon" aria-hidden="true">&#9878;</span>
-          <span class="trust-bar__text">+10 a&ntilde;os de experiencia en la Rama Judicial</span>
+          <img class="trust-bar__logo" src="src/Rama-Judicial-Logo-1.png" alt="Logo Rama Judicial de Colombia" width="40" height="40" loading="lazy">
+          <span class="trust-bar__text">+10 a&ntilde;os en la Rama Judicial</span>
         </div>
         <div class="trust-bar__item">
-          <span class="trust-bar__icon" aria-hidden="true">&#128187;</span>
+          <span class="trust-bar__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </span>
           <span class="trust-bar__text">Agilex en producci&oacute;n nacional</span>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIPELINE VISUAL -->
+  <section id="pipeline" class="pipeline">
+    <div class="container">
+      <span class="section__label section__label--center" data-animate>Plataforma integral</span>
+      <h2 class="section__title section__title--center" data-animate>Una plataforma para todo su litigio</h2>
+      <p class="section__description section__description--center" data-animate>
+        Desde la investigaci&oacute;n hasta la automatizaci&oacute;n, cada fase de su trabajo tiene una herramienta especializada.
+      </p>
+
+      <div class="pipeline__grid" data-animate data-stagger>
+        <a href="#servicios" class="pipeline__phase">
+          <span class="pipeline__verb">Investigar</span>
+          <div class="pipeline__icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3 class="pipeline__title">Buscador Jurisprudencia</h3>
+          <p class="pipeline__desc">Sentencias similares en segundos</p>
+        </a>
+
+        <a href="#servicios" class="pipeline__phase">
+          <span class="pipeline__verb">Redactar</span>
+          <div class="pipeline__icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h3 class="pipeline__title">Asistente Legal IA</h3>
+          <p class="pipeline__desc">Documentos completos con IA</p>
+        </a>
+
+        <a href="#servicios" class="pipeline__phase">
+          <span class="pipeline__verb">Proteger</span>
+          <div class="pipeline__icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 class="pipeline__title">Anonimizador</h3>
+          <p class="pipeline__desc">Datos protegidos autom&aacute;ticamente</p>
+        </a>
+
+        <a href="#servicios" class="pipeline__phase">
+          <span class="pipeline__verb">Automatizar</span>
+          <div class="pipeline__icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          </div>
+          <h3 class="pipeline__title">Automatizaci&oacute;n</h3>
+          <p class="pipeline__desc">Elimine tareas repetitivas</p>
+        </a>
       </div>
     </div>
   </section>
@@ -246,17 +303,24 @@
         <article class="service-card service-card--featured" data-color="blue" aria-labelledby="svc-ai">
           <div class="service-card__icon" aria-hidden="true">&#129302;</div>
           <h3 class="service-card__title" id="svc-ai">Asistente Legal IA</h3>
+          <p class="service-card__pain">&iquest;Horas redactando documentos repetitivos?</p>
+          <p class="service-card__result">Redacte una tutela en 15 minutos</p>
           <p class="service-card__description">Un asistente virtual privado entrenado en la normatividad y jurisprudencia de su especialidad. Disponible 24/7, trabaja con sus documentos y protege la confidencialidad de sus datos.</p>
           <span class="service-card__tag">Desde $150.000 COP/mes</span>
           <div class="service-card__status service-card__status--production">
             <span class="service-card__status-dot"></span> En producci&oacute;n
           </div>
-          <a href="#contacto" class="service-card__cta" aria-label="Solicitar demo de Asistente Legal IA">Solicitar demo &rarr;</a>
+          <div class="service-card__actions">
+            <a href="#contacto" class="service-card__cta" aria-label="Solicitar demo de Asistente Legal IA">Solicitar demo &rarr;</a>
+            <a href="https://tutela-bot.streamlit.app/" class="service-card__cta service-card__cta--try" target="_blank" rel="noopener noreferrer" aria-label="Probar Asistente Legal IA en l&iacute;nea">Probar ahora &rarr;</a>
+          </div>
         </article>
 
         <article class="service-card" data-color="teal" aria-labelledby="svc-search">
           <div class="service-card__icon" aria-hidden="true">&#128269;</div>
           <h3 class="service-card__title" id="svc-search">Buscador de Jurisprudencia</h3>
+          <p class="service-card__pain">&iquest;Buscar sentencias relevantes manualmente?</p>
+          <p class="service-card__result">Encuentre jurisprudencia similar en 30 segundos</p>
           <p class="service-card__description">Suba su caso y el sistema encuentra las sentencias m&aacute;s relevantes por similitud sem&aacute;ntica. No por palabras clave: entiende el contexto de su caso.</p>
           <span class="service-card__tag">Desde $80.000 COP / 50 consultas</span>
           <div class="service-card__status service-card__status--production">
@@ -268,6 +332,8 @@
         <article class="service-card" data-color="gold" aria-labelledby="svc-anon">
           <div class="service-card__icon" aria-hidden="true">&#128274;</div>
           <h3 class="service-card__title" id="svc-anon">Anonimizador de Documentos</h3>
+          <p class="service-card__pain">&iquest;Anonimizar expedientes p&aacute;gina por p&aacute;gina?</p>
+          <p class="service-card__result">Anonimice 200 p&aacute;ginas en 3 minutos</p>
           <p class="service-card__description">Detecta y reemplaza autom&aacute;ticamente datos personales sensibles en Word, PDF y Excel. 100% local, ning&uacute;n dato sale de su computador. Cumple Ley 1581/2012.</p>
           <span class="service-card__tag">Desde $200.000 COP (pago &uacute;nico)</span>
           <div class="service-card__status service-card__status--development">
@@ -279,6 +345,8 @@
         <article class="service-card" data-color="green" aria-labelledby="svc-auto">
           <div class="service-card__icon" aria-hidden="true">&#9881;</div>
           <h3 class="service-card__title" id="svc-auto">Automatizaci&oacute;n de Procesos</h3>
+          <p class="service-card__pain">&iquest;Tareas administrativas que consumen su tiempo?</p>
+          <p class="service-card__result">Automatice lo repetitivo y ded&iacute;quese a litigar</p>
           <p class="service-card__description">Software construido alrededor de c&oacute;mo usted trabaja hoy. Expedientes, oficios, informes, consultas de procesos: todo lo repetitivo, automatizado.</p>
           <span class="service-card__tag">Desde $500.000 COP por proyecto</span>
           <div class="service-card__status service-card__status--production">
@@ -290,6 +358,8 @@
         <article class="service-card" data-color="purple" aria-labelledby="svc-docs">
           <div class="service-card__icon" aria-hidden="true">&#128196;</div>
           <h3 class="service-card__title" id="svc-docs">Generador de Documentos</h3>
+          <p class="service-card__pain">&iquest;Redactar documentos desde cero cada vez?</p>
+          <p class="service-card__result">Genere documentos con entrevistas guiadas</p>
           <p class="service-card__description">Entrevistas guiadas que producen tutelas, demandas, contratos y otros documentos completos en minutos. Basado en Docassemble, la misma tecnolog&iacute;a usada por tribunales de EE.UU.</p>
           <span class="service-card__tag">Setup desde $800.000 COP</span>
           <div class="service-card__status service-card__status--production">
@@ -301,12 +371,17 @@
         <article class="service-card" data-color="red" aria-labelledby="svc-consult">
           <div class="service-card__icon" aria-hidden="true">&#128161;</div>
           <h3 class="service-card__title" id="svc-consult">Consultor&iacute;a LegalTech e IA</h3>
+          <p class="service-card__pain">&iquest;No sabe por d&oacute;nde empezar con IA?</p>
+          <p class="service-card__result">Diagn&oacute;stico, hoja de ruta e implementaci&oacute;n</p>
           <p class="service-card__description">Sesiones personalizadas para firmas y despachos que quieren integrar inteligencia artificial en sus flujos de trabajo. Diagn&oacute;stico, hoja de ruta e implementaci&oacute;n acompa&ntilde;ada.</p>
           <span class="service-card__tag">Desde $300.000 COP/sesi&oacute;n</span>
           <div class="service-card__status service-card__status--production">
             <span class="service-card__status-dot"></span> En producci&oacute;n
           </div>
-          <a href="#contacto" class="service-card__cta" aria-label="Solicitar demo de Consultor&iacute;a LegalTech e IA">Solicitar demo &rarr;</a>
+          <div class="service-card__actions">
+            <a href="#contacto" class="service-card__cta" aria-label="Solicitar demo de Consultor&iacute;a LegalTech e IA">Solicitar demo &rarr;</a>
+            <a href="https://disciplina-judicial.streamlit.app/" class="service-card__cta service-card__cta--try" target="_blank" rel="noopener noreferrer" aria-label="Ver demo DisciplinaJudicial AI">Ver demo IA &rarr;</a>
+          </div>
         </article>
 
       </div>
@@ -395,6 +470,51 @@
     </div>
   </section>
 
+  <!-- ¿POR QUÉ SPRINT JUDICIAL? -->
+  <section id="por-que" class="differentiators">
+    <div class="container">
+      <span class="section__label section__label--center" data-animate>Diferenciadores</span>
+      <h2 class="section__title section__title--center" data-animate>&iquest;Por qu&eacute; Sprint Judicial?</h2>
+      <p class="section__description section__description--center" data-animate>
+        No somos una startup de Silicon Valley adaptando tecnolog&iacute;a importada. Esto naci&oacute; desde adentro.
+      </p>
+
+      <div class="differentiators__grid" data-animate data-stagger>
+        <div class="differentiators__card">
+          <div class="differentiators__icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 class="differentiators__title">Construido desde adentro</h3>
+          <p class="differentiators__desc">M&aacute;s de 10 a&ntilde;os de experiencia dentro de la Rama Judicial. Cada herramienta naci&oacute; de un problema real vivido en los despachos.</p>
+        </div>
+
+        <div class="differentiators__card">
+          <div class="differentiators__icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h3 class="differentiators__title">100% privado y local</h3>
+          <p class="differentiators__desc">Sus datos nunca salen de su servidor. Cumplimiento con Ley 1581/2012 de protecci&oacute;n de datos personales.</p>
+        </div>
+
+        <div class="differentiators__card">
+          <div class="differentiators__icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 class="differentiators__title">Hecho para Colombia</h3>
+          <p class="differentiators__desc">Adaptado al marco legal colombiano. No es un producto gen&eacute;rico importado: entiende su contexto normativo y procesal.</p>
+        </div>
+
+        <div class="differentiators__card">
+          <div class="differentiators__icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 class="differentiators__title">Sin dependencia</h3>
+          <p class="differentiators__desc">C&oacute;digo abierto y auditable. Sin vendor lock-in, sin suscripciones eternas. Usted es due&ntilde;o de su tecnolog&iacute;a.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CREDENCIALES -->
   <section id="credenciales" class="credentials">
     <div class="container">
@@ -453,6 +573,51 @@
     </div>
   </section>
 
+  <!-- SEGURIDAD Y CUMPLIMIENTO -->
+  <section id="seguridad" class="security">
+    <div class="container">
+      <span class="section__label section__label--center" data-animate>Seguridad</span>
+      <h2 class="section__title section__title--center" data-animate>Sus datos est&aacute;n protegidos. Siempre.</h2>
+      <p class="section__description section__description--center" data-animate>
+        La seguridad no es una funcionalidad adicional. Es el fundamento de cada herramienta.
+      </p>
+
+      <div class="security__grid" data-animate data-stagger>
+        <div class="security__item">
+          <div class="security__icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="security__title">Ley 1581/2012</h3>
+          <p class="security__desc">Cumplimiento total con la ley de protecci&oacute;n de datos personales de Colombia.</p>
+        </div>
+
+        <div class="security__item">
+          <div class="security__icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <h3 class="security__title">CONPES 3975</h3>
+          <p class="security__desc">Alineado con la pol&iacute;tica nacional de inteligencia artificial de Colombia.</p>
+        </div>
+
+        <div class="security__item">
+          <div class="security__icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          </div>
+          <h3 class="security__title">Procesamiento 100% local</h3>
+          <p class="security__desc">El Anonimizador funciona completamente en su computador. Ning&uacute;n dato sale de su equipo.</p>
+        </div>
+
+        <div class="security__item">
+          <div class="security__icon" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          </div>
+          <h3 class="security__title">Sin entrenamiento con sus datos</h3>
+          <p class="security__desc">Sus documentos y consultas nunca se usan para entrenar modelos. Su informaci&oacute;n es suya.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SOBRE MI -->
   <section id="sobre-mi">
     <div class="container">
@@ -481,6 +646,43 @@
             <a href="https://github.com/HammerDev99" class="btn btn--outline" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="https://blog.sprintjudicial.com" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Blog</a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TU PRIMER MES -->
+  <section id="primer-mes" class="timeline">
+    <div class="container">
+      <span class="section__label section__label--center" data-animate>Onboarding</span>
+      <h2 class="section__title section__title--center" data-animate>Tu primer mes con Sprint Judicial</h2>
+      <p class="section__description section__description--center" data-animate>
+        De la demo a una pr&aacute;ctica transformada en 30 d&iacute;as.
+      </p>
+
+      <div class="timeline__grid" data-animate data-stagger>
+        <div class="timeline__step">
+          <span class="timeline__badge">Hoy</span>
+          <h3 class="timeline__title">Demo personalizada</h3>
+          <p class="timeline__desc">20 minutos donde le mostramos las herramientas con un caso real de su especialidad. Sin costo.</p>
+        </div>
+
+        <div class="timeline__step">
+          <span class="timeline__badge">D&iacute;a 3</span>
+          <h3 class="timeline__title">Configuramos su asistente</h3>
+          <p class="timeline__desc">Personalizamos el asistente IA con la normatividad y jurisprudencia de su &aacute;rea de pr&aacute;ctica.</p>
+        </div>
+
+        <div class="timeline__step">
+          <span class="timeline__badge">D&iacute;a 7</span>
+          <h3 class="timeline__title">Primer documento con IA</h3>
+          <p class="timeline__desc">Redacte su primera tutela, demanda o documento con asistencia de inteligencia artificial.</p>
+        </div>
+
+        <div class="timeline__step">
+          <span class="timeline__badge">D&iacute;a 30</span>
+          <h3 class="timeline__title">Pr&aacute;ctica integrada</h3>
+          <p class="timeline__desc">IA y automatizaci&oacute;n integradas en su flujo de trabajo diario. Horas ahorradas cada semana.</p>
         </div>
       </div>
     </div>
@@ -617,6 +819,8 @@
             <a href="https://links.sprintjudicial.com" target="_blank" rel="noopener noreferrer">Todos los enlaces</a>
             <a href="#como-funciona">C&oacute;mo Funciona</a>
             <a href="#credenciales">Credenciales</a>
+            <a href="#por-que">&iquest;Por qu&eacute; Sprint Judicial?</a>
+            <a href="#seguridad">Seguridad</a>
           </div>
         </nav>
       </div>
@@ -639,6 +843,10 @@
     </div>
   </div>
 </footer>
+
+<a href="https://wa.me/573015771258?text=Hola%20Daniel%2C%20me%20interesa%20conocer%20las%20herramientas%20de%20IA%20para%20abogados." class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
 
 <button class="back-to-top" aria-label="Volver al inicio">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">

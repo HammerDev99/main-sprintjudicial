@@ -124,20 +124,41 @@ Migrar a framework solo cuando:
 - Se agreguen demos interactivas (calculadora, buscador)
 - Se necesite SSR para SEO dinámico
 
-## Diagrama de Flujo del Landing
+## Diagrama de Flujo del Landing (post evolución estratégica)
 
 ```
 Visitante llega
-  ├── Hero (identifica el dolor)
-  │     └── CTA: "Agendar demo" / "Ver servicios"
-  ├── Servicios (muestra soluciones)
-  │     └── 6 tarjetas con precio referencia
+  ├── Hero (identifica el dolor + rotador de value props)
+  │     └── CTA: "Agendar demo" / "Prueba el asistente" (Streamlit)
+  ├── Trust Bar (logos institucionales reales)
+  ├── Pipeline Visual (ciclo completo: INVESTIGAR → REDACTAR → PROTEGER → AUTOMATIZAR)
+  ├── Servicios (dolor/resultado + demos Streamlit)
+  │     └── 6 tarjetas con pain/result framework + precio
   ├── Cómo Funciona (reduce fricción)
   │     └── 4 pasos simples
+  ├── Comparativa (Antes vs. Después)
+  ├── ¿Por qué Sprint Judicial? (4 diferenciadores)
+  │     └── Desde adentro / Privado / Colombia / Sin dependencia
   ├── Credenciales (genera confianza)
   │     └── Reconocimientos verificables
+  ├── CTA Intermedio
+  ├── Seguridad y Cumplimiento (Ley 1581 / CONPES 3975 / Local / Sin entrenamiento)
   ├── Sobre Mí (conexión personal)
   │     └── Perfil + links
+  ├── Tu Primer Mes (timeline onboarding: Hoy → Día 3 → Día 7 → Día 30)
+  ├── FAQ
+  ├── Blog (RSS feed)
   └── CTA Final (conversión)
         └── WhatsApp (primario) / Email (secundario)
+  [Flotantes: WhatsApp (izquierda) + Back-to-top (derecha)]
 ```
+
+## ADRs Adicionales (Evolución Estratégica)
+
+| ADR | Decisión | Alternativa descartada | Razón |
+|-----|----------|----------------------|-------|
+| ADR-008 | Logos con `filter: brightness(0) invert(1)` | Versiones blancas de logos | Reutilizar PNGs existentes sin crear assets adicionales |
+| ADR-009 | Hero rotativo con setInterval | Librería de animación (GSAP) | Zero deps, respeta prefers-reduced-motion, simple |
+| ADR-010 | Pipeline como `<a>` clickeables | Divs estáticos | Mejora UX: click lleva a #servicios, semántico |
+| ADR-011 | WhatsApp flotante CSS puro | JS con lógica de visibilidad | No requiere JS, siempre visible, tooltip CSS |
+| ADR-012 | AbortController para fetch blog | setTimeout sin cancelación | Patrón estándar, permite cleanup limpio |

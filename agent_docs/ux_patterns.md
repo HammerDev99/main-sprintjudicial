@@ -131,3 +131,61 @@ El abogado escanea:
 - Mínimo 44x44px para elementos táctiles
 - Spacing mínimo 8px entre targets adyacentes
 - Botones: padding mínimo 14px vertical
+
+---
+
+## Patrones Nuevos (Evolución Estratégica — RES-002)
+
+### 5. Pipeline Visual (Ciclo del Litigio)
+- 4 fases horizontales: INVESTIGAR → REDACTAR → PROTEGER → AUTOMATIZAR
+- Cada fase es clickeable (smooth scroll a #servicios)
+- Verbos en uppercase con letter-spacing como labels
+- Grid responsive: 1 col mobile → 2 cols tablet → 4 cols desktop
+- BEM: `.pipeline`, `.pipeline__phase`, `.pipeline__verb`, `.pipeline__icon`, `.pipeline__title`, `.pipeline__desc`
+
+### 6. Dolor/Resultado en Service Cards
+- Cada service card muestra: Pain (pregunta en italic) → Result (respuesta en verde bold) → Description
+- Framework "dolor → resultado" inspirado en análisis de Aline.co y líderes LegalTech
+- BEM: `.service-card__pain` (italic, muted), `.service-card__result` (green, bold)
+
+### 7. Headline Rotativo (Hero)
+- Parte fija "Inteligencia artificial que" + span rotativo con 4 value props
+- `setInterval` cada 3500ms, respeta `prefers-reduced-motion`
+- CSS: items `position: absolute` / activo `position: relative`, transición opacity
+- A11y: `aria-live="polite"` en contenedor, `aria-hidden="true"` en items inactivos
+- BEM: `.hero__rotator`, `.hero__rotator-item`, `.hero__rotator-item.is-active`
+
+### 8. Sección Diferenciadores (¿Por qué?)
+- 4 cards con icono SVG + título + descripción
+- Grid responsive: 1→2→4 cols
+- BEM: `.differentiators`, `.differentiators__card`, `.differentiators__icon`, `.differentiators__title`, `.differentiators__desc`
+
+### 9. Sección Seguridad y Cumplimiento
+- Fondo con gradiente verde sutil `rgba(16, 185, 129, 0.04)`
+- 4 items: Ley 1581, CONPES 3975, procesamiento local, sin entrenamiento
+- Border verde sutil en items: `rgba(16, 185, 129, 0.15)`
+- BEM: `.security`, `.security__grid`, `.security__item`, `.security__icon`, `.security__title`, `.security__desc`
+
+### 10. Timeline de Onboarding (Tu Primer Mes)
+- 4 pasos: Hoy → Día 3 → Día 7 → Día 30
+- Badges tipo pill (background accent, border accent) en vez de números
+- Grid responsive: 1→2→4 cols
+- BEM: `.timeline`, `.timeline__grid`, `.timeline__step`, `.timeline__badge`, `.timeline__title`, `.timeline__desc`
+
+### 11. WhatsApp Flotante
+- Botón fijo esquina inferior-izquierda (opuesto al back-to-top)
+- Background #25D366, border-radius 50%, z-index 50
+- Tooltip CSS puro con `::after` + `:hover`
+- No requiere JS
+- BEM: `.whatsapp-float`
+
+### 12. Trust Bar con Logos Reales
+- 3 logos institucionales como `<img>` con `filter: brightness(0) invert(1)` para tema oscuro
+- 4to item (Agilex) mantiene SVG inline
+- `loading="lazy"`, alt text descriptivo
+- BEM: `.trust-bar__logo`
+
+### 13. CTAs Duales (Streamlit Demos)
+- Hero CTA secundario: link externo a TutelaBot Streamlit
+- Service cards 1 y 6: segundo CTA "Probar ahora" / "Ver demo IA" con estilo outline teal
+- Container `.service-card__actions` para 2 CTAs, `.service-card__cta--try` para estilo outline
