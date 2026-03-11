@@ -469,6 +469,15 @@ const SprintJudicial = (() => {
 
     if (state.prefersReducedMotion) return;
 
+    // Prevent layout shift: lock container to the tallest item's height.
+    // Inactive items use position:absolute (no flow), active uses position:relative.
+    // Without min-height, the container resizes on each rotation.
+    var maxHeight = 0;
+    items.forEach(function (item) {
+      if (item.offsetHeight > maxHeight) maxHeight = item.offsetHeight;
+    });
+    if (maxHeight > 0) container.style.minHeight = maxHeight + 'px';
+
     var current = 0;
     setInterval(function () {
       items[current].classList.remove('is-active');
