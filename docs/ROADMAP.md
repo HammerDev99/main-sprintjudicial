@@ -67,16 +67,16 @@ para abogados litigantes en Colombia, con IA y automatización como diferenciado
 | Indicador visual nav link activo (desktop) | P2 | ✅ Completado | UX Audit |
 | Fix XSS blog feed (innerHTML → DOM API) | P0 | ✅ Completado | Security Audit |
 | Fix navbar--menu-open no removido en resize | P1 | ✅ Completado | Bug fix |
-| Fix bugs técnicos (JSON-LD, canonical, dead code, fetch timeout) | P0 | ✅ Completado | RES-002 |
-| Trust Bar con logos institucionales reales | P1 | ✅ Completado | RES-002 |
-| Headline rotativo en hero (4 value props) | P1 | ✅ Completado | RES-002 |
-| CTA dual: Streamlit demos (TutelaBot + DisciplinaJudicial) | P1 | ✅ Completado | RES-002 |
-| Service cards con dolor/resultado framework | P1 | ✅ Completado | RES-002 |
-| Pipeline visual (INVESTIGAR → REDACTAR → PROTEGER → AUTOMATIZAR) | P1 | ✅ Completado | RES-002 |
-| Sección "¿Por qué Sprint Judicial?" (4 diferenciadores) | P1 | ✅ Completado | RES-002 |
-| Sección "Seguridad y Cumplimiento" | P1 | ✅ Completado | RES-002 |
-| Sección "Tu Primer Mes" (timeline onboarding) | P2 | ✅ Completado | RES-002 |
-| Botón flotante WhatsApp | P2 | ✅ Completado | RES-002 |
+| Fix bugs técnicos (JSON-LD, canonical, dead code, fetch timeout) | P0 | ✅ Completado | SPEC-003 |
+| Trust Bar con logos institucionales reales | P1 | ✅ Completado | SPEC-003 |
+| Headline rotativo en hero (4 value props) | P1 | ✅ Completado | SPEC-003 |
+| CTA dual: Streamlit demos (TutelaBot + DisciplinaJudicial) | P1 | ✅ Completado | SPEC-003 |
+| Service cards con dolor/resultado framework | P1 | ✅ Completado | SPEC-003 |
+| Pipeline visual (INVESTIGAR → REDACTAR → PROTEGER → AUTOMATIZAR) | P1 | ✅ Completado | SPEC-003 |
+| Sección "¿Por qué Sprint Judicial?" (4 diferenciadores) | P1 | ✅ Completado | SPEC-003 |
+| Sección "Seguridad y Cumplimiento" | P1 | ✅ Completado | SPEC-003 |
+| Sección "Tu Primer Mes" (timeline onboarding) | P2 | ✅ Completado | SPEC-003 |
+| Botón flotante WhatsApp | P2 | ✅ Completado | SPEC-003 |
 | Trust Bar: logos sin fondo (PNGs transparentes) | P1 | ✅ Completado | Fix visual |
 | Trust Bar: Agilex ICO → PNG (formato web estándar) | P1 | ✅ Completado | Fix formato |
 | Dockerfile: agregar COPY src/ (logos 404 en producción) | P0 | ✅ Completado | Fix deploy |

@@ -85,7 +85,7 @@ docker build -t sprint-judicial . && docker run -p 80:80 sprint-judicial
 | Estado proyecto (roadmap, sprints, métricas) | `docs/ROADMAP.md` |
 | Investigación LegalTech (benchmarks, competidores) | `docs/research/RES-001-legaltech-benchmark.md` |
 | Análisis estratégico (Aline.co, plan evolución) | `docs/research/RES-002-analisis-estrategico.md` |
-| Especificaciones (contratos de lo que se debe construir) | `docs/specs/SPEC-001-landing-v2.md` |
+| Especificaciones (contratos de lo que se debe construir) | `docs/specs/SPEC-001-landing-v2.md`, `SPEC-003` |
 | Informe de seguridad (ADR, sprint futuro) | `docs/architecture/ADR-001-informe-seguridad.md` |
 | Plan remediación seguridad servidor | `docs/plans/PLAN-005-security-remediation.md` |
 
@@ -127,7 +127,7 @@ Fase 2 - Servicios:   [██░░░░░░░░░░░░░░░░░
 | Métrica | Valor |
 |---------|-------|
 | Servicios definidos | 6 actuales + 7 propuestos |
-| Specs completadas | SPEC-001 (landing), SPEC-002 (servicios) |
+| Specs completadas | SPEC-001 (landing), SPEC-002 (servicios), SPEC-003 (evolución estratégica ~85%) |
 | Research completado | RES-001 (benchmark LegalTech), RES-002 (análisis estratégico) |
 | Secciones landing | 19 (incluyendo pipeline, diferenciadores, seguridad, timeline) |
 | Logos trust-bar | 4 (JusticIALab, Legal Hackers, Rama Judicial, Agilex) |
