@@ -42,7 +42,7 @@
   "email": "contacto@sprintjudicial.com",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Bello",
+    "addressLocality": "Medellín",
     "addressRegion": "Antioquia",
     "addressCountry": "CO"
   },
