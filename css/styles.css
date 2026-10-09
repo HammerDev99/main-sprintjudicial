@@ -257,7 +257,7 @@ section {
 
 .navbar__cta {
   background: var(--accent);
-  color: var(--white);
+  color: var(--deep);
   padding: 14px 32px;
   border-radius: var(--radius-sm);
   font-weight: 600;
@@ -328,7 +328,7 @@ section {
 
 .btn--primary {
   background: var(--accent);
-  color: var(--white);
+  color: var(--deep);
 }
 
 .btn--primary:hover {
@@ -919,7 +919,7 @@ section {
   clip: auto !important;
   white-space: normal !important;
   background: var(--accent);
-  color: var(--white);
+  color: var(--deep);
   font-size: 1rem;
   font-weight: 600;
   z-index: 9999;
