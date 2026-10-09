@@ -43,7 +43,7 @@ const FORBIDDEN = [
   {
     group: 'Precios',
     scope: 'text',
-    patterns: [/\$\s?\d/, /\bcop\b/, /\bprecios?\b/, /\btarifas?\b/, /\bsetup\b/, /pago unico/, /\bpagos?\b/, /\bsuscripci/, /\bplanes? de\b/]
+    patterns: [/\$\s?\d/, /\bcop\b/, /\bprecios?\b/, /\btarifas?\b/, /\bsetup\b/, /pago unico/, /\bpagos?\b/, /\bsuscripci/, /\bplanes?\b de/]
   },
   {
     group: 'Venta',
@@ -143,6 +143,15 @@ function readFile(file) {
   return fs.existsSync(fullPath) ? fs.readFileSync(fullPath, 'utf-8') : null;
 }
 
+function buildTexts(raw) {
+  return {
+    full: removeAllowed(normalize(raw)),
+    text: removeAllowed(
+      normalize(stripUrls(raw)) + ' \n ' + normalize(stripTags(stripUrls(raw)))
+    )
+  };
+}
+
 console.log('--- Test: Cumplimiento (SPEC-004) ---\n');
 
 for (const file of SCANNED_FILES) {
@@ -151,10 +160,7 @@ for (const file of SCANNED_FILES) {
     check(false, `[${file}] el archivo existe`);
     continue;
   }
-  const texts = {
-    full: removeAllowed(normalize(raw)),
-    text: removeAllowed(normalize(stripTags(stripUrls(raw))))
-  };
+  const texts = buildTexts(raw);
   for (const rule of FORBIDDEN) {
     if (rule.files && !rule.files.includes(file)) {
       continue;
@@ -181,11 +187,13 @@ const SELF_TEST_CASES = [
   { input: 'Desde &#36;80.000 COP', group: 'Precios' },
   { input: '\\u00bfCu\\u00e1nto cuesta? Desde $150.000', group: 'Precios' },
   { input: 'Agilex en <strong>producci&oacute;n nacional</strong>', group: 'Claims' },
-  { input: 'T&Eacute;CNICO EN SISTEMAS', group: 'Lugar de trabajo' }
+  { input: 'T&Eacute;CNICO EN SISTEMAS', group: 'Lugar de trabajo' },
+  { input: '<meta name="description" content="Consultoria y precios desde $80.000">', group: 'Precios' },
+  { input: '<a href="#x" aria-label="Cotizar servicio">Ver</a>', group: 'Venta' }
 ];
 
 for (const { input, group } of SELF_TEST_CASES) {
   const rule = FORBIDDEN.find((candidate) => candidate.group === group);
-  const text = rule.scope === 'full' ? normalize(input) : normalize(stripTags(stripUrls(input)));
+  const text = buildTexts(input)[rule.scope];
   check(findMatches(text, rule.patterns).length > 0, `Detecta ${group} en «${input}»`);
 }
