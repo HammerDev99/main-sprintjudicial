@@ -44,11 +44,13 @@ for (const anchor of uniqueAnchors) {
 console.log('\n--- CTAs externos ---\n');
 
 const requiredLinks = [
-  { pattern: 'wa.me/573015771258', name: 'WhatsApp CTA' },
+  { pattern: 'chat.whatsapp.com/CvZSCpQPKl5GWJsb5yhhWJ', name: 'Grupo de mentoría' },
   { pattern: 'contacto@sprintjudicial.com', name: 'Email CTA' },
   { pattern: 'linkedin.com/in/daniel-arbelaez-', name: 'LinkedIn link' },
   { pattern: 'github.com/HammerDev99', name: 'GitHub link' },
   { pattern: 'blog.sprintjudicial.com', name: 'Blog link' },
+  { pattern: 'portfolio.sprintjudicial.com', name: 'Portafolio link' },
+  { pattern: 'scholar.google.com/citations?user=T5zXXTcAAAAJ', name: 'Google Scholar link' },
 ];
 
 for (const link of requiredLinks) {
@@ -62,21 +64,28 @@ console.log('\n--- Seguridad de links ---\n');
 const externalLinks = html.match(/href="https?:\/\/[^"]+"/g) || [];
 console.log(`  INFO: ${externalLinks.length} links externos encontrados`);
 
-// Contar servicios mostrados
+// Herramientas de código abierto (SPEC-004 RC-04)
 console.log('\n--- Contenido ---\n');
-const serviceCards = (html.match(/service-card/g) || []).length;
-// Cada card tiene la clase mencionada varias veces (en CSS y HTML), contar solo las del HTML
-const serviceArticles = (html.match(/<article class="service-card[^>]*>/g) || []).length;
-check(
-  serviceArticles >= 5,
-  `Al menos 5 tarjetas de servicio (${serviceArticles} encontradas)`
-);
+const toolArticles = (html.match(/<article class="tool-card[^"]*"/g) || []).length;
+check(toolArticles === 3, `Tres tarjetas de herramientas (${toolArticles} encontradas)`);
 
-// Verificar estadísticas del hero
-const hasCorrectStats = html.includes('6') || html.includes('5');
-check(hasCorrectStats, 'Estadísticas del hero presentes');
+// Respaldo visible si el feed del blog falla
+check(
+  /id="blog-fallback"[\s\S]*?href="https:\/\/blog\.sprintjudicial\.com"/.test(html),
+  'El respaldo del blog enlaza al blog'
+);
 
 // Copyright year
 const currentYear = new Date().getFullYear().toString();
 const hasCopyright = html.includes(currentYear) || html.includes('2025');
 check(hasCopyright, `Copyright year presente (${currentYear} o 2025)`);
+
+// Assets locales: sin referencias rotas ni archivos huérfanos en src/
+console.log('\n--- Assets locales ---\n');
+const localSources = [...html.matchAll(/src="(?!https?:)([^"]+)"/g)].map(([, src]) => src);
+for (const src of localSources) {
+  check(fs.existsSync(path.join(ROOT, src)), `Asset referenciado existe: ${src}`);
+}
+for (const file of fs.readdirSync(path.join(ROOT, 'src'))) {
+  check(localSources.includes(`src/${file}`), `Asset de src/ en uso: ${file}`);
+}

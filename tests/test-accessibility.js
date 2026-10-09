@@ -37,18 +37,39 @@ check(h1Count === 1, `Exactamente un <h1> (encontrados: ${h1Count})`);
 const h2Count = (html.match(/<h2[\s>]/g) || []).length;
 check(h2Count >= 3, `Al menos 3 <h2> para secciones (encontrados: ${h2Count})`);
 
-// Secciones con id para navegación
-const sectionIds = ['servicios', 'credenciales', 'sobre-mi', 'contacto'];
+// Secciones con id para navegación (SPEC-004 RT-01)
+const sectionIds = ['que-hago', 'herramientas', 'mentoria', 'docencia', 'escritos'];
 for (const id of sectionIds) {
   check(html.includes(`id="${id}"`), `Sección con id="${id}" presente`);
 }
 
 // Links y botones
-check(html.includes('href="#servicios"'), 'Link de navegación a #servicios');
-check(html.includes('href="#contacto"'), 'Link de navegación a #contacto');
+check(html.includes('href="#herramientas"'), 'Link de navegación a #herramientas');
+check(html.includes('href="#docencia"'), 'Link de navegación a #docencia');
 
-// WhatsApp CTA
-check(html.includes('wa.me/573015771258'), 'Link de WhatsApp correcto');
+// Mentoría por grupo comunitario, sin WhatsApp personal (SPEC-004 D2, D6)
+check(html.includes('chat.whatsapp.com/CvZSCpQPKl5GWJsb5yhhWJ'), 'Link al grupo de mentoría');
+check(!html.includes('wa.me/'), 'Sin enlaces a WhatsApp personal');
+
+// Un mismo nombre accesible no puede llevar a destinos distintos (WCAG 2.4.4)
+const hrefsByName = new Map();
+for (const [, attrs, inner] of html.matchAll(/<a\s([^>]*)>([\s\S]*?)<\/a>/g)) {
+  const href = (attrs.match(/href="([^"]+)"/) || [])[1] || '';
+  const label = (attrs.match(/aria-label="([^"]+)"/) || [])[1];
+  const name = (label || inner.replace(/<[^>]+>/g, ' '))
+    .replace(/&rarr;|→/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!name) {
+    continue;
+  }
+  hrefsByName.set(name, new Set([...(hrefsByName.get(name) || []), href]));
+}
+const ambiguousNames = [...hrefsByName].filter(([, hrefs]) => hrefs.size > 1).map(([name]) => name);
+check(
+  ambiguousNames.length === 0,
+  `Cada nombre de enlace lleva a un solo destino${ambiguousNames.length ? ': ' + ambiguousNames.join(', ') : ''}`
+);
 
 // Email CTA
 check(
