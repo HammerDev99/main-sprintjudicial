@@ -1,7 +1,7 @@
 # SPEC-004: Reposicionamiento Académico — Portada sin Oferta Comercial
 
 > Fecha: 2026-10-08
-> Estado: 📝 Diseño aprobado — pendiente de implementación
+> Estado: ✅ Implementada (2026-10-09)
 > Prioridad: P0
 > Rama: `feat/reposicionamiento-academico`
 > Dependencias: ninguna
@@ -70,91 +70,91 @@ Los textos entre comillas son el copy final. Los marcados como **literal** no se
 
 ### RC-01: Navbar
 
-- [ ] Wordmark `Sprint<span>Judicial</span>` (sin cambios).
-- [ ] Enlaces: "Qué hago" (`#que-hago`), "Herramientas" (`#herramientas`), "Mentoría" (`#mentoria`), "Docencia" (`#docencia`), "Escritos" (`#escritos`).
-- [ ] Botón CTA: "Invitarme" → `#docencia`.
+- [x] Wordmark `Sprint<span>Judicial</span>` (sin cambios).
+- [x] Enlaces: "Qué hago" (`#que-hago`), "Herramientas" (`#herramientas`), "Mentoría" (`#mentoria`), "Docencia" (`#docencia`), "Escritos" (`#escritos`).
+- [x] Botón CTA: "Invitarme" → `#docencia`.
 
 ### RC-02: Hero
 
-- [ ] Etiqueta: "Daniel Arbeláez Álvarez · Ingeniero de software".
-- [ ] `<h1>` (único en la página): "Enseño y documento cómo automatizar trámites judiciales con software libre."
-- [ ] Párrafo: "Investigo y divulgo automatización en el sector justicia colombiano. Publico el código, explico cómo funciona y acompaño a quien quiera aprender a usarlo. La IA asiste; la decisión es humana."
-- [ ] CTA primario: "Ver las herramientas (código abierto)" → `#herramientas`.
-- [ ] CTA secundario: "Invitarme a dar una clase o conferencia" → `#docencia`.
-- [ ] Se conserva el indicador de scroll. Sin rotador, sin cifras, sin badge.
+- [x] Etiqueta: "Daniel Arbeláez Álvarez · Ingeniero de software".
+- [x] `<h1>` (único en la página): "Enseño y documento cómo automatizar trámites judiciales con software libre."
+- [x] Párrafo: "Investigo y divulgo automatización en el sector justicia colombiano. Publico el código, explico cómo funciona y acompaño a quien quiera aprender a usarlo. La IA asiste; la decisión es humana."
+- [x] CTA primario: "Ver las herramientas (código abierto)" → `#herramientas`.
+- [x] CTA secundario: "Invitarme a dar una clase o conferencia" → `#docencia`.
+- [x] Se conserva el indicador de scroll. Sin rotador, sin cifras, sin badge.
 
 ### RC-03: Qué hago (`#que-hago`)
 
-- [ ] Etiqueta "Qué hago". Título: "Enseñar, construir y escribir".
-- [ ] Descripción: "Tres actividades con un mismo propósito: que más personas del sector justicia entiendan la automatización y la usen con criterio."
-- [ ] Tarjeta **Enseño**: "Doy clases invitadas, talleres y conferencias sobre informática jurídica, automatización de trámites y gobernanza de IA en la justicia."
-- [ ] Tarjeta **Construyo software libre**: "Publico herramientas con licencia MIT para tareas repetitivas del trabajo judicial. Puedes leer el código, usarlo y mejorarlo."
-- [ ] Tarjeta **Investigo y escribo**: "Escribo en el blog y en revistas académicas sobre automatización de trámites y uso responsable de la IA."
+- [x] Etiqueta "Qué hago". Título: "Enseñar, construir y escribir".
+- [x] Descripción: "Tres actividades con un mismo propósito: que más personas del sector justicia entiendan la automatización y la usen con criterio."
+- [x] Tarjeta **Enseño**: "Doy clases invitadas, talleres y conferencias sobre informática jurídica, automatización de trámites y gobernanza de IA en la justicia."
+- [x] Tarjeta **Construyo software libre**: "Publico herramientas con licencia MIT para tareas repetitivas del trabajo judicial. Puedes leer el código, usarlo y mejorarlo."
+- [x] Tarjeta **Investigo y escribo**: "Escribo en el blog y en revistas académicas sobre automatización de trámites y uso responsable de la IA."
 
 ### RC-04: Herramientas de código abierto (`#herramientas`)
 
-- [ ] Etiqueta "Código abierto". Título: "Herramientas libres".
-- [ ] Descripción: "Software gratuito con licencia MIT. Cada herramienta tiene su repositorio público y su documentación."
-- [ ] Tarjeta **AgilEx** (con `src/Agilex-logo.png`, alt "Logo de AgilEx"):
+- [x] Etiqueta "Código abierto". Título: "Herramientas libres".
+- [x] Descripción: "Software gratuito con licencia MIT. Cada herramienta tiene su repositorio público y su documentación."
+- [x] Tarjeta **AgilEx** (con `src/Agilex-logo.png`, alt "Logo de AgilEx"):
   - "Automatiza la creación y el diligenciamiento del índice electrónico de un expediente a partir de los archivos de una carpeta, según el protocolo de expediente electrónico del Acuerdo PCSJA20-11567 de 2020."
   - Datos: "Licencia MIT · Versión 1.5.1 (abril de 2026) · Primera versión publicada: octubre de 2022".
   - Enlaces: "Repositorio" → `https://github.com/HammerDev99/GestionExpedienteElectronico_Version1`; "Documentación" → `https://docs.agilex.sprintjudicial.com/`.
-- [ ] Tarjeta **TYBABot**:
+- [x] Tarjeta **TYBABot**:
   - "Asistente conversacional que orienta sobre el uso de Justicia XXI Web (TYBA): documentos electrónicos, actuaciones, memoriales, notificaciones y firmas."
   - Datos: "Licencia MIT · Demo pública".
   - Enlaces: "Repositorio" → `https://github.com/HammerDev99/TYBABot`; "Probar la demo" → `https://tybabot.streamlit.app`.
-- [ ] Tarjeta **DisciplinaJudicialAI**:
+- [x] Tarjeta **DisciplinaJudicialAI**:
   - "Orientador normativo sobre el régimen disciplinario de los servidores judiciales: etapas del proceso, faltas, sanciones y derechos del investigado. No reemplaza la asesoría de un abogado."
   - Datos: "Licencia MIT · Demo pública".
   - Enlaces: "Repositorio" → `https://github.com/HammerDev99/disciplinajudicialai`; "Probar la demo" → `https://disciplinajudicialai.streamlit.app/`.
-- [ ] Aviso: "Las demos usan servicios de IA de terceros. No ingreses datos personales ni información de procesos reales." (Aquí "servicios" no tiene sentido comercial; el aviso entra en la lista de permitidos de RV-01.)
-- [ ] Subtítulo "Reconocimientos", con dos ítems:
+- [x] Aviso: "Las demos usan servicios de IA de terceros. No ingreses datos personales ni información de procesos reales." (Aquí "servicios" no tiene sentido comercial; el aviso entra en la lista de permitidos de RV-01.)
+- [x] Subtítulo "Reconocimientos", con dos ítems:
   - "**Ganador JusticIALab 2024 (equipo Marduk)** — categoría Justicia Basada en Datos, Primer Concurso de Innovación de la Rama Judicial." (literal la parte en negrita). Enlace "Ver la fuente" → nota de ramajudicial.gov.co del 13-dic-2024 (§11).
   - "Incluido en el Mapa de Innovación Legal en Colombia (Legal Hackers Medellín y ALTCO, 2023), categoría Automatización documental y de procesos." Sin enlace (D11).
-- [ ] Enlace: "Más proyectos en GitHub" → `https://github.com/HammerDev99`.
+- [x] Enlace: "Más proyectos en GitHub" → `https://github.com/HammerDev99`.
 
 ### RC-05: Mentoría abierta (`#mentoria`)
 
-- [ ] Etiqueta "Mentoría abierta". Título: "Aprende a automatizar con herramientas libres".
-- [ ] Descripción: "Acompañamiento sin costo para servidores judiciales y estudiantes que quieren aprender a usar AgilEx y a diseñar automatizaciones responsables."
-- [ ] Paso 1 **Únete al grupo**: "Entra al grupo comunitario de innovación legal en WhatsApp. Allí se hacen y se responden las preguntas."
-- [ ] Paso 2 **Participa en las sesiones abiertas**: "Las sesiones públicas se anuncian en el grupo. Puedes llegar con tu duda o con un trámite que quieras automatizar."
-- [ ] Paso 3 **Usa el material gratuito**: "La documentación de AgilEx y los artículos del blog están disponibles para cualquiera."
-- [ ] CTA: "Unirme al grupo de WhatsApp" → `https://chat.whatsapp.com/CvZSCpQPKl5GWJsb5yhhWJ` (`target="_blank" rel="noopener noreferrer"`).
-- [ ] Aviso: "Es un grupo comunitario, no un canal oficial de la Rama Judicial. Al unirte, los demás miembros pueden ver tu número. La mentoría no tiene costo."
+- [x] Etiqueta "Mentoría abierta". Título: "Aprende a automatizar con herramientas libres".
+- [x] Descripción: "Acompañamiento sin costo para servidores judiciales y estudiantes que quieren aprender a usar AgilEx y a diseñar automatizaciones responsables."
+- [x] Paso 1 **Únete al grupo**: "Entra al grupo comunitario de innovación legal en WhatsApp. Allí se hacen y se responden las preguntas."
+- [x] Paso 2 **Participa en las sesiones abiertas**: "Las sesiones públicas se anuncian en el grupo. Puedes llegar con tu duda o con un trámite que quieras automatizar."
+- [x] Paso 3 **Usa el material gratuito**: "La documentación de AgilEx y los artículos del blog están disponibles para cualquiera."
+- [x] CTA: "Unirme al grupo de WhatsApp" → `https://chat.whatsapp.com/CvZSCpQPKl5GWJsb5yhhWJ` (`target="_blank" rel="noopener noreferrer"`).
+- [x] Aviso: "Es un grupo comunitario, no un canal oficial de la Rama Judicial. Al unirte, los demás miembros pueden ver tu número. La mentoría no tiene costo."
 
 ### RC-06: Docencia y conferencias (`#docencia`)
 
-- [ ] Etiqueta "Docencia y conferencias". Título: "Invítame a tu clase o evento académico".
-- [ ] Descripción: "Participo como docente invitado o conferencista en universidades, escuelas judiciales y eventos académicos."
-- [ ] Subtítulo "Temas" con tres ítems:
+- [x] Etiqueta "Docencia y conferencias". Título: "Invítame a tu clase o evento académico".
+- [x] Descripción: "Participo como docente invitado o conferencista en universidades, escuelas judiciales y eventos académicos."
+- [x] Subtítulo "Temas" con tres ítems:
   - **Informática jurídica**: "Cómo funcionan los sistemas de información judicial y qué cambia con el expediente electrónico."
   - **Automatización de trámites judiciales**: "Cómo identificar tareas repetitivas y automatizarlas sin perder controles: entrevistas guiadas, plantillas y robots de escritorio."
   - **Gobernanza de IA en la justicia**: "Uso responsable de la IA en el trabajo judicial con el Acuerdo PCSJA24-12243 de 2024 como marco: criterio propio, verificación, protección de datos y transparencia."
-- [ ] Subtítulo "Charlas y talleres recientes":
+- [x] Subtítulo "Charlas y talleres recientes":
   - "Taller práctico «IA para el trabajo judicial: menos carga operativa, mayor capacidad de control». Servidores judiciales, Medellín, 2026." (sin enlace)
   - "Conferencia «Casos de estudio nacionales: experiencias de Colombia en la incorporación de IA en la justicia». Jornada Académica sobre Inteligencia Artificial y su Impacto en la Justicia, Medellín, 18 de octubre de 2024." Enlace "Ver el programa" (§11).
-- [ ] Enlace: "Trayectoria académica y profesional" → `https://portfolio.sprintjudicial.com/`.
-- [ ] CTA primario: "Invitarme" → `mailto:contacto@sprintjudicial.com?subject=Invitaci%C3%B3n%20acad%C3%A9mica`.
-- [ ] CTA secundario: "Escribirme por LinkedIn" → `https://www.linkedin.com/in/daniel-arbelaez-`.
-- [ ] Aviso **literal**: "Las actividades docentes se realizan por fuera de mi jornada laboral y conforme al régimen aplicable a los servidores judiciales."
+- [x] Enlace: "Trayectoria académica y profesional" → `https://portfolio.sprintjudicial.com/`.
+- [x] CTA primario: "Invitarme" → `mailto:contacto@sprintjudicial.com?subject=Invitaci%C3%B3n%20acad%C3%A9mica`.
+- [x] CTA secundario: "Escribirme por LinkedIn" → `https://www.linkedin.com/in/daniel-arbelaez-`.
+- [x] Aviso **literal**: "Las actividades docentes se realizan por fuera de mi jornada laboral y conforme al régimen aplicable a los servidores judiciales."
 
 ### RC-07: Escritos (`#escritos`)
 
-- [ ] Etiqueta "Escritos". Título: "Lo que publico".
-- [ ] Subtítulo "Blog": las 3 últimas entradas por RSS (comportamiento actual de `initBlogFeed`) y enlace de respaldo "Visitar el blog".
-- [ ] Subtítulo "Publicaciones académicas":
+- [x] Etiqueta "Escritos". Título: "Lo que publico".
+- [x] Subtítulo "Blog": las 3 últimas entradas por RSS (comportamiento actual de `initBlogFeed`) y enlace de respaldo "Visitar el blog".
+- [x] Subtítulo "Publicaciones académicas":
   - "Arbeláez Álvarez, D. (2024). Entrevistas guiadas para la optimización de procesos judiciales: un enfoque desde el LegalTech. *Cuaderno Activa*, 16(1), 37–47." Enlace "Leer el artículo" (§11).
   - Enlace "Perfil en Google Scholar" (§11).
 
 ### RC-08: Pie
 
-- [ ] Marca + descripción: "Espacio personal de Daniel Arbeláez Álvarez sobre automatización, software libre e IA responsable en la justicia colombiana."
-- [ ] Columna "Sitio": Qué hago, Herramientas, Mentoría, Docencia, Escritos.
-- [ ] Columna "Enlaces": Blog, Portafolio, GitHub, Google Scholar, LinkedIn.
-- [ ] Columna "Contacto": Correo (`mailto:contacto@sprintjudicial.com`), Grupo de mentoría.
-- [ ] Licencia: "© 2026 Daniel Arbeláez Álvarez. Los contenidos de este sitio se publican bajo licencia CC BY 4.0. El código de cada herramienta conserva su propia licencia." con enlace a `https://creativecommons.org/licenses/by/4.0/deed.es`.
-- [ ] Nota de transparencia **literal**: "Este sitio no ofrece servicios comerciales ni recibe pagos. Las herramientas publicadas son software libre; su uso en entidades públicas corresponde a los canales institucionales de cada entidad."
+- [x] Marca + descripción: "Espacio personal de Daniel Arbeláez Álvarez sobre automatización, software libre e IA responsable en la justicia colombiana."
+- [x] Columna "Sitio": Qué hago, Herramientas, Mentoría, Docencia, Escritos.
+- [x] Columna "Enlaces": Blog, Portafolio, GitHub, Google Scholar, LinkedIn.
+- [x] Columna "Contacto": Correo (`mailto:contacto@sprintjudicial.com`), Grupo de mentoría.
+- [x] Licencia: "© 2026 Daniel Arbeláez Álvarez. Los contenidos de este sitio se publican bajo licencia CC BY 4.0. El código de cada herramienta conserva su propia licencia." con enlace a `https://creativecommons.org/licenses/by/4.0/deed.es`.
+- [x] Nota de transparencia **literal**: "Este sitio no ofrece servicios comerciales ni recibe pagos. Las herramientas publicadas son software libre; su uso en entidades públicas corresponde a los canales institucionales de cada entidad."
 
 ### RC-09: Elementos que desaparecen
 
@@ -164,57 +164,57 @@ Pipeline, Servicios, Cómo funciona, Comparativa, ¿Por qué Sprint Judicial?, C
 
 ### RT-01: HTML (`index.html`)
 
-- [ ] Estructura: `header > nav`, `main#main-content` con `section` por bloque, `footer`. Un solo `<h1>`; `<h2>` por sección; `<h3>` en tarjetas y subtítulos.
-- [ ] Ids: `que-hago`, `herramientas`, `mentoria`, `docencia`, `escritos`, `blog-feed`, `blog-fallback`, `nav-menu`, `main-content`.
-- [ ] Se conservan skip-link, `aria-expanded`/`aria-controls` del menú, `aria-hidden` en íconos y `data-animate`/`data-stagger`.
-- [ ] Enlaces externos con `target="_blank" rel="noopener noreferrer"`.
-- [ ] Se mantiene el idiom actual de entidades HTML para caracteres acentuados.
+- [x] Estructura: `header > nav`, `main#main-content` con `section` por bloque, `footer`. Un solo `<h1>`; `<h2>` por sección; `<h3>` en tarjetas y subtítulos.
+- [x] Ids: `que-hago`, `herramientas`, `mentoria`, `docencia`, `escritos`, `blog-feed`, `blog-fallback`, `nav-menu`, `main-content`.
+- [x] Se conservan skip-link, `aria-expanded`/`aria-controls` del menú, `aria-hidden` en íconos y `data-animate`/`data-stagger`.
+- [x] Enlaces externos con `target="_blank" rel="noopener noreferrer"`.
+- [x] Se mantiene el idiom actual de entidades HTML para caracteres acentuados.
 
 ### RT-02: CSS (`css/styles.css`, `css/animations.css`)
 
-- [ ] **Se conservan**: tokens, base, grain, navbar, botones, hero (sin `.stat`, `.hero__stats`, `.hero__rotator*`, `.hero__badge`), cabeceras de sección, `.blog`, `.cta-section`, `.footer`, `.back-to-top`, `.sr-only`, `.container` y todo `animations.css`.
-- [ ] **Se renombran y adelgazan**:
+- [x] **Se conservan**: tokens, base, grain, navbar, botones, hero (sin `.stat`, `.hero__stats`, `.hero__rotator*`, `.hero__badge`), cabeceras de sección, `.blog`, `.cta-section`, `.footer`, `.back-to-top`, `.sr-only`, `.container` y todo `animations.css`.
+- [x] **Se renombran y adelgazan**:
   - `.differentiators` → `.pillars` (Qué hago, 3 tarjetas).
   - `.service-card` → `.tool-card` (título, logo opcional, descripción, lista de datos, acciones). Sin `__pain`, `__result`, `__tag`, `__status*` ni variantes de color que no se usen.
   - `.timeline` → `.steps` (pasos de la mentoría).
-- [ ] **Se crean**: `.topics` (temas de docencia), `.publication` (escritos académicos), `.notice` (avisos).
-- [ ] **Se eliminan** con sus reglas responsive: `.stat`, `.process`, `.credentials`/`.credential`, `.about`, `.trust-bar*`, `.cta-mid`, `.comparison`, `.faq`, `.pipeline`, `.security`, `.whatsapp-float`, `.services-grid`, `.btn--green` (si queda sin uso).
-- [ ] Mobile first (320 → 768 → 1024 → 1440). Contraste AA con los tokens actuales.
+- [x] **Se crean**: `.topics` (temas de docencia), `.publication` (escritos académicos), `.notice` (avisos).
+- [x] **Se eliminan** con sus reglas responsive: `.stat`, `.process`, `.credentials`/`.credential`, `.about`, `.trust-bar*`, `.cta-mid`, `.comparison`, `.faq`, `.pipeline`, `.security`, `.whatsapp-float`, `.services-grid`, `.btn--green` (si queda sin uso).
+- [x] Mobile first (320 → 768 → 1024 → 1440). Contraste AA con los tokens actuales.
 
 ### RT-03: JS (`js/main.js`)
 
-- [ ] Se eliminan `initHeroRotator`, `initCounters`, `animateCounter`, `easeOutQuad` y `ANIMATION_DURATION`.
-- [ ] Sin cambios en navbar, scroll, animaciones, smooth scroll, nav activo, resize y blog feed. No se agrega JS.
+- [x] Se eliminan `initHeroRotator`, `initCounters`, `animateCounter`, `easeOutQuad` y `ANIMATION_DURATION`.
+- [x] Sin cambios en navbar, scroll, animaciones, smooth scroll, nav activo, resize y blog feed. No se agrega JS.
 
 ### RT-04: Assets
 
-- [ ] Se eliminan `src/JusticiaLab-Logo-sf.png`, `src/Legal-Hackers-Logo-sf.png` y `src/Rama-Judicial-Logo-sf.png`.
-- [ ] Se conserva `src/Agilex-logo.png`. El `Dockerfile` no cambia.
+- [x] Se eliminan `src/JusticiaLab-Logo-sf.png`, `src/Legal-Hackers-Logo-sf.png` y `src/Rama-Judicial-Logo-sf.png`.
+- [x] Se conserva `src/Agilex-logo.png`. El `Dockerfile` no cambia.
 
 ### RT-05: Metadatos (`<head>`)
 
-- [ ] `<title>`: "Daniel Arbeláez Álvarez | Sprint Judicial".
-- [ ] `meta description`, `og:description`, `twitter:description`: "Enseño y documento cómo automatizar trámites judiciales con software libre: herramientas de código abierto, mentoría abierta y docencia sobre IA en la justicia."
-- [ ] `og:title` y `twitter:title` iguales al `<title>`.
-- [ ] Se eliminan `og:image` y `twitter:image` (apuntan a `assets/og-image.png`, que no existe). `twitter:card` pasa a `summary`.
-- [ ] Se conservan canonical, favicon, `og:url`, `og:type`, `og:locale`, `og:site_name`, RSS, preconnect y fuentes.
+- [x] `<title>`: "Daniel Arbeláez Álvarez | Sprint Judicial".
+- [x] `meta description`, `og:description`, `twitter:description`: "Enseño y documento cómo automatizar trámites judiciales con software libre: herramientas de código abierto, mentoría abierta y docencia sobre IA en la justicia."
+- [x] `og:title` y `twitter:title` iguales al `<title>`.
+- [x] Se eliminan `og:image` y `twitter:image` (apuntan a `assets/og-image.png`, que no existe). `twitter:card` pasa a `summary`.
+- [x] Se conservan canonical, favicon, `og:url`, `og:type`, `og:locale`, `og:site_name`, RSS, preconnect y fuentes.
 
 ### RT-06: Schema.org
 
-- [ ] Se eliminan los bloques `ProfessionalService` y `FAQPage`.
-- [ ] Un bloque JSON-LD con `@graph`:
+- [x] Se eliminan los bloques `ProfessionalService` y `FAQPage`.
+- [x] Un bloque JSON-LD con `@graph`:
   - `Person` (`@id` `https://sprintjudicial.com/#autor`): `name` "Daniel Arbeláez Álvarez", `jobTitle` "Ingeniero de software", `url`, `knowsAbout` [Informática jurídica, Automatización de trámites judiciales, Gobernanza de IA en la justicia], `award` "Ganador JusticIALab 2024 (equipo Marduk)", `sameAs` [LinkedIn, GitHub, Google Scholar, blog, portafolio].
   - `WebSite` (`@id` `https://sprintjudicial.com/#sitio`): `name` "Sprint Judicial", `url`, `inLanguage` "es-CO", `author` → `#autor`, `license` CC BY 4.0.
-- [ ] Sin `telephone`, `address`, `areaServed`, `serviceType` ni `email`. Caracteres no ASCII con escapes `\uXXXX` (idiom actual).
+- [x] Sin `telephone`, `address`, `areaServed`, `serviceType` ni `email`. Caracteres no ASCII con escapes `\uXXXX` (idiom actual).
 
 ### RT-07: Archivos públicos
 
-- [ ] `llms.txt`: reescrito con el posicionamiento, las tres herramientas (con repo), la mentoría, la docencia, los escritos, la licencia y la nota de transparencia. Se elimina el enlace roto `wa.me/573128abordar`.
-- [ ] `humans.txt`: se agrega `Content license: CC BY 4.0`.
-- [ ] `sitemap.xml`: `lastmod` a la fecha de implementación.
-- [ ] `package.json`: `description` → "Sitio personal y académico de Daniel Arbeláez Álvarez: software libre y docencia sobre automatización judicial".
-- [ ] `README.md`: reescribir la descripción, eliminar la tabla "Servicios del ecosistema", reemplazar "Credenciales verificables" por las herramientas y el reconocimiento verificable, quitar cargos, "CSJ Bello", "nivel nacional" y el WhatsApp. Corregir la estructura de carpetas (no existen `js/analytics.js` ni `assets/`).
-- [ ] `nginx/default.conf`: sin cambios (los enlaces externos y `mailto:` son navegación; la CSP no los restringe).
+- [x] `llms.txt`: reescrito con el posicionamiento, las tres herramientas (con repo), la mentoría, la docencia, los escritos, la licencia y la nota de transparencia. Se elimina el enlace roto `wa.me/573128abordar`.
+- [x] `humans.txt`: se agrega `Content license: CC BY 4.0`.
+- [x] `sitemap.xml`: `lastmod` a la fecha de implementación.
+- [x] `package.json`: `description` → "Sitio personal y académico de Daniel Arbeláez Álvarez: software libre y docencia sobre automatización judicial".
+- [x] `README.md`: reescribir la descripción, eliminar la tabla "Servicios del ecosistema", reemplazar "Credenciales verificables" por las herramientas y el reconocimiento verificable, quitar cargos, "CSJ Bello", "nivel nacional" y el WhatsApp. Corregir la estructura de carpetas (no existen `js/analytics.js` ni `assets/`).
+- [x] `nginx/default.conf`: sin cambios (los enlaces externos y `mailto:` son navegación; la CSP no los restringe).
 
 ## 6. Requisitos de verificación (TDD)
 
@@ -241,30 +241,30 @@ Pipeline, Servicios, Cómo funciona, Comparativa, ¿Por qué Sprint Judicial?, C
 
 ### RV-02: Tests existentes que cambian
 
-- [ ] `test-accessibility.js`: los ids exigidos pasan de `servicios`, `credenciales`, `sobre-mi`, `contacto` a `que-hago`, `herramientas`, `mentoria`, `docencia`, `escritos`; los enlaces exigidos a `#herramientas` y `#docencia`; deja de exigir `wa.me/573015771258` y pasa a exigir el grupo de WhatsApp.
-- [ ] `test-links.js`: CTAs externos exigidos = grupo de WhatsApp, correo, LinkedIn, GitHub, blog, portafolio, Google Scholar.
-- [ ] `test-seo.js`, `test-css.js`, `test-structure.js`: sin cambios funcionales (`og:image` pasará a `PENDING`, que es el comportamiento previsto del test).
+- [x] `test-accessibility.js`: los ids exigidos pasan de `servicios`, `credenciales`, `sobre-mi`, `contacto` a `que-hago`, `herramientas`, `mentoria`, `docencia`, `escritos`; los enlaces exigidos a `#herramientas` y `#docencia`; deja de exigir `wa.me/573015771258` y pasa a exigir el grupo de WhatsApp.
+- [x] `test-links.js`: CTAs externos exigidos = grupo de WhatsApp, correo, LinkedIn, GitHub, blog, portafolio, Google Scholar.
+- [x] `test-seo.js`, `test-css.js`, `test-structure.js`: sin cambios funcionales (`og:image` pasará a `PENDING`, que es el comportamiento previsto del test).
 
 ### RV-03: Suite completa
 
-- [ ] `npm test` sin `FAIL`.
-- [ ] `npx html-validate index.html`, `npx stylelint "css/**/*.css"` y `npx eslint js/` sin errores (si las dependencias no están instaladas, se reporta y no se da por verificado).
+- [x] `npm test` sin `FAIL`.
+- [x] `npx html-validate index.html`, `npx stylelint "css/**/*.css"` y `npx eslint js/` sin errores (si las dependencias no están instaladas, se reporta y no se da por verificado). (criterio aplicado: sin reglas nuevas respecto de `be5e17f`; persisten errores preexistentes de estilo)
 
 ### RV-04: Enlaces externos
 
-- [ ] Cada URL de §11 y de RC-04/05/06/08 responde 2xx o 3xx (las demos de Streamlit responden 303 por diseño).
+- [ ] Cada URL de §11 y de RC-04/05/06/08 responde 2xx o 3xx (las demos de Streamlit responden 303 por diseño). (pendiente: LinkedIn responde 999 a clientes automatizados, verificar a mano; resto 200/303)
 
 ### RV-05: Revisión visual
 
-- [ ] `python -m http.server 8000`; revisar a 320, 768, 1024 y 1440 px; navegación por teclado; menú móvil (abrir, cerrar con Esc, foco atrapado); feed del blog; `prefers-reduced-motion`.
+- [x] `python -m http.server 8000`; revisar a 320, 768, 1024 y 1440 px; navegación por teclado; menú móvil (abrir, cerrar con Esc, foco atrapado); feed del blog; `prefers-reduced-motion`. Revisión visual en Chrome local (2026-10-09): 320/375/768/1024/1440 sin scroll horizontal; menú móvil abre, Esc cierra y devuelve el foco; respaldo del blog visible si falla el feed; reduced-motion verificado por CSS.
 
 ### RV-06: Repos enlazados
 
-- [ ] Buscar `Bello`, `Centro de Servicios`, `Técnico en Sistemas`, `Citador`, `Escribiente` en `GestionExpedienteElectronico_Version1` y `AgilEx-Docs`. Si aparecen, reportarlo al autor antes de publicar (no se corrige en esta spec).
+- [ ] Buscar `Bello`, `Centro de Servicios`, `Técnico en Sistemas`, `Citador`, `Escribiente` en `GestionExpedienteElectronico_Version1` y `AgilEx-Docs`. Si aparecen, reportarlo al autor antes de publicar (no se corrige en esta spec). (no cerrado: "Bello" aparece 1 vez en `src/assets/JUZGADOS.csv` de `GestionExpedienteElectronico_Version1`; reportado al autor)
 
 ### RV-07: Revisión de código
 
-- [ ] Agente `code-reviewer` sobre el diff completo; se atienden hallazgos CRITICAL y HIGH.
+- [ ] Agente `code-reviewer` sobre el diff completo; se atienden hallazgos CRITICAL y HIGH. (pendiente: revisión final de rama)
 
 ## 7. Entregables
 
@@ -274,7 +274,7 @@ Pipeline, Servicios, Cómo funciona, Comparativa, ¿Por qué Sprint Judicial?, C
 
 ## 8. Acción del autor antes de publicar
 
-- [ ] Activar "Aprobar nuevos participantes" en el grupo de WhatsApp. Al publicar el enlace, cualquier persona puede entrar y ver los números de los miembros.
+- [ ] Activar "Aprobar nuevos participantes" en el grupo de WhatsApp. Al publicar el enlace, cualquier persona puede entrar y ver los números de los miembros. — pendiente del autor
 
 ## 9. Despliegue
 
@@ -543,15 +543,15 @@ Se marca solo con evidencia (salida de `test-compliance.js` o búsqueda en el di
 
 | # | La página no contiene… | Verificación automática | Evidencia |
 |---|------------------------|-------------------------|-----------|
-| 1 | Precios | Grupo "Precios" (RV-01) | ☐ |
-| 2 | Botones de pago, compra o suscripción | Grupos "Precios" y "Venta" | ☐ |
-| 3 | La palabra "servicios" en sentido comercial | `\bservicios?\b` con lista de permitidos | ☐ |
-| 4 | "Consultoría" | `\bconsultor…` | ☐ |
-| 5 | "Cotización" | `\bcotiza` | ☐ |
-| 6 | Claims de adopción nacional | Grupo "Claims" | ☐ |
-| 7 | El premio 2025 | `justicialab 2025` | ☐ |
-| 8 | Datos del lugar de trabajo | Grupo "Lugar de trabajo" | ☐ |
-| 9 | Donaciones o mecanismos de recaudo | Grupo "Recaudo" | ☐ |
-| 10 | Verbos de venta | Grupo "Venta" | ☐ |
-| 11 | Teléfono o WhatsApp personal | Grupo "Contacto comercial" | ☐ |
-| 12 | Schema.org comercial | Grupo "Schema comercial" | ☐ |
+| 1 | Precios | Grupo "Precios" (RV-01) | ✅ PASS: [index.html] Sin Precios (y archivos públicos) |
+| 2 | Botones de pago, compra o suscripción | Grupos "Precios" y "Venta" | ✅ PASS: [index.html] Sin Precios; PASS: [index.html] Sin Venta (y archivos públicos) |
+| 3 | La palabra "servicios" en sentido comercial | `\bservicios?\b` con lista de permitidos | ✅ PASS: [index.html] Sin Venta (y archivos públicos) |
+| 4 | "Consultoría" | `\bconsultor…` | ✅ PASS: [index.html] Sin Venta (y archivos públicos) |
+| 5 | "Cotización" | `\bcotiza` | ✅ PASS: [index.html] Sin Venta (y archivos públicos) |
+| 6 | Claims de adopción nacional | Grupo "Claims" | ✅ PASS: [index.html] Sin Claims (y archivos públicos) |
+| 7 | El premio 2025 | `justicialab 2025` | ✅ PASS: [index.html] Sin Claims (y archivos públicos) |
+| 8 | Datos del lugar de trabajo | Grupo "Lugar de trabajo" | ✅ PASS: [index.html] Sin Lugar de trabajo (y archivos públicos) |
+| 9 | Donaciones o mecanismos de recaudo | Grupo "Recaudo" | ✅ PASS: [index.html] Sin Recaudo (y archivos públicos) |
+| 10 | Verbos de venta | Grupo "Venta" | ✅ PASS: [index.html] Sin Venta (y archivos públicos) |
+| 11 | Teléfono o WhatsApp personal | Grupo "Contacto comercial" | ✅ PASS: [index.html] Sin Contacto comercial (y archivos públicos) |
+| 12 | Schema.org comercial | Grupo "Schema comercial" | ✅ PASS: [index.html] Sin Schema comercial |
