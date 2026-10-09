@@ -153,3 +153,14 @@ const activeIndexes = (items) => items
   check(s.toggle.hidden === true, 'Con movimiento reducido el botón queda oculto');
   check(activeIndexes(s.items).join() === '0', 'Con movimiento reducido queda la frase aprobada');
 }
+
+// Integración: main.js no falla si rotator.js no carga
+{
+  const mainJs = fs.readFileSync(path.join(ROOT, 'js', 'main.js'), 'utf-8');
+  const indexHtml = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf-8');
+  check(mainJs.includes("typeof HeroRotator === 'undefined'"), 'main.js comprueba que HeroRotator exista antes de usarlo');
+  check(/function init[\s\S]*initHeroRotator\(\);/.test(mainJs), 'init() llama a initHeroRotator()');
+  const rotatorTag = indexHtml.indexOf('<script src="js/rotator.js" defer></script>');
+  const mainTag = indexHtml.indexOf('<script src="js/main.js" defer></script>');
+  check(rotatorTag !== -1 && rotatorTag < mainTag, 'index.html carga rotator.js antes que main.js');
+}

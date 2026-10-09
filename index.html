@@ -113,7 +113,10 @@
       <div class="hero__content">
         <p class="section__label" data-animate>Daniel Arbel&aacute;ez &Aacute;lvarez &middot; Ingeniero de software</p>
 
-        <h1 class="hero__title" data-animate>Ense&ntilde;o y documento c&oacute;mo automatizar tr&aacute;mites judiciales con software libre.</h1>
+        <h1 class="hero__title" data-animate>
+          <span class="sr-only">Ense&ntilde;o y documento c&oacute;mo automatizar tr&aacute;mites judiciales con software libre.</span>
+          <span aria-hidden="true">Ense&ntilde;o y documento c&oacute;mo automatizar <span class="rotator"><span class="rotator__item is-active">tr&aacute;mites judiciales</span><span class="rotator__item">el expediente electr&oacute;nico</span><span class="rotator__item">la gesti&oacute;n documental judicial</span><span class="rotator__item">tareas repetitivas del despacho</span></span> con software libre.</span>
+        </h1>
 
         <p class="hero__subtitle" data-animate>
           Investigo y divulgo automatizaci&oacute;n en el sector justicia colombiano. Publico el c&oacute;digo, explico c&oacute;mo funciona y acompa&ntilde;o a quien quiera aprender a usarlo. <strong>La IA asiste; la decisi&oacute;n es humana.</strong>
@@ -123,6 +126,20 @@
           <a href="#herramientas" class="btn btn--primary">Ver las herramientas (c&oacute;digo abierto) &rarr;</a>
           <a href="#docencia" class="btn btn--outline">Invitarme a dar una clase o conferencia</a>
         </div>
+
+        <button type="button" class="rotator__toggle" aria-pressed="false" aria-label="Pausar animaci&oacute;n del t&iacute;tulo" hidden><span class="rotator__toggle-icon" aria-hidden="true"></span><span class="rotator__toggle-text">Pausar animaci&oacute;n</span></button>
+
+        <ul class="hero-chips" role="list" data-animate data-stagger>
+          <li>
+            <a href="#herramientas" class="hero-chips__item"><span class="hero-chips__icon hero-chips__icon--teal" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>3 herramientas MIT<span class="hero-chips__arrow" aria-hidden="true">&rarr;</span></a>
+          </li>
+          <li>
+            <a href="#mentoria" class="hero-chips__item"><span class="hero-chips__icon hero-chips__icon--blue" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>Mentor&iacute;a abierta<span class="hero-chips__arrow" aria-hidden="true">&rarr;</span></a>
+          </li>
+          <li>
+            <a href="#reconocimientos" class="hero-chips__item"><span class="hero-chips__icon hero-chips__icon--gold" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>JusticIALab 2024 &middot; equipo Marduk<span class="hero-chips__arrow" aria-hidden="true">&rarr;</span></a>
+          </li>
+        </ul>
       </div>
     </div>
 
@@ -221,7 +238,7 @@
 
       <p class="notice" data-animate>Las demos usan servicios de IA de terceros. No ingreses datos personales ni informaci&oacute;n de procesos reales.</p>
 
-      <h3 class="section__subtitle" data-animate>Reconocimientos</h3>
+      <h3 class="section__subtitle" id="reconocimientos" data-animate>Reconocimientos</h3>
       <ul class="entries" role="list" data-animate>
         <li class="entries__item">
           <strong>Ganador JusticIALab 2024 (equipo Marduk)</strong> &mdash; categor&iacute;a Justicia Basada en Datos, Primer Concurso de Innovaci&oacute;n de la Rama Judicial.
@@ -414,6 +431,7 @@
   </svg>
 </button>
 
+<script src="js/rotator.js" defer></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>

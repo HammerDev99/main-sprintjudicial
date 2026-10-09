@@ -401,6 +401,22 @@ const SprintJudicial = (() => {
       });
   }
 
+  // --- Hero Rotator ---
+
+  function initHeroRotator() {
+    var rotator = $('.rotator');
+    if (!rotator || typeof HeroRotator === 'undefined') return;
+
+    HeroRotator.create({
+      items: $$('.rotator__item', rotator),
+      toggle: $('.rotator__toggle'),
+      toggleText: $('.rotator__toggle-text'),
+      hoverTarget: $('.hero__title'),
+      doc: document,
+      reducedMotion: state.prefersReducedMotion
+    });
+  }
+
   // --- Public API ---
 
   return {
@@ -411,6 +427,7 @@ const SprintJudicial = (() => {
       initSmoothScroll();
       initResizeHandler();
       initActiveNav();
+      initHeroRotator();
       initBlogFeed();
     }
   };

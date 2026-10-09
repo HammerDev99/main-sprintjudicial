@@ -12,7 +12,11 @@ const path = require('path');
 const ROOT = path.resolve(__dirname, '..');
 const css = fs.readFileSync(path.join(ROOT, 'css', 'styles.css'), 'utf-8');
 const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf-8');
-const js = fs.readFileSync(path.join(ROOT, 'js', 'main.js'), 'utf-8');
+const js = ['main.js', 'rotator.js']
+  .map((file) => path.join(ROOT, 'js', file))
+  .filter((file) => fs.existsSync(file))
+  .map((file) => fs.readFileSync(file, 'utf-8'))
+  .join('\n');
 
 function check(condition, message) {
   if (condition) {

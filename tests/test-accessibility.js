@@ -37,6 +37,21 @@ check(h1Count === 1, `Exactamente un <h1> (encontrados: ${h1Count})`);
 const h2Count = (html.match(/<h2[\s>]/g) || []).length;
 check(h2Count >= 3, `Al menos 3 <h2> para secciones (encontrados: ${h2Count})`);
 
+// Hero rotativo accesible (SPEC-005 RV5-02)
+const h1Html = (html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [])[1] || '';
+check(
+  h1Html.includes('<span class="sr-only">Ense&ntilde;o y documento c&oacute;mo automatizar tr&aacute;mites judiciales con software libre.</span>'),
+  'El h1 expone la frase aprobada a lectores de pantalla'
+);
+check(/<span aria-hidden="true">[\s\S]*class="rotator"/.test(h1Html), 'La parte rotativa del h1 está oculta para lectores de pantalla');
+check((h1Html.match(/class="rotator__item/g) || []).length === 4, 'El rotador tiene cuatro frases');
+check(h1Html.includes('<span class="rotator__item is-active">tr&aacute;mites judiciales</span>'), 'La frase inicial activa es la aprobada');
+check(
+  html.includes('<button type="button" class="rotator__toggle" aria-pressed="false" aria-label="Pausar animaci&oacute;n del t&iacute;tulo" hidden>'),
+  'Botón de pausa accesible y oculto hasta que el JS lo active'
+);
+check(html.includes('id="reconocimientos"'), 'Ancla #reconocimientos presente');
+
 // Secciones con id para navegación (SPEC-004 RT-01)
 const sectionIds = ['que-hago', 'herramientas', 'mentoria', 'docencia', 'escritos'];
 for (const id of sectionIds) {
