@@ -62,6 +62,7 @@ Esta spec traduce ese marco en reglas verificables de contenido. **No es un conc
 | D10 | Se elimina la trust-bar con logos institucionales | El logo de la Rama Judicial puede leerse como aval de la entidad |
 | D11 | El Mapa de Innovación Legal 2023 se cita como texto, sin enlace y sin reproducir la etiqueta "LAW - Daniel Arbeláez" | legalhackerscolombia.org ya no existe y no hay copia archivada. La única copia disponible es una descarga de Studocu con el correo personal del autor en cada página. El mapa es de Legal Hackers Medellín y ALTCO (no de "Legal Hackers Colombia"); la etiqueta se omite porque se lee como nombre de firma |
 | D12 | El taller 2026 se cita sin organizador ni coautores y sin enlace | No hay fuente pública; el kit nombra a un colega |
+| D12-bis (2026-10-09) | La tarjeta del taller enlaza la presentación completa (25 diapositivas) alojada en el OneDrive/SharePoint institucional del autor | Decisión del autor, advertido de que: el enlace exige iniciar sesión en la cuenta de la entidad (visitantes externos no lo abren), la URL muestra su usuario institucional, y las diapositivas 8–9 nombran al coautor (la 9 dice "Contenido por definir") y la 25 menciona un "programa completo" |
 | D13 | Licencia de los contenidos: CC BY 4.0 | Requisito del prompt (licencia de los contenidos en el pie) |
 | D14 | Se mantiene el wordmark "Sprint Judicial" como nombre del sitio | El prompt pide conservar la identidad visual; el hero abre con el nombre del autor |
 
