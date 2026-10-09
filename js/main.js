@@ -8,7 +8,6 @@ const SprintJudicial = (() => {
 
   // --- Constants ---
   const SCROLL_THRESHOLD = 50;
-  const ANIMATION_DURATION = 2000;
   const OBSERVER_THRESHOLD = 0.15;
 
   // --- State (Singleton) ---
@@ -19,10 +18,6 @@ const SprintJudicial = (() => {
   };
 
   // --- Helpers ---
-
-  function easeOutQuad(t) {
-    return t * (2 - t);
-  }
 
   function $(selector, context) {
     return (context || document).querySelector(selector);
@@ -144,64 +139,6 @@ const SprintJudicial = (() => {
       if (el.hasAttribute('data-stagger')) {
         el.classList.add('reveal--stagger');
       }
-      observer.observe(el);
-    });
-  }
-
-  // --- Counter Animation ---
-
-  function animateCounter(el) {
-    const target = parseInt(el.getAttribute('data-count-target'), 10);
-    if (isNaN(target)) return;
-
-    const startTime = performance.now();
-    const suffix = el.getAttribute('data-count-suffix') || '';
-    const prefix = el.getAttribute('data-count-prefix') || '';
-
-    function update(currentTime) {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / ANIMATION_DURATION, 1);
-      const easedProgress = easeOutQuad(progress);
-      const currentValue = Math.round(easedProgress * target);
-
-      el.textContent = prefix + currentValue + suffix;
-
-      if (progress < 1) {
-        requestAnimationFrame(update);
-      } else {
-        el.textContent = prefix + target + suffix;
-      }
-    }
-
-    requestAnimationFrame(update);
-  }
-
-  function initCounters() {
-    const counterElements = $$('[data-count-target]');
-    if (counterElements.length === 0) return;
-
-    if (state.prefersReducedMotion) {
-      counterElements.forEach(function (el) {
-        const target = el.getAttribute('data-count-target');
-        const suffix = el.getAttribute('data-count-suffix') || '';
-        const prefix = el.getAttribute('data-count-prefix') || '';
-        el.textContent = prefix + target + suffix;
-      });
-      return;
-    }
-
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.5
-    });
-
-    counterElements.forEach(function (el) {
       observer.observe(el);
     });
   }
@@ -425,7 +362,7 @@ const SprintJudicial = (() => {
             card.appendChild(dateSpan);
           }
 
-          var titleEl = document.createElement('h3');
+          var titleEl = document.createElement('h4');
           titleEl.className = 'blog__card-title';
           titleEl.textContent = titleText;
           card.appendChild(titleEl);
@@ -458,29 +395,6 @@ const SprintJudicial = (() => {
       });
   }
 
-  // --- Hero Rotator ---
-
-  function initHeroRotator() {
-    var container = $('.hero__rotator');
-    if (!container) return;
-
-    var items = $$('.hero__rotator-item', container);
-    if (items.length < 2) return;
-
-    if (state.prefersReducedMotion) return;
-
-    var current = 0;
-    setInterval(function () {
-      items[current].classList.remove('is-active');
-      items[current].setAttribute('aria-hidden', 'true');
-
-      current = (current + 1) % items.length;
-
-      items[current].classList.add('is-active');
-      items[current].removeAttribute('aria-hidden');
-    }, 3500);
-  }
-
   // --- Public API ---
 
   return {
@@ -488,11 +402,9 @@ const SprintJudicial = (() => {
       initNavbar();
       initUnifiedScroll();
       initScrollAnimations();
-      initCounters();
       initSmoothScroll();
       initResizeHandler();
       initActiveNav();
-      initHeroRotator();
       initBlogFeed();
     }
   };
