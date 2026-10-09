@@ -1,7 +1,7 @@
 {
   "name": "sprint-judicial",
   "version": "2.0.0",
-  "description": "Landing page - IA y Automatización para Abogados Litigantes",
+  "description": "Sitio personal y académico de Daniel Arbeláez Álvarez: software libre y docencia sobre automatización judicial",
   "private": true,
   "scripts": {
     "test": "node tests/run-all.js",

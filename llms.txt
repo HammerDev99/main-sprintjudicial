@@ -1,23 +1,32 @@
 # Sprint Judicial
 
-> IA y Automatización para Abogados Litigantes en Colombia
+> Espacio personal y académico de Daniel Arbeláez Álvarez sobre automatización de trámites judiciales con software libre.
 
-Sprint Judicial es una plataforma LegalTech que ofrece herramientas de inteligencia artificial y automatización para profesionales del derecho en Colombia.
+Daniel Arbeláez Álvarez es ingeniero de software. Investiga, enseña y publica software libre sobre automatización en el sector justicia colombiano. La IA asiste; la decisión es humana.
 
-## Servicios
+## Herramientas de código abierto (licencia MIT)
 
-- Sherlock AI: Análisis inteligente de expedientes judiciales
-- Copiloto Procesal: Asistente IA para redacción de documentos legales
-- Monitoreo Judicial: Seguimiento automatizado de procesos
-- Automatización de Términos: Cálculo automático de plazos procesales
-- Plantillas Inteligentes: Generación de documentos con IA
-- Análisis Jurisprudencial: Búsqueda y análisis de precedentes
+- AgilEx: crea y diligencia el índice electrónico de un expediente a partir de los archivos de una carpeta. Repositorio: https://github.com/HammerDev99/GestionExpedienteElectronico_Version1 — Documentación: https://docs.agilex.sprintjudicial.com/
+- TYBABot: orienta sobre el uso de Justicia XXI Web (TYBA). Repositorio: https://github.com/HammerDev99/TYBABot
+- DisciplinaJudicialAI: orienta sobre el régimen disciplinario de los servidores judiciales. Repositorio: https://github.com/HammerDev99/disciplinajudicialai
 
-## Principio
+## Mentoría abierta
 
-La IA asiste, no decide. Todas las herramientas están diseñadas para potenciar al abogado, no reemplazarlo.
+Acompañamiento sin costo para servidores judiciales y estudiantes, a través de un grupo comunitario: https://chat.whatsapp.com/CvZSCpQPKl5GWJsb5yhhWJ
 
-## Contacto
+## Docencia y conferencias
 
-- Web: https://www.sprintjudicial.com
-- WhatsApp: https://wa.me/573128abordar
+Temas: informática jurídica, automatización de trámites judiciales y gobernanza de IA en la justicia. Invitaciones académicas: contacto@sprintjudicial.com
+
+## Escritos
+
+- Blog: https://blog.sprintjudicial.com
+- Arbeláez Álvarez, D. (2024). Entrevistas guiadas para la optimización de procesos judiciales: un enfoque desde el LegalTech. Cuaderno Activa, 16(1), 37–47. https://ojs.tdea.edu.co/index.php/cuadernoactiva/article/view/1858
+
+## Transparencia
+
+Este sitio no ofrece servicios comerciales ni recibe pagos. Las herramientas publicadas son software libre; su uso en entidades públicas corresponde a los canales institucionales de cada entidad.
+
+## Licencia
+
+Contenidos bajo CC BY 4.0. El código de cada herramienta conserva su propia licencia.
