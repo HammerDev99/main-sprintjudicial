@@ -52,7 +52,7 @@ Esta spec traduce ese marco en reglas verificables de contenido. **No es un conc
 | D1 | Alcance: lo que sirve sprintjudicial.com (`index.html`, CSS/JS, metadatos, `llms.txt`, `humans.txt`, `sitemap.xml`) + `README.md` + `package.json` | Es lo que el público ve en la web y en GitHub. Docs internos y otros repos van a una spec aparte (§10) |
 | D2 | Mentoría por el grupo comunitario de WhatsApp existente; sin formulario | El sitio no tiene backend; un formulario propio activaría obligaciones de la Ley 1581 |
 | D3 | Herramientas: AgilEx, TYBABot y DisciplinaJudicialAI | Son públicas, con licencia MIT y sin datos del lugar de trabajo (TYBABot y DisciplinaJudicialAI verificados; AgilEx se verifica en implementación, RV-06) |
-| D4 | Relevo y PrismaRPA se agregan después | Relevo no tiene licencia y su README usa nombres de pila como ejemplo; PrismaRPA es privado, sin licencia y menciona la sede de trabajo |
+| D4 | Relevo, PrismaRPA y HabeasSafe se agregan después | Relevo no tiene licencia y su README usa nombres de pila como ejemplo; PrismaRPA es privado, sin licencia y menciona la sede de trabajo; HabeasSafe tiene el repo privado y su sitio publica cifras y afirmaciones de cumplimiento sin fuente, y su versión web procesa datos personales en un servidor propio y en un modelo en la nube de terceros |
 | D5 | Sherlock, GexCom, justicia-sana y TutelaBot quedan fuera | Privado / menciona la sede / nombra a un colega / es fork de otro autor |
 | D6 | Contacto: correo + LinkedIn. Se eliminan teléfono, WhatsApp personal y botón flotante | Las invitaciones académicas se tramitan por canales formales |
 | D7 | No se menciona la experiencia docente universitaria ni la institución; la trayectoria vive en portfolio.sprintjudicial.com | Decisión del autor |
@@ -289,6 +289,7 @@ Fuera de esta spec. El despliegue a producción lo hace el autor. El `Dockerfile
 - gexcom-docs-site: menciona la sede de trabajo.
 - links.sprintjudicial.com, portfolio.sprintjudicial.com y hammerdev99.github.io: revisar con las mismas reglas de §2.1.
 - PrismaRPA: licencia y saneamiento antes de publicarlo.
+- HabeasSafe: hacer público el repo, retirar del sitio las cifras y afirmaciones de cumplimiento sin fuente y orientar el uso con documentos reales hacia la versión de escritorio sin conexión.
 - Imagen `og-image.png` para redes sociales.
 - Fuente pública oficial para el Mapa de Innovación Legal 2023 (D11). Si aparece, se evalúa enlazarla.
 
