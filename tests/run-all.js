@@ -15,6 +15,7 @@ const TESTS = [
   { name: 'SEO y meta tags', script: 'tests/test-seo.js' },
   { name: 'CSS validación', script: 'tests/test-css.js' },
   { name: 'Links internos', script: 'tests/test-links.js' },
+  { name: 'Cumplimiento SPEC-004', script: 'tests/test-compliance.js' },
 ];
 
 const ROOT = path.resolve(__dirname, '..');
