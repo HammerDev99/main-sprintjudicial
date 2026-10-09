@@ -670,6 +670,7 @@ section {
 .entries__link {
   font-weight: 600;
   color: var(--accent-light);
+  text-decoration: underline;
   white-space: nowrap;
   transition: color 0.3s;
 }
