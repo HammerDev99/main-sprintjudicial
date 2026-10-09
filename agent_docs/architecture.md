@@ -1,164 +1,81 @@
 # Arquitectura — Sprint Judicial
 
-## Arquitectura Actual (Fase 0)
+Sitio estático de una sola página: espacio personal y académico de Daniel Arbeláez Álvarez sobre automatización de trámites judiciales con software libre. No tiene build, backend ni dependencias en producción.
 
-Landing page estática HTML/CSS/JS puro. Zero dependencias de build.
+## Estructura
 
 ```
-Browser
-  └── index.html
-       ├── css/styles.css        (estilos BEM)
-       ├── css/animations.css    (keyframes)
-       ├── js/main.js            (UI logic)
-       └── js/analytics.js       (tracking)
+index.html              Página única (secciones en <main id="main-content">)
+css/styles.css          ITCSS + BEM; tokens en :root
+css/animations.css      Keyframes y .reveal* (entrada al hacer scroll)
+js/rotator.js           HeroRotator.create(options), exportable a Node
+js/main.js              IIFE SprintJudicial (UI) y arranque en DOMContentLoaded
+src/Agilex-logo.png     Logo de AgilEx (tarjeta de herramienta)
+nginx/default.conf      CSP estricta, HSTS y demás cabeceras
+Dockerfile              nginx:alpine; copia cada archivo público
+llms.txt humans.txt robots.txt sitemap.xml security.txt  Archivos públicos
+tests/                  9 suites Node nativo + run-all.js
 ```
 
-## Principios Arquitectónicos
+Carga: `index.html` enlaza los dos CSS en `<head>` y los dos JS al final, `rotator.js` antes de `main.js` (main consulta `HeroRotator` si está definido).
 
-### 1. Zero Build
-No webpack, no bundler, no transpiler. Los archivos se sirven tal cual.
-Razón: simplicidad, velocidad de deploy, cero dependencias de CI/CD.
+## Secciones de la portada
 
-### 2. Progressive Enhancement
-La página DEBE funcionar sin JavaScript. JS agrega animaciones y mejoras,
-pero el contenido, la navegación y los CTAs funcionan sin él.
+Navbar → Hero (frase rotativa, botón de pausa, 3 fichas) → Qué hago → Herramientas (con banda `#reconocimientos`) → Mentoría abierta → Docencia y conferencias → Escritos → Pie. Los ids de ancla son `que-hago`, `herramientas`, `reconocimientos`, `mentoria`, `docencia`, `escritos`. Las restricciones editoriales están en `docs/specs/SPEC-004-reposicionamiento-academico.md`.
 
-### 3. Separation of Concerns
-- **HTML**: Estructura y semántica (qué es)
-- **CSS**: Presentación visual (cómo se ve)
-- **JS**: Comportamiento e interactividad (qué hace)
+## Módulos JS
 
-Nunca inline styles en HTML. Nunca lógica de presentación en JS.
+### `HeroRotator` (`js/rotator.js`)
+Fábrica `create(options)` con dependencias inyectables (`items`, `toggle`, `toggleText`, `hoverTarget`, `doc`, `interval`, `timers`, `reducedMotion`). Devuelve `null` si hay menos de 2 elementos y, si no, una API `{ current, isRunning }`.
+- Intervalo por defecto 3500 ms.
+- Se detiene por pausa del usuario, por hover o foco en el título, y con la pestaña oculta.
+- Con `reducedMotion` no rota y mantiene oculto el botón.
+- Se exporta con `module.exports` para probarlo en Node con temporizadores falsos (`tests/test-rotator.js`).
 
-### 4. Mobile First (estricto)
-**100% mobile-first**. Todos los estilos base son para mobile (320px+).
-Se usan SOLO `min-width` media queries. NO hay `max-width` queries.
+### `SprintJudicial` (`js/main.js`)
+IIFE con estado privado y un `init()` público, invocado en `DOMContentLoaded`. Orden de inicialización:
 
-Breakpoints:
-- Base: 0px+ (mobile)
-- `min-width: 768px` (tablet)
-- `min-width: 1024px` (desktop)
+1. `initNavbar`: menú móvil con `aria-expanded`, Escape para cerrar, cierre al elegir enlace y focus trap.
+2. `initUnifiedScroll`: un solo listener de scroll con `requestAnimationFrame` (fondo del navbar, botón volver arriba).
+3. `initScrollAnimations`: `IntersectionObserver` sobre `[data-animate]`; añade `.reveal` y `.reveal--visible`, y `.reveal--stagger` si hay `data-stagger`.
+4. `initSmoothScroll`: los enlaces `a[href^="#"]` descuentan `--nav-height`, mueven el foco al destino (`tabindex="-1"` si hace falta) y usan scroll instantáneo con movimiento reducido.
+5. `initResizeHandler`: cierra el menú móvil al pasar a escritorio.
+6. `initActiveNav`: marca `.is-active` en el enlace de la sección visible.
+7. `initHeroRotator`: conecta `.rotator__item`, `.rotator__toggle` y `.hero__title` con `HeroRotator`.
+8. `initBlogFeed`: lee el RSS del blog (máximo 3 entradas, `AbortController` a 8 s) y construye las tarjetas con la DOM API.
 
-```css
-/* Base: mobile (hidden, overlay) */
-.navbar__links { display: none; position: fixed; ... }
-.navbar__links.is-open { display: flex; }
+## Principios
 
-/* Tablet: inline navigation */
-@media (min-width: 768px) {
-  .navbar__links { display: flex; position: static; ... }
-}
-```
+1. **Sin build.** Los archivos se sirven tal cual.
+2. **Mejora progresiva.** Sin JS el contenido y los enlaces funcionan: el título tiene una versión `sr-only` completa y el primer elemento del rotador queda activo; el botón de pausa nace con `hidden` y el script lo muestra.
+3. **Separación de responsabilidades.** HTML estructura, CSS presenta, JS se comporta. Sin estilos ni manejadores en línea (la CSP los bloquea).
+4. **Mobile first estricto.** Solo `min-width`: base 320, 768 y 1024.
+5. **Sin clases muertas.** Toda clase de `styles.css` se usa en `index.html` o en JS; lo verifica `test-css-usage.js`. `animations.css` queda fuera de esa regla porque contiene utilidades reutilizables.
+6. **Enlaces internos con foco.** Un ancla interna debe llevar el foco al destino, no solo el scroll.
 
-Decisiones clave:
-- Pseudo-elements decorativos: `display: none` en base, `display: block` en 768px+ (iOS Safari los renderiza como bloques sólidos en mobile)
-- `body::before` (grain texture): oculto en mobile por rendimiento iOS
-- Hero: `min-height: 100dvh` con fallback `100vh`
-- Section padding: 64px mobile, 100px desktop
-- **Navbar mobile overlay**: `display: none` / `display: flex` con `.is-open` (no `visibility`/`opacity` — causa ghost text en iOS)
-- **`backdrop-filter` containing block**: `.navbar` tiene `backdrop-filter` que crea un containing block CSS. Los hijos con `position: fixed` se posicionan relativo al navbar, no al viewport. Fix: `.navbar--menu-open` desactiva `backdrop-filter` al abrir el menú
-
-## Patrones de Diseño Aplicados
-
-### Observer Pattern — Scroll Animations
-```javascript
-// IntersectionObserver para animar elementos al entrar en viewport
-const observer = new IntersectionObserver(callback, { threshold: 0.1 });
-document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
-```
-
-### Module Pattern — Encapsulación
-```javascript
-const SprintJudicial = (() => {
-  const state = { menuOpen: false };
-  // ... lógica privada
-  return { init() { /* público */ } };
-})();
-```
-
-### Strategy Pattern — Animaciones
-```javascript
-// Diferentes estrategias de animación según data attribute
-const animations = {
-  'fade-up': (el) => el.classList.add('animate--fade-up'),
-  'fade-in': (el) => el.classList.add('animate--fade-in'),
-  'counter': (el) => animateCounter(el),
-};
-```
-
-### Singleton — Estado Global
-```javascript
-// Un solo estado de la aplicación
-const state = { menuOpen: false, activeSection: 'hero', scrolled: false };
-```
-
-## Decisiones de Arquitectura (ADRs)
+## Decisiones vigentes
 
 | ADR | Decisión | Alternativa descartada | Razón |
-|-----|----------|----------------------|-------|
-| ADR-001 | HTML/CSS/JS puro | Astro, Next.js | Zero build, performance máxima, deploy simple |
-| ADR-002 | BEM para CSS | Tailwind, CSS Modules | No build step, legibilidad, metodología madura |
-| ADR-003 | Module Pattern JS | ES Modules | Compatibilidad sin bundler, encapsulación |
-| ADR-004 | Google Fonts CDN | Self-hosted fonts | Cacheo CDN, simplicidad |
-| ADR-005 | Single page | Multi-page | Un solo producto (landing), no necesita routing |
-| ADR-006 | `display: none/flex` para menú móvil | `visibility/opacity` | `visibility: hidden` causa ghost text en iOS Safari por compositor GPU |
-| ADR-007 | Desactivar `backdrop-filter` al abrir menú | Mover `.navbar__links` fuera del DOM | `backdrop-filter` crea containing block, rompe `position: fixed` de hijos |
+|-----|----------|------------------------|-------|
+| 001 | HTML/CSS/JS puro | Astro, Next.js | Sin build, despliegue simple, rendimiento |
+| 002 | BEM | Tailwind, CSS Modules | Sin build, legibilidad |
+| 003 | Module Pattern (IIFE) | ES Modules | Sin bundler; `rotator.js` se exporta con `module.exports` solo para pruebas |
+| 004 | Google Fonts por CDN con `font-display: swap` | Fuentes propias | Caché y simplicidad; la CSP lo permite de forma explícita |
+| 005 | Una sola página | Multipágina | El contenido cabe en una portada |
+| 006 | Menú móvil con `display: none/flex` | `visibility`/`opacity` | Texto fantasma en iOS Safari por el compositor GPU |
+| 007 | Desactivar `backdrop-filter` con `.navbar--menu-open` | Sacar el menú del DOM | `backdrop-filter` crea un containing block y rompe `position: fixed` de los hijos |
+| 008 | Rotador accesible y pausable (`HeroRotator`) | `setInterval` suelto en main.js | WCAG 2.2.2: botón de pausa, pausa por hover, foco y pestaña oculta, sin rotación con movimiento reducido; lógica probable en Node |
+| 009 | Título con texto completo `sr-only` y rotador `aria-hidden` | `aria-live` en el rotador | El lector de pantalla lee una frase estable, sin anuncios repetidos |
+| 010 | Foco movido al destino en enlaces internos | Solo `scrollTo` | WCAG 2.4.1: el teclado continúa desde la sección elegida |
+| 011 | `AbortController` (8 s) y bloque de respaldo en el feed del blog | Esperar sin límite | Si falla CORS o la red, queda el enlace "Visitar el blog" |
+| 012 | DOM API (`createElement`, `textContent`) para contenido externo | `innerHTML` | Previene XSS desde el RSS |
+| 013 | Test de clases CSS sin uso | Revisión manual | Evita acumular CSS muerto tras rediseños |
+| 014 | Tests con Node nativo, sin framework | Jest, Playwright | Sin dependencias; leen el código fuente como texto |
 
-## Arquitectura Objetivo (Fase 3)
+## Despliegue
 
-```
-Browser
-  └── Astro / Next.js SSG
-       ├── pages/
-       │   ├── index.astro        (landing)
-       │   ├── servicios/[slug]   (detalle servicio)
-       │   ├── blog/              (feed blog)
-       │   └── demo/              (demos interactivas)
-       ├── components/            (UI components)
-       ├── styles/                (design tokens + CSS)
-       └── api/                   (serverless functions)
-```
+Un push a `main` en GitHub dispara un webhook al panel del autor (`panel.sprintjudicial.com`), que redepliega con Docker y nginx. No hay GitHub Actions. El Dockerfile copia cada archivo público: al agregar un directorio o archivo nuevo hay que añadir su `COPY` (un `src/` olvidado dio 404 en producción). nginx repite las cabeceras de seguridad dentro de cada `location` porque `add_header` en un bloque hijo reemplaza las del padre. Referencia operativa del servidor: `docs/plans/PLAN-005-security-remediation.md`.
 
-Migrar a framework solo cuando:
-- Se necesiten múltiples páginas (detalle de servicios, blog integrado)
-- Se agreguen demos interactivas (calculadora, buscador)
-- Se necesite SSR para SEO dinámico
+## Historia
 
-## Diagrama de Flujo del Landing (post evolución estratégica)
-
-```
-Visitante llega
-  ├── Hero (identifica el dolor + rotador de value props)
-  │     └── CTA: "Agendar demo" / "Prueba el asistente" (Streamlit)
-  ├── Trust Bar (logos institucionales reales)
-  ├── Pipeline Visual (ciclo completo: INVESTIGAR → REDACTAR → PROTEGER → AUTOMATIZAR)
-  ├── Servicios (dolor/resultado + demos Streamlit)
-  │     └── 6 tarjetas con pain/result framework + precio
-  ├── Cómo Funciona (reduce fricción)
-  │     └── 4 pasos simples
-  ├── Comparativa (Antes vs. Después)
-  ├── ¿Por qué Sprint Judicial? (4 diferenciadores)
-  │     └── Desde adentro / Privado / Colombia / Sin dependencia
-  ├── Credenciales (genera confianza)
-  │     └── Reconocimientos verificables
-  ├── CTA Intermedio
-  ├── Seguridad y Cumplimiento (Ley 1581 / CONPES 3975 / Local / Sin entrenamiento)
-  ├── Sobre Mí (conexión personal)
-  │     └── Perfil + links
-  ├── Tu Primer Mes (timeline onboarding: Hoy → Día 3 → Día 7 → Día 30)
-  ├── FAQ
-  ├── Blog (RSS feed)
-  └── CTA Final (conversión)
-        └── WhatsApp (primario) / Email (secundario)
-  [Flotantes: WhatsApp (izquierda) + Back-to-top (derecha)]
-```
-
-## ADRs Adicionales (Evolución Estratégica)
-
-| ADR | Decisión | Alternativa descartada | Razón |
-|-----|----------|----------------------|-------|
-| ADR-008 | ~~`filter: brightness(0) invert(1)`~~ → Fondo blanco `rgba(255,255,255,0.92)` con `border-radius: 8px` | Filter brightness/invert (destruye logos multicolor con fondo opaco) | Los PNGs reales son multicolor con fondo blanco/opaco; el filtro invertía todo a blanco/negro irreconocible |
-| ADR-009 | Hero rotativo con setInterval | Librería de animación (GSAP) | Zero deps, respeta prefers-reduced-motion, simple |
-| ADR-010 | Pipeline como `<a>` clickeables | Divs estáticos | Mejora UX: click lleva a #servicios, semántico |
-| ADR-011 | WhatsApp flotante CSS puro | JS con lógica de visibilidad | No requiere JS, siempre visible, tooltip CSS |
-| ADR-012 | AbortController para fetch blog | setTimeout sin cancelación | Patrón estándar, permite cleanup limpio |
+SPEC-001 a SPEC-003 (landing comercial) quedaron superadas por SPEC-004 (reposicionamiento académico) y SPEC-005 (estructura visual y dinamismo). RES-001 y RES-002 son históricos. Ver `docs/ROADMAP.md`.

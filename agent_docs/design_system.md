@@ -1,164 +1,92 @@
 # Design System — Sprint Judicial
 
-## Paleta de Colores
+Tema oscuro único (no hay modo claro). Los valores salen de `:root` en `css/styles.css`; esta guía resume su uso. Si algo difiere, manda el CSS.
 
-### Colores principales
+## Colores
+
 | Token | Valor | Uso |
 |-------|-------|-----|
-| `--deep` | `#0B1D33` | Background principal (body) |
-| `--navy` | `#152A4A` | Background alternativo |
-| `--surface` | `#0F2440` | Fondo de cards y componentes |
-| `--surface-light` | `#1A3558` | Fondo de cards hover/elevados |
+| `--deep` | #0B1D33 | Fondo de página; texto sobre botón primario |
+| `--navy` | #152A4A | Fondos de apoyo |
+| `--surface` | #0F2440 | Tarjetas |
+| `--surface-light` | #1A3558 | Tarjetas elevadas y hover |
+| `--accent` | #3B82F6 | Acción principal, bordes activos |
+| `--accent-light` | #60A5FA | Foco, hover, énfasis del rotador |
+| `--teal` | #06B6D4 | Acento secundario (tarjeta TYBABot, iconos) |
+| `--gold` | #F59E0B | Acento terciario, ícono de avisos |
+| `--green` `--purple` `--red` | #10B981 #8B5CF6 #EF4444 | Reservados |
+| `--text` | #E2E8F0 | Texto de cuerpo |
+| `--text-muted` | #94A3B8 | Texto secundario |
+| `--white` | #FFFFFF | Títulos |
+| `--border` | rgba(255,255,255,0.08) | Bordes finos |
+| `--glass-bg` `--glass-border` | rgba(15,36,64,0.7) / rgba(255,255,255,0.12) | Navbar translúcido |
 
-### Colores de acento
-| Token | Valor | Uso |
-|-------|-------|-----|
-| `--accent` | `#3B82F6` | CTAs, links activos, elementos interactivos |
-| `--accent-light` | `#60A5FA` | Hover de accent, badges, texto destacado |
-| `--teal` | `#06B6D4` | Acento secundario, gradientes |
-| `--gold` | `#F59E0B` | Badges de reconocimiento, premios |
-| `--green` | `#10B981` | Estado positivo, "en producción", checks |
+### Contraste (AA)
 
-### Colores de texto
-| Token | Valor | Contraste vs --deep | Uso |
-|-------|-------|-------------------|-----|
-| `--white` | `#FFFFFF` | 15.5:1 | Títulos, texto principal fuerte |
-| `--text` | `#E2E8F0` | 12.2:1 | Texto de cuerpo |
-| `--text-muted` | `#94A3B8` | 5.4:1 | Texto secundario, labels, descriptions |
-
-### Bordes y overlays
-| Token | Valor | Uso |
-|-------|-------|-----|
-| `--border` | `rgba(255,255,255,0.08)` | Bordes sutiles en cards, separadores |
-| `--glass-bg` | `rgba(15,36,64,0.7)` | Glassmorphism para cards elevados |
-| `--glass-border` | `rgba(255,255,255,0.12)` | Bordes glass |
-
----
+- Texto de cuerpo y `--text-muted` sobre `--deep` y `--surface` superan 4,5:1.
+- Botón primario: texto `--deep` sobre `--accent`, 4,61:1. El texto blanco sobre `--accent` no cumple, por eso se usa `--deep`.
+- Foco visible global: `outline: 2px solid var(--accent-light)` con `outline-offset: 3px`.
+- No comunicar estado solo con color: las pastillas de estado llevan texto.
 
 ## Tipografía
 
-### Font Families
-| Token | Fuente | Peso disponible | Uso |
-|-------|--------|----------------|-----|
-| `--font-display` | Source Serif 4 | 600, 700, 800 | h1, h2, stats, logo |
-| `--font-body` | Inter | 400, 500, 600, 700 | Todo el resto |
+- Títulos: Source Serif 4 (600, 700, 800) vía `--font-display`. Los `h3` usan la fuente de cuerpo.
+- Cuerpo: Inter (400 a 700) vía `--font-body`.
+- Carga con Google Fonts y `display=swap`.
+- `h1`: `clamp(2.5rem, 5vw, 3.8rem)`; título del hero: `clamp(1.9rem, 4.6vw, 3.4rem)`; `h2`: `clamp(1.8rem, 3.5vw, 2.6rem)`; `h3`: 1,15 rem.
+- Texto de apoyo: 0,75 a 0,92 rem. `line-height` base 1,7.
 
-### Escala tipográfica
-| Elemento | Size | Weight | Font |
-|----------|------|--------|------|
-| h1 | `clamp(2.5rem, 5vw, 3.8rem)` | 800 | Display |
-| h2 | `clamp(1.8rem, 3.5vw, 2.6rem)` | 700 | Display |
-| h3 | `1.15rem` | 700 | Body |
-| body | `1rem` (16px) | 400 | Body |
-| small/label | `0.85-0.92rem` | 500-600 | Body |
-| badge/tag | `0.78-0.82rem` | 600-700 | Body |
+## Escalas
 
-### Line Height
-- Títulos: `1.15 - 1.2`
-- Cuerpo: `1.6 - 1.7`
+| Escala | Valores |
+|--------|---------|
+| Espaciado | `--space-xs` 4, `sm` 8, `md` 16, `lg` 24, `xl` 32, `2xl` 48, `3xl` 64, `4xl` 100 px |
+| Radios | `--radius-sm` 8, `md` 12, `lg` 16, `xl` 20, `full` 100 px |
+| Layout | `--container-max` 1100 px; `--nav-height` 64 px |
+| Padding de sección | 64 px en móvil; 100 px desde 768 px |
+| Breakpoints | Base 320; `min-width` 768 y 1024 |
 
----
+## Catálogo de bloques BEM
 
-## Spacing
+| Bloque | Uso |
+|--------|-----|
+| `navbar` | Barra fija; `__toggle` hamburguesa, `__links`, `__cta`; `--scrolled`, `--menu-open` |
+| `btn` | `--primary` (acción) y `--outline` (secundaria) |
+| `hero` | Portada con `__title`, `__subtitle`, `__actions` |
+| `rotator` | Frase rotativa dentro del título (`__item.is-active`) y botón `__toggle` de pausa |
+| `hero-chips` | Fichas de acceso a Herramientas, Mentoría y Reconocimientos; icono `--teal`/`--blue`/`--gold` |
+| `section` | `__label`, `__title`, `__description` (con `--center`), `__link`, `__more`; `--alt` para fondo alterno |
+| `pillars` | Tres tarjetas de "Qué hago" con verbo, icono, título y descripción |
+| `tool-card` | Tarjeta de herramienta con acento `--blue`/`--teal`/`--gold`, `__logo` o `__icon`, `__meta`, `__actions`, `__link` |
+| `pills` / `pill` | Etiquetas de estado y licencia; `pill--status` |
+| `notice` | Aviso con ícono "i" dorado; `--inline` sin caja |
+| `recognitions` | Banda de reconocimientos (`__title`, `__grid`, `__card`, `__icon`) |
+| `steps` | Lista ordenada de pasos con línea que se dibuja al entrar |
+| `callout` | Caja de invitación con acción; `--stacked` apila el contenido |
+| `teaching` | Dos columnas de Docencia: temas y charlas |
+| `block-heading` | Subtítulo de bloque dentro de una sección |
+| `topics` | Temas de docencia con icono de color |
+| `events` / `event` | Charlas realizadas, con `__badge`, `__title`, `__desc`, `__link` |
+| `writings` | Dos columnas de Escritos: blog y publicaciones |
+| `blog` | Feed del blog (`__grid`, `__card`) y bloque de respaldo `__fallback` |
+| `publication` | Cita del artículo académico |
+| `footer` | Pie con navegación, enlaces externos, contacto y licencia |
+| `back-to-top` | Botón flotante de volver arriba |
+| `sr-only` | Texto solo para lector de pantalla; también el skip-link, visible al recibir foco |
 
-| Token | Valor | Uso |
-|-------|-------|-----|
-| `--space-xs` | `4px` | Micro gaps |
-| `--space-sm` | `8px` | Padding interno pequeño |
-| `--space-md` | `16px` | Padding estándar |
-| `--space-lg` | `24px` | Gap entre elementos relacionados |
-| `--space-xl` | `32px` | Padding de componentes |
-| `--space-2xl` | `48px` | Gap entre secciones internas |
-| `--space-3xl` | `64px` | Gap entre secciones principales |
-| `--space-4xl` | `100px` | Padding vertical de secciones |
+Regla: antes de crear un bloque nuevo, reutilizar uno de la lista. Toda clase nueva debe usarse en el HTML o JS (`test-css-usage.js`).
 
----
+## Movimiento
 
-## Border Radius
+- **Rotador del hero:** cambia cada 3,5 s con transición de opacidad y desplazamiento de 0,4 s; es pausable con el botón, se detiene con hover, foco o pestaña oculta.
+- **Hover de tarjetas y fichas:** transición de 0,2 s (elevación, sombra, borde). El acento superior de `tool-card` marca el color.
+- **Entrada al scroll (`.reveal`):** opacidad y desplazamiento de 0,7 s; con `data-stagger` los hijos entran escalonados cada 0,05 s hasta el sexto. Línea de `steps`: 0,8 s.
+- **Movimiento reducido:** `@media (prefers-reduced-motion: reduce)` desactiva `reveal`, transiciones, elevaciones al hover y animaciones decorativas; el rotador no rota y su botón queda oculto.
+- Efectos decorativos de pseudo-elementos y el grano de fondo se ocultan en móvil (rendimiento en iOS).
 
-| Token | Valor | Uso |
-|-------|-------|-----|
-| `--radius-sm` | `8px` | Botones, inputs |
-| `--radius-md` | `12px` | Icon containers |
-| `--radius-lg` | `16px` | Cards |
-| `--radius-xl` | `20px` | Cards grandes |
-| `--radius-full` | `100px` | Pills, badges |
+## Reglas de uso
 
----
-
-## Breakpoints
-
-| Token | Valor | Descripción |
-|-------|-------|-------------|
-| `--bp-mobile` | `480px` | Teléfonos grandes |
-| `--bp-tablet` | `768px` | Tablets, menú hamburguesa threshold |
-| `--bp-desktop` | `1024px` | Desktop |
-| `--bp-wide` | `1440px` | Desktop ancho |
-
-Container max-width: `1100px` con padding lateral `24px`.
-
----
-
-## Componentes
-
-### Botones
-```css
-.btn                  /* Base: padding 14px 28px, radius-sm, font-weight 600 */
-.btn--primary         /* accent bg, white text */
-.btn--outline         /* transparent bg, border, text color */
-.btn--primary:hover   /* accent-light bg, translateY(-2px), box-shadow */
-```
-
-### Cards
-```css
-.service-card         /* surface bg, border, radius-lg, padding 32px */
-.service-card:hover   /* translateY(-4px), shadow, border glow */
-.cred-item            /* text-align center, padding 24px */
-```
-
-### Badges
-```css
-.hero__badge          /* accent bg opacity, border, radius-full, small text */
-.service-card__tag    /* white bg 6%, radius-full, small text */
-.service-card__status /* green/gold bg, status indicator */
-```
-
----
-
-## Animaciones
-
-### Principios
-- Duración: 300-800ms
-- Easing: ease (entradas), ease-out (salidas)
-- Scroll animations: fade-up con 24px de recorrido
-- Hover: translateY(-2px a -4px), box-shadow, border glow
-- Delay escalonado: 0.1s entre elementos en grupo
-
-### Keyframes definidos
-```css
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-```
-
----
-
-## Reglas de Diseño (del CONTEXTO)
-
-### HACER
-- Comunicar confianza a través de evidencia
-- Espaciado generoso (opuesto a documentos legales)
-- Tema oscuro que transmita seriedad y tecnología
-- Directo y sin rodeos (el abogado no tiene tiempo)
-
-### NO HACER
-- No parecer template genérico de SaaS
-- No iconografía clipart ni ilustraciones IA genéricas
-- No colores pastel ni estética "startup friendly"
-- No sobrecargado — claridad sobre espectáculo
+1. Colores, fuentes, espacios y radios siempre desde tokens.
+2. Una sola jerarquía de encabezados: `h1` en el hero, `h2` por sección, `h3` por tarjeta.
+3. Contraste mínimo AA en todo texto nuevo; verificar antes de agregar un color.
+4. Sin imágenes decorativas pesadas; los iconos son SVG en línea con `aria-hidden="true"`.

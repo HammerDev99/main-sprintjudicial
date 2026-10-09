@@ -1,3 +1,5 @@
+> ⚠️ **Documento histórico (superado).** Describe la etapa comercial anterior del sitio y ya no refleja el proyecto. El enfoque vigente está en `docs/specs/SPEC-004-reposicionamiento-academico.md` y `docs/specs/SPEC-005-estructura-visual.md`. Se conserva solo como registro.
+
 # RES-001: Benchmarking LegalTech Internacional
 
 > Fecha: 2026-03-10

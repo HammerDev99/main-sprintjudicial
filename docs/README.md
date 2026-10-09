@@ -1,46 +1,57 @@
-# Sprint Judicial — Contract Driven AI Development
+# Sprint Judicial — Índice de documentación
 
-## Estructura de documentación
+Especificaciones, planes, investigaciones y decisiones del sitio bajo enfoque Spec Driven Development. Desde SPEC-004 (2026-10-09) el sitio es un espacio personal y académico; los documentos de la etapa comercial se conservan como histórico.
 
-Este directorio contiene toda la documentación de especificaciones, planificación y análisis
-que guía el desarrollo de Sprint Judicial bajo un enfoque **Spec Driven Development**.
+## Estados
 
-```
-docs/
-├── README.md                    # Este archivo
-├── ROADMAP.md                   # Hoja de ruta general del proyecto
-├── specs/
-│   ├── SPEC-001-landing-v2.md   # Especificación: Landing Page v2
-│   ├── SPEC-002-services.md     # Especificación: Nuevos servicios
-│   └── SPEC-003-platform.md     # Especificación: Evolución a plataforma
-├── research/
-│   ├── RES-001-legaltech-benchmark.md  # Benchmarking internacional
-│   └── RES-002-colombia-market.md      # Estado del mercado colombiano
-├── architecture/
-│   ├── ADR-001-tech-stack.md    # Decision Record: Stack tecnológico
-│   ├── ADR-002-file-structure.md # Decision Record: Estructura de archivos
-│   └── PATTERNS.md              # Patrones de diseño aplicados
-└── plans/
-    ├── PLAN-001-ux-ui.md        # Plan: Mejoras UX/UI
-    ├── PLAN-002-refactor.md     # Plan: Refactoring y arquitectura
-    └── PLAN-003-new-features.md # Plan: Nuevas funcionalidades
-```
+- **Vigente**: describe el sitio actual.
+- **Histórico**: contexto de una etapa anterior, no guía el desarrollo.
+- **Superado**: reemplazado por otro documento.
+
+## Specs (`specs/`)
+
+| Documento | Tema | Estado |
+|-----------|------|--------|
+| SPEC-001-landing-v2 | Landing v2 | Superado por SPEC-004 |
+| SPEC-002-services | Nuevos servicios | Superado por SPEC-004 |
+| SPEC-003-evolucion-estrategica | Evolución estratégica comercial | Superado por SPEC-004 |
+| SPEC-004-reposicionamiento-academico | Reposicionamiento académico (reglas de contenido) | Vigente (presentación modificada por SPEC-005) |
+| SPEC-005-estructura-visual | Estructura visual y dinamismo | Vigente |
+
+## Plans (`plans/`)
+
+| Documento | Tema | Estado |
+|-----------|------|--------|
+| PLAN-001-ux-ui, PLAN-002-refactor, PLAN-003-design-patterns, PLAN-004-ux-improvements | UX, refactor, patrones | Histórico |
+| PLAN-005-security-remediation | Remediación de seguridad del servidor | Vigente (referencia operativa) |
+| PLAN-006-reposicionamiento-academico | Ejecución de SPEC-004 | Vigente |
+| PLAN-007-estructura-visual | Ejecución de SPEC-005 | Vigente |
+
+## Research (`research/`)
+
+| Documento | Tema | Estado |
+|-----------|------|--------|
+| RES-001-legaltech-benchmark | Benchmark LegalTech | Histórico |
+| RES-002-analisis-estrategico | Análisis estratégico comercial | Histórico |
+| RES-003-revision-diseno-portada | Revisión de diseño de la portada | Vigente |
+
+## Architecture (`architecture/`)
+
+| Documento | Tema | Estado |
+|-----------|------|--------|
+| ADR-001-informe-seguridad | Informe de seguridad (Nessus) | Vigente |
+
+## Others (`others/`)
+
+Material de contexto y archivo (`CONTEXTO_SPRINT_JUDICIAL.md`, `index_old.html`, notas de investigación). Histórico: refleja la etapa comercial.
+
+## Otros archivos
+
+- `ROADMAP.md`: hoja de ruta y estado de fases.
+- Documentación técnica por tema: `../agent_docs/`.
 
 ## Convenciones
 
-- **SPEC-XXX**: Especificaciones contractuales (qué se debe construir)
-- **RES-XXX**: Investigaciones y análisis de mercado
-- **ADR-XXX**: Architecture Decision Records (decisiones técnicas)
-- **PLAN-XXX**: Planes de ejecución con tareas priorizadas
-
-## Flujo de trabajo
-
-1. La investigación (RES) informa las especificaciones (SPEC)
-2. Las especificaciones generan decisiones de arquitectura (ADR)
-3. Las decisiones se ejecutan mediante planes (PLAN)
-4. El ROADMAP consolida la visión general y el estado de cada fase
-
-## Skills disponibles para desarrollo
-
-- `.claude/skills/design-patterns/` — GoF patterns, SOLID, code smell → pattern mapping
-- `.claude/skills/refactoring/` — 22 code smells, 66 técnicas de refactoring
+- **SPEC-XXX** qué se construye, **RES-XXX** investigaciones, **ADR-XXX** decisiones técnicas, **PLAN-XXX** ejecución.
+- La investigación informa la spec, la spec genera el plan y el ROADMAP consolida el estado.
+- Commits: `docs(alcance): descripción` en español.

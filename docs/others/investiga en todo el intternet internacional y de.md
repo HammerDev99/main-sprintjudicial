@@ -1,3 +1,5 @@
+> ⚠️ **Documento histórico (superado).** Describe la etapa comercial anterior del sitio y ya no refleja el proyecto. El enfoque vigente está en `docs/specs/SPEC-004-reposicionamiento-academico.md` y `docs/specs/SPEC-005-estructura-visual.md`. Se conserva solo como registro.
+
 <img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
 
 # investiga en todo el intternet internacional y de otros paises preferiblemente primermundistas china estados unidos sobre empresas o paginas web que ofrezcan servicios de automatización de procesos creación de agentes orientado especialmente al area legal tech, esto es un referente que se busca encontrar para poder aplicar en un empresa que se pretende conformar adjunto contexto de la empresa.

@@ -1,3 +1,5 @@
+> ⚠️ **Documento histórico (superado).** Describe la etapa comercial anterior del sitio y ya no refleja el proyecto. El enfoque vigente está en `docs/specs/SPEC-004-reposicionamiento-academico.md` y `docs/specs/SPEC-005-estructura-visual.md`. Se conserva solo como registro.
+
 # PLAN-003: Design Patterns y Mejores Prácticas
 
 > Fecha: 2026-03-10

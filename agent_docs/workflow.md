@@ -1,124 +1,53 @@
 # Workflow CDAID — Sprint Judicial
 
-## Contract Driven AI Development
-
-Este proyecto sigue un flujo **Spec Driven Development** donde:
-
-1. La **investigación** (RES-XXX) informa las **especificaciones** (SPEC-XXX)
-2. Las **especificaciones** generan **decisiones de arquitectura** (ADR-XXX)
-3. Las **decisiones** se ejecutan mediante **planes** (PLAN-XXX)
-4. El **ROADMAP** consolida la visión y el estado de cada fase
+CDAID (Contract Driven AI Development) es el flujo del proyecto: primero el contrato (spec), después el plan, después el código. Así se ejecutaron SPEC-004 y SPEC-005.
 
 ```
-RES (Research) → SPEC (Contract) → ADR (Decision) → PLAN (Execution) → CODE → VERIFY
+brainstorming → SPEC → PLAN → ejecución con TDD → revisión final → merge a main → push
 ```
 
----
+## Pasos
 
-## Flujo de Trabajo por Feature
+### 1. Brainstorming
+Se aclara la intención y las restricciones antes de escribir nada. En SPEC-004 la restricción central fue que el autor es servidor de la Rama Judicial: el sitio no puede ofrecer servicios comerciales. Las investigaciones (`RES-XXX`) quedan en `docs/research/` (p. ej. RES-003, revisión de diseño de la portada).
 
-### 1. Especificación (obligatorio antes de codificar)
-- Verificar si existe SPEC para la feature
-- Si no existe, crear una en `docs/specs/`
-- La SPEC define: requisitos funcionales, no funcionales, criterios de aceptación
+### 2. Spec (`docs/specs/SPEC-XXX-nombre.md`)
+Define requisitos, criterios de aceptación y qué queda fuera. Estados: Pendiente, En progreso, Implementada. Una spec que cambia a otra se anota en ambas (SPEC-005 modificó la presentación definida en SPEC-004). SPEC-001 a SPEC-003 están superadas.
 
-### 2. Planificación
-- Verificar si existe PLAN con las tareas
-- Si no existe, crear uno en `docs/plans/`
-- El PLAN define: tareas ordenadas, dependencias, prioridades
+### 3. Plan (`docs/plans/PLAN-XXX-nombre.md`)
+Tareas ordenadas, con archivos a tocar y comprobaciones. Un commit por tarea. PLAN-006 ejecuta SPEC-004 y PLAN-007 ejecuta SPEC-005.
 
-### 3. Implementación
-- Seguir el PLAN tarea por tarea
-- Commits atómicos (una tarea = un commit)
-- No mezclar refactoring con features nuevas
+### 4. Ejecución con TDD
+Por cada tarea: escribir o ampliar la prueba en `tests/`, verla fallar, implementar, verla pasar y limpiar. Las suites son scripts de Node que leen `index.html`, CSS y JS como texto (ver `verification_metrics.md`). Ejemplos de reglas convertidas en prueba: sin clases CSS muertas, selectores de JS existentes en el HTML, rotador con temporizadores falsos, reglas de contenido de SPEC-004.
 
-### 4. Verificación
-- HTML: W3C Validator
-- CSS: sin errores en consola
-- JS: sin errores en consola
-- Accesibilidad: contraste, aria, keyboard nav
-- Responsive: probar en 320px, 768px, 1024px
-- Performance: Lighthouse > 90
+### 5. Revisión final
+Al terminar el plan: `npm test` sin fallos, linters sin reglas nuevas respecto a la línea base, revisión visual en 320, 768, 1024 y 1280 px, y revisión de código y de contenido (restricciones editoriales). Los hallazgos se corrigen en commits `fix` y la spec se cierra con el estado "Implementada".
 
----
+### 6. Merge y despliegue
+La rama de trabajo se integra a `main` y se hace push. **El push a `main` dispara un webhook al panel del autor (`panel.sprintjudicial.com`), que redepliega con Docker y nginx.** No hay GitHub Actions. Por eso nada llega a `main` sin pasar la revisión final.
 
-## Checklist Pattern
+## Rama y commits
 
-Para tareas con >3 items, crear checklist operativo:
+- Trabajo en ramas (`feat/...`, `docs/...`), nunca directo en `main`.
+- Commits en español, `tipo(alcance): descripción`, sin atribución. Detalle en `code_conventions.md`.
+- Intentos de arreglo repetidos se agrupan en un solo commit antes de subir.
 
-```markdown
-## Sprint N — Checklist
+## Carpetas locales ignoradas
 
-- [x] Item completado
-- [ ] Item pendiente
-- [ ] Item pendiente
-```
+`.superpowers/` (sesiones de brainstorming y borradores del flujo) y `.ui-design/` (revisiones de diseño) están en `.gitignore`; también `.claude/`, `node_modules/` y `dist/`. No se versionan ni se despliegan.
 
-Actualizar en tiempo real. No es documentación post-hoc sino tracking activo.
+## Documentación
 
----
+- `CLAUDE.md` es el mapa del proyecto y enlaza estas guías (divulgación progresiva).
+- Nomenclatura: `SPEC-XXX-`, `RES-XXX-`, `ADR-XXX-`, `PLAN-XXX-` más nombre en minúsculas con guiones.
+- Campos de cada documento: fecha, estado, prioridad y dependencias.
+- Estados en `docs/ROADMAP.md`: pendiente, en progreso, completado, descartado.
+- Vigentes: SPEC-004, SPEC-005, PLAN-006, PLAN-007, RES-003, ADR-001 y PLAN-005 (referencia operativa del servidor). Históricos: SPEC-001 a SPEC-003, RES-001, RES-002 y PLAN-001 a PLAN-004.
 
-## Compactación Deliberada
+## Compactación
 
-- `/compact` al terminar cada fix/feature
-- `/clear` al cambiar de sprint/planning/tema
-- `/compact focus on [tema actual]` al iniciar tarea compleja
+Compactar al cerrar cada tarea y limpiar contexto al cambiar de spec. Al compactar se conservan las reglas críticas de `CLAUDE.md`, las restricciones del proyecto, los tokens de diseño y las convenciones de commits.
 
----
+## Antes de tocar contenido
 
-## Trazas de Delegación
-
-Registrar decisiones de delegación en los PLANs:
-
-```markdown
-| Decisión | Propuesta IA | Aprobación Humano | Notas |
-|----------|-------------|-------------------|-------|
-| Separar CSS/JS | Sí, 3 archivos | Aprobada | — |
-| Agregar React | Sí | Rechazada | Over-engineering para landing |
-```
-
----
-
-## Skills Disponibles para Revisión
-
-| Skill | Cuándo usar | Path |
-|-------|-------------|------|
-| **Design Patterns** | Al diseñar arquitectura JS, detectar code smells → pattern | `.claude/skills/design-patterns/SKILL.md` |
-| **Refactoring** | Al revisar código, identificar smells, mejorar estructura | `.claude/skills/refactoring/SKILL.md` |
-
-### Workflow con Design Patterns Skill
-1. Identificar el problema (flexibilidad, extensibilidad, desacoplamiento)
-2. Consultar smell map en el skill
-3. Verificar si Python simplification aplica (para backend futuro)
-4. Implementar patrón adecuado
-
-### Workflow con Refactoring Skill
-1. Leer `references/smell-technique-matrix.md` para mapeo completo
-2. Escanear código buscando smells
-3. Priorizar: Duplicate Code, Long Method, Large Class primero
-4. Aplicar técnica del catálogo paso a paso
-5. Verificar que nada se rompió
-
----
-
-## Convenciones de Documentación
-
-### Nomenclatura de archivos
-- `SPEC-XXX-nombre.md` — Especificaciones contractuales
-- `RES-XXX-nombre.md` — Investigaciones y análisis
-- `ADR-XXX-nombre.md` — Architecture Decision Records
-- `PLAN-XXX-nombre.md` — Planes de ejecución
-
-### Campos obligatorios en cada documento
-```markdown
-> Fecha: YYYY-MM-DD
-> Estado: Pendiente | En progreso | Completado
-> Prioridad: P0 | P1 | P2
-> Dependencias: lista de docs relacionados
-```
-
-### Estados del ROADMAP
-- ⬜ Pendiente / Futuro
-- 🔄 En progreso
-- ✅ Completado
-- ❌ Descartado
+Revisar las restricciones editoriales de SPEC-004: nada de precios, planes, consultoría, claims de adopción, cifras sin fuente, datos del lugar de trabajo, nombres de colegas ni contacto personal. `test-compliance.js` detecta las más comunes, pero no sustituye la lectura.

@@ -4,6 +4,8 @@
 
 Este repositorio contiene el sitio [sprintjudicial.com](https://sprintjudicial.com): herramientas de código abierto, mentoría abierta, docencia y escritos.
 
+La portada abre con una frase rotativa que se puede pausar con el botón "Pausar animación" y que no rota si el sistema pide movimiento reducido (`js/rotator.js`). Sigue con las secciones Qué hago, Herramientas, Mentoría abierta, Docencia y conferencias y Escritos.
+
 > Este sitio no ofrece servicios comerciales ni recibe pagos. Las herramientas publicadas son software libre; su uso en entidades públicas corresponde a los canales institucionales de cada entidad.
 
 ---
@@ -53,7 +55,7 @@ docker run -p 80:80 sprint-judicial
 ## Tests
 
 ```bash
-# Suite completa (solo Node, sin dependencias)
+# Suite completa (solo Node, sin dependencias): 9 archivos de test
 npm test
 
 # Linters (requieren instalar las devDependencies)
@@ -64,6 +66,8 @@ npx eslint js/
 ```
 
 Los linters ya reportaban hallazgos antes de SPEC-004 (por ejemplo no-var en main.js); el criterio es no introducir reglas nuevas. Los role="list" son intencionales: restauran la semántica de lista en VoiceOver cuando se usa list-style: none (html-validate los marca como no-redundant-role).
+
+Los 9 tests (`tests/`): `test-structure`, `test-accessibility`, `test-seo`, `test-css`, `test-links`, `test-compliance`, `test-js-selectors`, `test-css-usage` y `test-rotator`. El runner es `tests/run-all.js`.
 
 `tests/test-compliance.js` verifica las reglas de contenido de `docs/specs/SPEC-004-reposicionamiento-academico.md` sobre los archivos públicos.
 
@@ -78,11 +82,13 @@ main-sprintjudicial/
 │   ├── styles.css          # Estilos BEM + design tokens
 │   └── animations.css      # Keyframes y animaciones
 ├── js/
+│   ├── rotator.js          # Frase rotativa del hero (pausable, exportable a Node)
 │   └── main.js             # Lógica de UI (Module Pattern)
 ├── src/                    # Logo de AgilEx
 ├── nginx/
 │   └── default.conf        # Security headers + gzip + cache
-├── tests/                  # Tests Node (estructura, a11y, SEO, CSS, enlaces, cumplimiento)
+├── tests/                  # 9 tests Node + run-all.js (estructura, a11y, SEO, CSS,
+│                           #   enlaces, cumplimiento, selectores JS, CSS sin uso, rotador)
 ├── docs/                   # Specs, research, plans, ADRs
 ├── agent_docs/             # Documentación técnica para desarrollo con IA
 ├── Dockerfile
@@ -132,6 +138,8 @@ main-sprintjudicial/
 | Patrones UX / accesibilidad | `agent_docs/ux_patterns.md` |
 | SEO y meta tags | `agent_docs/seo.md` |
 | Reposicionamiento del sitio | `docs/specs/SPEC-004-reposicionamiento-academico.md` |
+| Estructura visual y dinamismo | `docs/specs/SPEC-005-estructura-visual.md` |
+| Índice y hoja de ruta | `docs/README.md` · `docs/ROADMAP.md` |
 
 ---
 

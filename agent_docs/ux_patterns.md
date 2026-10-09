@@ -1,191 +1,83 @@
-# Patrones UX/UI — Sprint Judicial (LegalTech B2B)
+# Patrones UX/UI — Sprint Judicial
 
-## Público objetivo
+Patrones vigentes de la portada. El sitio es un espacio personal y académico: informa, enseña y deja el código a la vista. No persuade con urgencia ni promete resultados.
 
-- Abogados colombianos, 30-55 años
-- Poco conocimiento técnico pero curiosidad por IA
-- Escépticos pero abiertos si ven evidencia real
-- Valoran: ahorro de tiempo, seguridad de datos, resultados concretos
-- Rechazan: jerga técnica, promesas vacías, dependencia tecnológica
+## Público
 
----
+- Servidores judiciales, estudiantes y docentes interesados en automatizar trámites con criterio.
+- Perfil mixto: poca jerga técnica, curiosidad por la IA, cautela ante promesas.
+- Necesitan: ver el código, entender qué hace cada herramienta, saber qué no hace y a quién preguntar.
 
-## Patrones de Trust (Confianza)
+## Principios de contenido
 
-### 1. Trust Signals Above the Fold
-- Badge "Ganador JusticIALab 2024" visible en el hero
-- Estadísticas numéricas verificables (10+ años, 6 herramientas, Nacional)
-- NO prometer, MOSTRAR: métricas reales, productos en producción
+1. **La IA asiste; la decisión es humana.** Aparece en el subtítulo del hero y en las descripciones de herramientas.
+2. **Mostrar, no prometer.** Licencia, versión y fechas de cada herramienta, con enlace al repositorio.
+3. **Transparencia.** El pie declara que el sitio no ofrece servicios comerciales ni recibe pagos. Los avisos aclaran cuándo algo es una demo pública o un grupo comunitario y no un canal oficial.
+4. **Un solo canal remunerado, presentado como invitación académica:** docencia y conferencias.
 
-### 2. Social Proof Escalado
-```
-Nivel 1 (actual): Reconocimientos institucionales (JusticIALab, Legal Hackers)
-Nivel 2 (futuro): Testimonios de clientes con nombre, cargo y empresa
-Nivel 3 (futuro): Logos de entidades que usan los productos
-Nivel 4 (futuro): Case studies con métricas de ROI
-```
+## Patrones de interfaz
 
-### 3. Disclaimer Legal Visible
-"Sprint Judicial es una herramienta de asistencia. No reemplaza el consejo legal profesional."
-Paradójicamente, esto AUMENTA la confianza en el sector legal.
+### Rotador del hero, pausable (WCAG 2.2.2)
+La frase destacada del título cambia cada 3,5 s. Un botón "Pausar animación" (con `aria-pressed` y etiqueta que cambia a "Reanudar") la detiene. También se detiene con hover o foco en el título y con la pestaña oculta. El título tiene una versión completa `sr-only` y el rotador es `aria-hidden`, así el lector de pantalla lee una frase estable. Con movimiento reducido no rota y el botón no se muestra. Sin JS queda visible la primera frase.
 
-### 4. Seguridad como Mensaje
-- Menciones visibles a Ley 1581/2012, CONPES 3975
-- "100% local / on-premise" como diferenciador
-- "Código abierto / auditable" como trust signal
+### Fichas de acceso
+Tres fichas bajo los botones del hero ("3 herramientas MIT", "Mentoría abierta", "JusticIALab 2024 · equipo Marduk") enlazan a `#herramientas`, `#mentoria` y `#reconocimientos`. Cada una lleva un ícono de color y una flecha.
 
----
+### Tarjetas con acento
+`pillars__card` (Qué hago) y `tool-card` (herramientas) elevan 2 px en hover con transición de 0,2 s. `tool-card` tiene una línea superior de color (azul, turquesa, dorado) y pastillas de estado y licencia. Las acciones de cada una son dos enlaces: repositorio y documentación o demo.
 
-## Patrones de Conversión
+### Banda de reconocimientos
+Bloque `#reconocimientos` dentro de Herramientas, con tarjetas pequeñas e íconos de color. Solo reconocimientos verificables.
 
-### CTA Hierarchy
-1. **CTA Primario**: WhatsApp (canal preferido del abogado colombiano)
-2. **CTA Secundario**: Email
-3. **CTA Terciario**: Teléfono (texto en nota)
+### Pasos con línea
+Mentoría abierta usa una lista ordenada de tres pasos. Desde 768 px una línea con gradiente se dibuja de izquierda a derecha al entrar en pantalla.
 
-### Frecuencia de CTA
-- Hero: 2 CTAs (demo + ver servicios)
-- Post-servicios: CTA implícito (las tarjetas educan, el CTA final convierte)
-- Final: CTA explícito con WhatsApp prominente
+### Callouts
+`callout` agrupa la invitación y su botón (grupo de WhatsApp en Mentoría; correo y LinkedIn en Docencia). `callout--stacked` apila el contenido en el segundo caso.
 
-### Reducción de Fricción
-- "20 minutos" — tiempo concreto, no ambiguo
-- "Sin costo, sin compromiso" — elimina barreras
-- "Con un caso real de su especialidad" — personalización prometida
-- WhatsApp pre-cargado con mensaje — zero effort para el usuario
+### Avisos con ícono
+`notice` lleva una "i" dorada decorativa (sin texto alternativo, para que no se lea). `notice--inline` va dentro del callout, sin caja. Se usa para aclarar que el grupo es comunitario y que las demos usan IA de terceros.
 
----
+### Docencia en dos columnas
+Desde 1024 px, `teaching` muestra temas (tarjetas con ícono) y charlas realizadas (`events`) lado a lado; `writings` hace lo mismo con el blog y la publicación académica. En móvil se apilan.
 
-## Patrones de Layout
+### Respaldo del blog
+El feed se construye por RSS (hasta 3 entradas). Si el RSS falla por red o CORS, o pasan 8 s, se oculta la rejilla y queda visible el bloque "Visita el blog" con su botón.
 
-### F-Pattern (actual)
-El abogado escanea:
-1. Hero: título + CTA (lectura horizontal)
-2. Servicios: tarjetas en grid (escaneo vertical)
-3. Credenciales: badges centrados (escaneo horizontal)
-4. CTA: centrado (punto focal)
+## Navegación y teclado
 
-### Spacing Pattern
-- Secciones: 64px padding vertical en mobile, 100px en desktop (768px+)
-- Cards: 32px de padding interno
-- Entre grupos: 48px
-- Container: 1100px máximo (no stretchar en ultrawides)
+- **Skip-link** "Saltar al contenido principal" como primer elemento; es `sr-only` y aparece al recibir foco.
+- **Enlaces internos con foco:** al activar un ancla el scroll descuenta la altura del navbar y el foco pasa al destino (`tabindex="-1"`).
+- **Menú móvil:** botón con `aria-expanded` y `aria-controls`, Escape lo cierra y devuelve el foco al botón, focus trap con Tab y Shift+Tab, cierre al elegir un enlace o al pasar a escritorio. Se muestra con `display: flex` (no con `visibility`).
+- **Navegación activa:** el enlace de la sección visible recibe `.is-active` (en escritorio, borde inferior).
+- **Volver arriba:** botón flotante que aparece tras desplazarse.
+- Foco visible global con contorno azul claro de 2 px.
 
----
+## Accesibilidad (WCAG 2.1 AA mínimo)
 
-## Patrones de Navegación
+- Contraste de texto 4,5:1 o más; botón primario 4,61:1 con texto `--deep`.
+- Un `h1`, jerarquía sin saltos, `aria-labelledby` en las tarjetas de herramientas.
+- Enlaces repetidos distinguidos con `aria-label` ("Repositorio de AgilEx en GitHub").
+- Listas con `role="list"` para conservar la semántica en VoiceOver.
+- Íconos decorativos con `aria-hidden="true"`; imágenes con `alt`, `width` y `height`.
+- Movimiento reducido respetado en CSS y JS.
+- `tests/test-accessibility.js` y `test-links.js` cubren la base automática; la revisión manual de teclado y lector de pantalla sigue siendo necesaria.
 
-### Scroll-based Navigation
-- Smooth scroll para anchor links
-- Active state en navbar según sección visible (IntersectionObserver)
-- Indicador visual en nav link activo: `border-bottom: 2px solid var(--accent-light)` (solo desktop)
-- Navbar con backdrop-blur que cambia opacidad al scrollear
+## Responsive (mobile first)
 
-### Mobile Navigation
-- Hamburger menu en < 768px con animación → X al abrir (`.navbar--menu-open .navbar__toggle-bar`)
-- Full-screen overlay con links (`display: none` / `display: flex` con `.is-open`)
-- Cerrar al: click en link, click fuera, ESC key
-- Focus trap dentro del menú abierto (Tab/Shift+Tab ciclan entre toggle + links)
-- **Caveat CSS**: `.navbar` usa `backdrop-filter` que crea un containing block. Al abrir el menú, se agrega `.navbar--menu-open` que desactiva el `backdrop-filter` para que el overlay con `position: fixed` cubra el viewport completo
-- **No usar** `visibility: hidden` / `opacity: 0` para ocultar el menú — causa ghost text en iOS Safari
+| Ancho | Comportamiento |
+|-------|----------------|
+| 320 px (base) | Una columna, menú overlay, fichas apiladas, padding de sección 64 px |
+| 768 px | Navegación en línea, cuadrículas de 2 columnas, línea de pasos, padding 100 px |
+| 1024 px | Herramientas y pilares en 3 columnas; Docencia y Escritos en dos columnas |
+| 1280 px | Contenedor limitado a 1100 px; revisar solo que nada se desborde |
 
----
+Detalles de iOS: pseudo-elementos decorativos y grano de fondo ocultos en móvil, hero con `100dvh` y respaldo `100vh`.
 
-## Patrones de Accesibilidad (WCAG 2.1 AA)
+## Qué evitar
 
-### Navegación por teclado
-- Tab order lógico (izq→der, arriba→abajo)
-- Focus visible en TODOS los interactivos (outline 2px accent)
-- Skip-to-content link como primer elemento focusable
-- ESC cierra modales/menús
-
-### Screen Readers
-- Heading hierarchy: un solo h1, h2 por sección, h3 por card
-- aria-label en links/botones con solo iconos
-- aria-label únicos en CTAs de servicios ("Solicitar demo de [servicio]")
-- aria-expanded en hamburger menu
-- aria-current en nav link activo
-- sr-only class para texto solo para screen readers (contexto en comparativa Antes/Después)
-- role="list" en listas con `list-style: none` (fix VoiceOver/Safari)
-- Footer link columns envueltas en `<nav aria-label="...">`
-
-### Contraste mínimo
-- Texto normal (< 18px): 4.5:1 ratio
-- Texto grande (≥ 18px bold o ≥ 24px): 3:1 ratio
-- `--text-muted` (#94A3B8) sobre `--deep` (#0B1D33): 5.4:1 (PASA AA)
-
----
-
-## Patrones de Responsive
-
-### Breakpoint Strategy (Mobile First)
-```
-320px  → Base: 1 columna, stack vertical, menú hamburguesa
-480px  → Ajustes menores (stats en 2 columnas)
-768px  → Grid 2 columnas, navbar links visibles
-1024px → Grid completo, about-grid 2 columnas
-1440px → Max-width container, sin cambios de layout
-```
-
-### Touch Targets
-- Mínimo 44x44px para elementos táctiles
-- Spacing mínimo 8px entre targets adyacentes
-- Botones: padding mínimo 14px vertical
-
----
-
-## Patrones Nuevos (Evolución Estratégica — RES-002)
-
-### 5. Pipeline Visual (Ciclo del Litigio)
-- 4 fases horizontales: INVESTIGAR → REDACTAR → PROTEGER → AUTOMATIZAR
-- Cada fase es clickeable (smooth scroll a #servicios)
-- Verbos en uppercase con letter-spacing como labels
-- Grid responsive: 1 col mobile → 2 cols tablet → 4 cols desktop
-- BEM: `.pipeline`, `.pipeline__phase`, `.pipeline__verb`, `.pipeline__icon`, `.pipeline__title`, `.pipeline__desc`
-
-### 6. Dolor/Resultado en Service Cards
-- Cada service card muestra: Pain (pregunta en italic) → Result (respuesta en verde bold) → Description
-- Framework "dolor → resultado" inspirado en análisis de Aline.co y líderes LegalTech
-- BEM: `.service-card__pain` (italic, muted), `.service-card__result` (green, bold)
-
-### 7. Headline Rotativo (Hero)
-- Parte fija "Inteligencia artificial que" + span rotativo con 4 value props
-- `setInterval` cada 3500ms, respeta `prefers-reduced-motion`
-- CSS: items `position: absolute` / activo `position: relative`, transición opacity
-- A11y: `aria-live="polite"` en contenedor, `aria-hidden="true"` en items inactivos
-- BEM: `.hero__rotator`, `.hero__rotator-item`, `.hero__rotator-item.is-active`
-
-### 8. Sección Diferenciadores (¿Por qué?)
-- 4 cards con icono SVG + título + descripción
-- Grid responsive: 1→2→4 cols
-- BEM: `.differentiators`, `.differentiators__card`, `.differentiators__icon`, `.differentiators__title`, `.differentiators__desc`
-
-### 9. Sección Seguridad y Cumplimiento
-- Fondo con gradiente verde sutil `rgba(16, 185, 129, 0.04)`
-- 4 items: Ley 1581, CONPES 3975, procesamiento local, sin entrenamiento
-- Border verde sutil en items: `rgba(16, 185, 129, 0.15)`
-- BEM: `.security`, `.security__grid`, `.security__item`, `.security__icon`, `.security__title`, `.security__desc`
-
-### 10. Timeline de Onboarding (Tu Primer Mes)
-- 4 pasos: Hoy → Día 3 → Día 7 → Día 30
-- Badges tipo pill (background accent, border accent) en vez de números
-- Grid responsive: 1→2→4 cols
-- BEM: `.timeline`, `.timeline__grid`, `.timeline__step`, `.timeline__badge`, `.timeline__title`, `.timeline__desc`
-
-### 11. WhatsApp Flotante
-- Botón fijo esquina inferior-izquierda (opuesto al back-to-top)
-- Background #25D366, border-radius 50%, z-index 50
-- Tooltip CSS puro con `::after` + `:hover`
-- No requiere JS
-- BEM: `.whatsapp-float`
-
-### 12. Trust Bar con Logos Reales
-- 3 logos institucionales como `<img>` con `filter: brightness(0) invert(1)` para tema oscuro
-- 4to item (Agilex) mantiene SVG inline
-- `loading="lazy"`, alt text descriptivo
-- BEM: `.trust-bar__logo`
-
-### 13. CTAs Duales (Streamlit Demos)
-- Hero CTA secundario: link externo a TutelaBot Streamlit
-- Service cards 1 y 6: segundo CTA "Probar ahora" / "Ver demo IA" con estilo outline teal
-- Container `.service-card__actions` para 2 CTAs, `.service-card__cta--try` para estilo outline
+- Urgencia, escasez, contadores o testimonios inventados.
+- Precios, planes, cotizaciones o lenguaje de consultoría.
+- Claims de adopción o cifras sin fuente.
+- Datos del lugar de trabajo, nombres de colegas o teléfonos personales.
+- Animaciones que no se puedan pausar o que ignoren `prefers-reduced-motion`.
