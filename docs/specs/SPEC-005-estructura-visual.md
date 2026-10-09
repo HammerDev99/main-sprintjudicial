@@ -93,7 +93,7 @@ Devolver a la portada la estructura modular, la jerarquía y el dinamismo del di
 - [x] `npm test` con 0 failed.
 - [x] Revisión visual en Chrome a 320, 768, 1024 y 1280 px contra los mockups aprobados: sin scroll horizontal, rotación visible y pausable, hover activo, respaldo del blog visible si el feed falla.
 - [x] Linters sin reglas nuevas respecto a `709c45e`.
-- [ ] Revisión de código de la rama (pendiente: revisión final).
+- [x] Revisión de código de la rama (2026-10-09: lista con ajustes de hover y aviso, aplicados).
 
 ## 6. Fuera de alcance
 
