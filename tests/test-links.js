@@ -64,6 +64,20 @@ console.log('\n--- Seguridad de links ---\n');
 const externalLinks = html.match(/href="https?:\/\/[^"]+"/g) || [];
 console.log(`  INFO: ${externalLinks.length} links externos encontrados`);
 
+// Todo enlace con target="_blank" debe llevar rel con noopener y noreferrer
+const blankAnchors = html.match(/<a\s[^>]*target="_blank"[^>]*>/g) || [];
+const unsafeBlankHrefs = blankAnchors
+  .filter((tag) => {
+    const rel = (tag.match(/\srel="([^"]*)"/) || [, ''])[1].split(/\s+/);
+    return !(rel.includes('noopener') && rel.includes('noreferrer'));
+  })
+  .map((tag) => (tag.match(/\shref="([^"]*)"/) || [, tag])[1]);
+check(
+  blankAnchors.length > 0 && unsafeBlankHrefs.length === 0,
+  `${blankAnchors.length} enlaces con target="_blank" llevan rel="noopener noreferrer"` +
+    (unsafeBlankHrefs.length ? `: sin rel seguro → ${unsafeBlankHrefs.join(', ')}` : '')
+);
+
 // Herramientas de código abierto (SPEC-004 RC-04)
 console.log('\n--- Contenido ---\n');
 const toolArticles = (html.match(/<article class="tool-card[^"]*"/g) || []).length;
