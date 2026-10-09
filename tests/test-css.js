@@ -100,3 +100,11 @@ if (hasExternalCSS) {
 } else {
   console.log('  PENDING: CSS aún está inline en index.html (Fase 0 refactor)');
 }
+
+// Microinteracciones (SPEC-005 RV5-08) y avisos accesibles
+console.log('\n--- Microinteracciones ---\n');
+const styles = fs.readFileSync(path.join(ROOT, 'css', 'styles.css'), 'utf-8');
+const hoverFix = (styles.match(/\.reveal--stagger\.reveal--visible > \.pillars__card:hover,[\s\S]*?\{([\s\S]*?)\}/) || [])[1] || '';
+check(/transition:\s*transform 0\.2s/.test(hoverFix), 'El hover de tarjetas en .reveal--stagger usa una transición de 0,2 s');
+check(/\.publication:hover\s*\{[^}]*translateY\(-4px\)/.test(styles), 'La tarjeta de publicación se eleva al pasar el puntero');
+check(/\.notice::before\s*\{[^}]*content:\s*'i'\s*\/\s*''/.test(styles), 'El ícono de los avisos no se anuncia a lectores de pantalla');

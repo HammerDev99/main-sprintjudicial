@@ -841,7 +841,7 @@ section {
 }
 
 .notice::before {
-  content: 'i';
+  content: 'i' / '';
   flex-shrink: 0;
   width: 18px;
   height: 18px;
@@ -1272,6 +1272,12 @@ section {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   background: var(--deep);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.publication:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
 .publication__badge {
@@ -1303,6 +1309,7 @@ section {
 .reveal--stagger.reveal--visible > .event:hover,
 .reveal--stagger.reveal--visible > .blog__card:hover {
   transform: translateY(-4px);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
 /* ----- Footer ----- */
@@ -1587,6 +1594,7 @@ section {
   .event:hover,
   .blog__card:hover,
   .recognitions__card:hover,
+  .publication:hover,
   .reveal--stagger.reveal--visible > .pillars__card:hover,
   .reveal--stagger.reveal--visible > .tool-card:hover,
   .reveal--stagger.reveal--visible > .topics__item:hover,
