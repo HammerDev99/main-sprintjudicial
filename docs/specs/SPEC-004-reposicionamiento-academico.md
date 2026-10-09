@@ -2,6 +2,7 @@
 
 > Fecha: 2026-10-08
 > Estado: ✅ Implementada (2026-10-09) — pendientes del autor: RV-04 (LinkedIn), RV-06 (JUZGADOS.csv en AgilEx) y §8
+> Presentación modificada por SPEC-005 (estructura visual y rotador); el contenido y las restricciones de esta spec siguen vigentes.
 > Prioridad: P0
 > Rama: `feat/reposicionamiento-academico`
 > Dependencias: ninguna

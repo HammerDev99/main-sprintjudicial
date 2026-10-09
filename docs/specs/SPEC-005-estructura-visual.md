@@ -1,7 +1,7 @@
 # SPEC-005: Estructura Visual y Dinamismo de la Portada
 
 > Fecha: 2026-10-09
-> Estado: 📝 Diseño aprobado — pendiente de implementación
+> Estado: ✅ Implementada (2026-10-09)
 > Prioridad: P1
 > Rama: `feat/estructura-visual`
 > Dependencias: SPEC-004 (✅ implementada)
@@ -26,56 +26,56 @@ Devolver a la portada la estructura modular, la jerarquía y el dinamismo del di
 
 ### RV5-01: Patrón general
 
-- [ ] Todos los encabezados de sección (`section__label`, `section__title`, `section__description`) centrados.
-- [ ] Fondo alterno (`section--alt`) en Qué hago, Mentoría y Escritos; Herramientas y Docencia sobre `--deep`.
-- [ ] Los avisos dejan de ser recuadros amarillos sueltos: `.notice` pasa a nota con ícono "ⓘ" (borde y fondo sutiles) y se ubica **dentro** del bloque al que pertenece. Los textos de los avisos no cambian.
-- [ ] `.section__subtitle` se usa solo donde haga falta y con jerarquía visible (etiqueta en mayúsculas con color de acento o encabezado de bloque).
+- [x] Todos los encabezados de sección (`section__label`, `section__title`, `section__description`) centrados.
+- [x] Fondo alterno (`section--alt`) en Qué hago, Mentoría y Escritos; Herramientas y Docencia sobre `--deep`.
+- [x] Los avisos dejan de ser recuadros amarillos sueltos: `.notice` pasa a nota con ícono "ⓘ" (borde y fondo sutiles) y se ubica **dentro** del bloque al que pertenece. Los textos de los avisos no cambian.
+- [x] `.section__subtitle` se usa solo donde haga falta y con jerarquía visible (etiqueta en mayúsculas con color de acento o encabezado de bloque).
 
 ### RV5-02: Hero con rotador accesible
 
-- [ ] El `<h1>` contiene, dentro de `<span class="sr-only">`, la frase aprobada: "Enseño y documento cómo automatizar trámites judiciales con software libre."
-- [ ] La versión visible (`aria-hidden="true"`) es: "Enseño y documento cómo automatizar ⟨frase⟩ con software libre.", con ⟨frase⟩ rotando en este orden: "trámites judiciales" → "el expediente electrónico" → "la gestión documental judicial" → "tareas repetitivas del despacho". La primera es la inicial y la que queda sin JS o con movimiento reducido.
-- [ ] La frase rotativa usa el degradado `--accent-light` → `--teal` (como `be5e17f`); el ancho se reserva con CSS Grid (todas las frases en la misma celda) para evitar saltos de layout.
-- [ ] Rotación cada 3,5 s con transición de opacidad + `translateY` (≈400 ms, easing de salida).
-- [ ] Botón de pausa (WCAG 2.2.2): `<button type="button" class="rotator__toggle" aria-pressed="false" aria-label="Pausar animación del título">` con ícono; al activarlo cambia a `aria-pressed="true"` y `aria-label="Reanudar animación del título"`.
-- [ ] La rotación se pausa mientras el puntero o el foco están sobre el título, y cuando `document.hidden` es verdadero.
-- [ ] Con `prefers-reduced-motion: reduce`: no rota y el botón queda oculto (`hidden`).
-- [ ] Debajo de los CTA, tres fichas con ícono (`.hero-chips`), que son enlaces: "3 herramientas MIT" → `#herramientas`, "Mentoría abierta" → `#mentoria`, "JusticIALab 2024 · equipo Marduk" → `#reconocimientos`.
+- [x] El `<h1>` contiene, dentro de `<span class="sr-only">`, la frase aprobada: "Enseño y documento cómo automatizar trámites judiciales con software libre."
+- [x] La versión visible (`aria-hidden="true"`) es: "Enseño y documento cómo automatizar ⟨frase⟩ con software libre.", con ⟨frase⟩ rotando en este orden: "trámites judiciales" → "el expediente electrónico" → "la gestión documental judicial" → "tareas repetitivas del despacho". La primera es la inicial y la que queda sin JS o con movimiento reducido.
+- [x] La frase rotativa usa el degradado `--accent-light` → `--teal` (como `be5e17f`); el ancho se reserva con CSS Grid (todas las frases en la misma celda) para evitar saltos de layout.
+- [x] Rotación cada 3,5 s con transición de opacidad + `translateY` (≈400 ms, easing de salida).
+- [x] Botón de pausa (WCAG 2.2.2): `<button type="button" class="rotator__toggle" aria-pressed="false" aria-label="Pausar animación del título">` con ícono; al activarlo cambia a `aria-pressed="true"` y `aria-label="Reanudar animación del título"`.
+- [x] La rotación se pausa mientras el puntero o el foco están sobre el título, y cuando `document.hidden` es verdadero.
+- [x] Con `prefers-reduced-motion: reduce`: no rota y el botón queda oculto (`hidden`).
+- [x] Debajo de los CTA, tres fichas con ícono (`.hero-chips`), que son enlaces: "3 herramientas MIT" → `#herramientas`, "Mentoría abierta" → `#mentoria`, "JusticIALab 2024 · equipo Marduk" → `#reconocimientos`.
 
 ### RV5-03: Qué hago
 
-- [ ] Etiqueta de verbo en mayúsculas sobre cada tarjeta: "Enseño", "Construyo", "Escribo" (como `pipeline__verb` del diseño anterior). Títulos y textos sin cambios.
+- [x] Etiqueta de verbo en mayúsculas sobre cada tarjeta: "Enseño", "Construyo", "Escribo" (como `pipeline__verb` del diseño anterior). Títulos y textos sin cambios.
 
 ### RV5-04: Herramientas (opción A)
 
-- [ ] Tres tarjetas en fila (≥1024 px) con acento propio: AgilEx azul (`--accent`→`--teal`), TYBABot turquesa (`--teal`→`--green`), DisciplinaJudicialAI dorado (`--gold`→`--accent`), mediante modificadores `tool-card--blue|teal|gold` que tiñen la barra superior y el fondo del ícono.
-- [ ] Los datos pasan de frase a etiquetas tipo pill (`.pill`): AgilEx: "● Código abierto", "MIT", "v1.5.1", "Desde 2022"; TYBABot y DisciplinaJudicialAI: "● Demo pública", "MIT". El dato completo de versión y fecha de AgilEx se conserva en el `title` o en texto visible de la tarjeta (no se pierde información de SPEC-004 RC-04).
-- [ ] Nota de demos (texto literal de SPEC-004) como `.notice` con ícono bajo la fila de tarjetas.
-- [ ] Banda de Reconocimientos (`<div id="reconocimientos" class="recognitions">`, fondo `--surface`) con dos tarjetas centradas con ícono: 🏆 "Ganador JusticIALab 2024 (equipo Marduk)" + categoría + "Ver la fuente →"; 🗺 "Mapa de Innovación Legal en Colombia" + "Legal Hackers Medellín y ALTCO, 2023" + categoría. Textos de SPEC-004 RC-04 sin cambios; los íconos son SVG `aria-hidden`.
-- [ ] "Más proyectos en GitHub →" centrado bajo la banda.
+- [x] Tres tarjetas en fila (≥1024 px) con acento propio: AgilEx azul (`--accent`→`--teal`), TYBABot turquesa (`--teal`→`--green`), DisciplinaJudicialAI dorado (`--gold`→`--accent`), mediante modificadores `tool-card--blue|teal|gold` que tiñen la barra superior y el fondo del ícono.
+- [x] Los datos pasan de frase a etiquetas tipo pill (`.pill`): AgilEx: "● Código abierto", "MIT", "v1.5.1", "Desde 2022"; TYBABot y DisciplinaJudicialAI: "● Demo pública", "MIT". El dato completo de versión y fecha de AgilEx se conserva en el `title` o en texto visible de la tarjeta (no se pierde información de SPEC-004 RC-04).
+- [x] Nota de demos (texto literal de SPEC-004) como `.notice` con ícono bajo la fila de tarjetas.
+- [x] Banda de Reconocimientos (`<div id="reconocimientos" class="recognitions">`, fondo `--surface`) con dos tarjetas centradas con ícono: 🏆 "Ganador JusticIALab 2024 (equipo Marduk)" + categoría + "Ver la fuente →"; 🗺 "Mapa de Innovación Legal en Colombia" + "Legal Hackers Medellín y ALTCO, 2023" + categoría. Textos de SPEC-004 RC-04 sin cambios; los íconos son SVG `aria-hidden`.
+- [x] "Más proyectos en GitHub →" centrado bajo la banda.
 
 ### RV5-05: Mentoría
 
-- [ ] Pasos numerados centrados unidos por una línea horizontal (≥768 px) que se dibuja de izquierda a derecha al entrar en pantalla (`transform: scaleX`), oculta en móvil.
-- [ ] Recuadro destacado (`.callout`, borde `--accent` al 30 %, degradado sutil) con: título "Grupo comunitario de innovación legal", la nota de privacidad (texto literal) con ícono y el botón "Unirme al grupo de WhatsApp →".
+- [x] Pasos numerados centrados unidos por una línea horizontal (≥768 px) que se dibuja de izquierda a derecha al entrar en pantalla (`transform: scaleX`), oculta en móvil.
+- [x] Recuadro destacado (`.callout`, borde `--accent` al 30 %, degradado sutil) con: título "Grupo comunitario de innovación legal", la nota de privacidad (texto literal) con ícono y el botón "Unirme al grupo de WhatsApp →".
 
 ### RV5-06: Docencia (opción B)
 
-- [ ] Dos columnas desde 1024 px (`.teaching`, 1.2fr / 1fr), apiladas en móvil.
-- [ ] Izquierda: "Temas" con tres tarjetas con ícono SVG (informática jurídica, automatización de trámites, gobernanza de IA).
-- [ ] Derecha: "Charlas y talleres recientes" como tarjetas `.event` con insignia de fecha ("2026 · Medellín", "18 oct 2024 · Medellín"), y debajo el recuadro `.callout` "¿Organizas una clase o evento académico?" con "Invitarme →" (mailto, `aria-label` de SPEC-004), "Escribirme por LinkedIn", la nota de jornada (texto literal) y "Trayectoria académica y profesional →".
+- [x] Dos columnas desde 1024 px (`.teaching`, 1.2fr / 1fr), apiladas en móvil.
+- [x] Izquierda: "Temas" con tres tarjetas con ícono SVG (informática jurídica, automatización de trámites, gobernanza de IA).
+- [x] Derecha: "Charlas y talleres recientes" como tarjetas `.event` con insignia de fecha ("2026 · Medellín", "18 oct 2024 · Medellín"), y debajo el recuadro `.callout` "¿Organizas una clase o evento académico?" con "Invitarme →" (mailto, `aria-label` de SPEC-004), "Escribirme por LinkedIn", la nota de jornada (texto literal) y "Trayectoria académica y profesional →".
 
 ### RV5-07: Escritos
 
-- [ ] Dos columnas desde 1024 px: Blog (izquierda, 2fr) y Publicaciones (derecha, 1fr); apiladas en móvil.
-- [ ] Respaldo del blog como tarjeta (`.blog__fallback` con título "Visita el blog" y botón), visible si el feed falla o no hay JS.
-- [ ] El artículo como tarjeta `.publication` con insignia "Artículo académico · 2024", cita (texto de SPEC-004 RC-07), botón "Leer el artículo →" y enlace "Perfil en Google Scholar →".
+- [x] Dos columnas desde 1024 px: Blog (izquierda, 2fr) y Publicaciones (derecha, 1fr); apiladas en móvil.
+- [x] Respaldo del blog como tarjeta (`.blog__fallback` con título "Visita el blog" y botón), visible si el feed falla o no hay JS.
+- [x] El artículo como tarjeta `.publication` con insignia "Artículo académico · 2024", cita (texto de SPEC-004 RC-07), botón "Leer el artículo →" y enlace "Perfil en Google Scholar →".
 
 ### RV5-08: Microinteracciones
 
-- [ ] Se corrige la especificidad: el hover de tarjetas (`pillars__card`, `tool-card`, `topics__item`, `event`, `publication`, `blog__card`) aplica `translateY(-4px)` y sombra (≈200 ms) aunque estén dentro de `.reveal--stagger`.
-- [ ] Fichas del hero: subrayado del texto y desplazamiento de la flecha al hover/foco.
-- [ ] `prefers-reduced-motion`: sin desplazamientos ni rotación; transiciones anuladas.
+- [x] Se corrige la especificidad: el hover de tarjetas (`pillars__card`, `tool-card`, `topics__item`, `event`, `publication`, `blog__card`) aplica `translateY(-4px)` y sombra (≈200 ms) aunque estén dentro de `.reveal--stagger`.
+- [x] Fichas del hero: subrayado del texto y desplazamiento de la flecha al hover/foco.
+- [x] `prefers-reduced-motion`: sin desplazamientos ni rotación; transiciones anuladas.
 
 ## 4. Requisitos técnicos
 
@@ -90,10 +90,10 @@ Devolver a la portada la estructura modular, la jerarquía y el dinamismo del di
 
 ## 5. Verificación
 
-- [ ] `npm test` con 0 failed.
-- [ ] Revisión visual en Chrome a 320, 768, 1024 y 1280 px contra los mockups aprobados: sin scroll horizontal, rotación visible y pausable, hover activo, respaldo del blog visible si el feed falla.
-- [ ] Linters sin reglas nuevas respecto a `709c45e`.
-- [ ] Revisión de código de la rama.
+- [x] `npm test` con 0 failed.
+- [x] Revisión visual en Chrome a 320, 768, 1024 y 1280 px contra los mockups aprobados: sin scroll horizontal, rotación visible y pausable, hover activo, respaldo del blog visible si el feed falla.
+- [x] Linters sin reglas nuevas respecto a `709c45e`.
+- [ ] Revisión de código de la rama (pendiente: revisión final).
 
 ## 6. Fuera de alcance
 
