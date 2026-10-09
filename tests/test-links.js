@@ -70,8 +70,9 @@ const toolArticles = (html.match(/<article class="tool-card[^"]*"/g) || []).leng
 check(toolArticles === 3, `Tres tarjetas de herramientas (${toolArticles} encontradas)`);
 
 // Respaldo visible si el feed del blog falla
+const fallbackMatch = html.match(/id="blog-fallback"[^>]*>([\s\S]*?)<\/div>/);
 check(
-  /id="blog-fallback"[\s\S]*?href="https:\/\/blog\.sprintjudicial\.com"/.test(html),
+  Boolean(fallbackMatch) && fallbackMatch[1].includes('href="https://blog.sprintjudicial.com"'),
   'El respaldo del blog enlaza al blog'
 );
 
