@@ -162,6 +162,7 @@
 
       <ul class="pillars" role="list" data-animate data-stagger>
         <li class="pillars__card">
+          <span class="pillars__verb">Ense&ntilde;o</span>
           <div class="pillars__icon" aria-hidden="true">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
           </div>
@@ -170,6 +171,7 @@
         </li>
 
         <li class="pillars__card">
+          <span class="pillars__verb">Construyo</span>
           <div class="pillars__icon" aria-hidden="true">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
           </div>
@@ -178,6 +180,7 @@
         </li>
 
         <li class="pillars__card">
+          <span class="pillars__verb">Escribo</span>
           <div class="pillars__icon" aria-hidden="true">
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
           </div>
@@ -191,16 +194,22 @@
   <!-- HERRAMIENTAS -->
   <section id="herramientas">
     <div class="container">
-      <span class="section__label" data-animate>C&oacute;digo abierto</span>
-      <h2 class="section__title" data-animate>Herramientas libres</h2>
-      <p class="section__description" data-animate>
+      <span class="section__label section__label--center" data-animate>C&oacute;digo abierto</span>
+      <h2 class="section__title section__title--center" data-animate>Herramientas libres</h2>
+      <p class="section__description section__description--center" data-animate>
         Software gratuito con licencia MIT. Cada herramienta tiene su repositorio p&uacute;blico y su documentaci&oacute;n.
       </p>
 
       <div class="tool-grid" data-animate data-stagger>
-        <article class="tool-card" aria-labelledby="tool-agilex">
+        <article class="tool-card tool-card--blue" aria-labelledby="tool-agilex">
           <img class="tool-card__logo" src="src/Agilex-logo.png" alt="Logo de AgilEx" width="48" height="48" loading="lazy">
           <h3 class="tool-card__title" id="tool-agilex">AgilEx</h3>
+          <ul class="pills" role="list">
+            <li class="pill pill--status">C&oacute;digo abierto</li>
+            <li class="pill">MIT</li>
+            <li class="pill">v1.5.1</li>
+            <li class="pill">Desde 2022</li>
+          </ul>
           <p class="tool-card__desc">Automatiza la creaci&oacute;n y el diligenciamiento del &iacute;ndice electr&oacute;nico de un expediente a partir de los archivos de una carpeta, seg&uacute;n el protocolo de expediente electr&oacute;nico del Acuerdo PCSJA20-11567 de 2020.</p>
           <p class="tool-card__meta">Licencia MIT &middot; Versi&oacute;n 1.5.1 (abril de 2026) &middot; Primera versi&oacute;n publicada: octubre de 2022</p>
           <div class="tool-card__actions">
@@ -209,11 +218,15 @@
           </div>
         </article>
 
-        <article class="tool-card" aria-labelledby="tool-tybabot">
+        <article class="tool-card tool-card--teal" aria-labelledby="tool-tybabot">
           <div class="tool-card__icon" aria-hidden="true">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           </div>
           <h3 class="tool-card__title" id="tool-tybabot">TYBABot</h3>
+          <ul class="pills" role="list">
+            <li class="pill pill--status">Demo p&uacute;blica</li>
+            <li class="pill">MIT</li>
+          </ul>
           <p class="tool-card__desc">Asistente conversacional que orienta sobre el uso de Justicia XXI Web (TYBA): documentos electr&oacute;nicos, actuaciones, memoriales, notificaciones y firmas.</p>
           <p class="tool-card__meta">Licencia MIT &middot; Demo p&uacute;blica</p>
           <div class="tool-card__actions">
@@ -222,11 +235,15 @@
           </div>
         </article>
 
-        <article class="tool-card" aria-labelledby="tool-disciplina">
+        <article class="tool-card tool-card--gold" aria-labelledby="tool-disciplina">
           <div class="tool-card__icon" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3 class="tool-card__title" id="tool-disciplina">DisciplinaJudicialAI</h3>
+          <ul class="pills" role="list">
+            <li class="pill pill--status">Demo p&uacute;blica</li>
+            <li class="pill">MIT</li>
+          </ul>
           <p class="tool-card__desc">Orientador normativo sobre el r&eacute;gimen disciplinario de los servidores judiciales: etapas del proceso, faltas, sanciones y derechos del investigado. No reemplaza la asesor&iacute;a de un abogado.</p>
           <p class="tool-card__meta">Licencia MIT &middot; Demo p&uacute;blica</p>
           <div class="tool-card__actions">
@@ -238,18 +255,28 @@
 
       <p class="notice" data-animate>Las demos usan servicios de IA de terceros. No ingreses datos personales ni informaci&oacute;n de procesos reales.</p>
 
-      <h3 class="section__subtitle" id="reconocimientos" data-animate>Reconocimientos</h3>
-      <ul class="entries" role="list" data-animate>
-        <li class="entries__item">
-          <strong>Ganador JusticIALab 2024 (equipo Marduk)</strong> &mdash; categor&iacute;a Justicia Basada en Datos, Primer Concurso de Innovaci&oacute;n de la Rama Judicial.
-          <a href="https://www.ramajudicial.gov.co/web/consejo-superior-de-la-judicatura/-/construimos-la-justicia-del-futuro-con-el-primer-concurso-de-innovaci%C3%B3n-de-la-rama-judicial" class="entries__link" target="_blank" rel="noopener noreferrer">Ver la fuente &rarr;</a>
-        </li>
-        <li class="entries__item">
-          Incluido en el Mapa de Innovaci&oacute;n Legal en Colombia (Legal Hackers Medell&iacute;n y ALTCO, 2023), categor&iacute;a Automatizaci&oacute;n documental y de procesos.
-        </li>
-      </ul>
+      <div id="reconocimientos" class="recognitions" data-animate>
+        <h3 class="recognitions__title">Reconocimientos</h3>
+        <ul class="recognitions__grid" role="list">
+          <li class="recognitions__card">
+            <span class="recognitions__icon recognitions__icon--gold" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+            </span>
+            <p class="recognitions__name"><strong>Ganador JusticIALab 2024 (equipo Marduk)</strong></p>
+            <p class="recognitions__desc">Categor&iacute;a Justicia Basada en Datos, Primer Concurso de Innovaci&oacute;n de la Rama Judicial.</p>
+            <a href="https://www.ramajudicial.gov.co/web/consejo-superior-de-la-judicatura/-/construimos-la-justicia-del-futuro-con-el-primer-concurso-de-innovaci%C3%B3n-de-la-rama-judicial" class="recognitions__link" target="_blank" rel="noopener noreferrer">Ver la fuente &rarr;</a>
+          </li>
+          <li class="recognitions__card">
+            <span class="recognitions__icon recognitions__icon--teal" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
+            </span>
+            <p class="recognitions__name">Mapa de Innovaci&oacute;n Legal en Colombia</p>
+            <p class="recognitions__desc">Incluido en el Mapa de Innovaci&oacute;n Legal en Colombia (Legal Hackers Medell&iacute;n y ALTCO, 2023), categor&iacute;a Automatizaci&oacute;n documental y de procesos.</p>
+          </li>
+        </ul>
+      </div>
 
-      <p data-animate>
+      <p class="section__more" data-animate>
         <a href="https://github.com/HammerDev99" class="section__link" target="_blank" rel="noopener noreferrer">M&aacute;s proyectos en GitHub &rarr;</a>
       </p>
     </div>
@@ -258,9 +285,9 @@
   <!-- MENTORIA ABIERTA -->
   <section id="mentoria" class="section--alt">
     <div class="container">
-      <span class="section__label" data-animate>Mentor&iacute;a abierta</span>
-      <h2 class="section__title" data-animate>Aprende a automatizar con herramientas libres</h2>
-      <p class="section__description" data-animate>
+      <span class="section__label section__label--center" data-animate>Mentor&iacute;a abierta</span>
+      <h2 class="section__title section__title--center" data-animate>Aprende a automatizar con herramientas libres</h2>
+      <p class="section__description section__description--center" data-animate>
         Acompa&ntilde;amiento sin costo para servidores judiciales y estudiantes que quieren aprender a usar AgilEx y a dise&ntilde;ar automatizaciones responsables.
       </p>
 
@@ -282,89 +309,114 @@
         </li>
       </ol>
 
-      <div class="section__actions" data-animate>
-        <a href="https://chat.whatsapp.com/CvZSCpQPKl5GWJsb5yhhWJ" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Unirme al grupo de WhatsApp &rarr;</a>
+      <div class="callout" data-animate>
+        <div class="callout__body">
+          <h3 class="callout__title">Grupo comunitario de innovaci&oacute;n legal</h3>
+          <p class="notice notice--inline">Es un grupo comunitario, no un canal oficial de la Rama Judicial. Al unirte, los dem&aacute;s miembros pueden ver tu n&uacute;mero. La mentor&iacute;a no tiene costo.</p>
+        </div>
+        <div class="callout__actions">
+          <a href="https://chat.whatsapp.com/CvZSCpQPKl5GWJsb5yhhWJ" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Unirme al grupo de WhatsApp &rarr;</a>
+        </div>
       </div>
-
-      <p class="notice" data-animate>Es un grupo comunitario, no un canal oficial de la Rama Judicial. Al unirte, los dem&aacute;s miembros pueden ver tu n&uacute;mero. La mentor&iacute;a no tiene costo.</p>
     </div>
   </section>
 
   <!-- DOCENCIA Y CONFERENCIAS -->
   <section id="docencia">
     <div class="container">
-      <span class="section__label" data-animate>Docencia y conferencias</span>
-      <h2 class="section__title" data-animate>Inv&iacute;tame a tu clase o evento acad&eacute;mico</h2>
-      <p class="section__description" data-animate>
+      <span class="section__label section__label--center" data-animate>Docencia y conferencias</span>
+      <h2 class="section__title section__title--center" data-animate>Inv&iacute;tame a tu clase o evento acad&eacute;mico</h2>
+      <p class="section__description section__description--center" data-animate>
         Participo como docente invitado o conferencista en universidades, escuelas judiciales y eventos acad&eacute;micos.
       </p>
 
-      <h3 class="section__subtitle" data-animate>Temas</h3>
-      <ul class="topics" role="list" data-animate data-stagger>
-        <li class="topics__item">
-          <h4 class="topics__title">Inform&aacute;tica jur&iacute;dica</h4>
-          <p class="topics__desc">C&oacute;mo funcionan los sistemas de informaci&oacute;n judicial y qu&eacute; cambia con el expediente electr&oacute;nico.</p>
-        </li>
-        <li class="topics__item">
-          <h4 class="topics__title">Automatizaci&oacute;n de tr&aacute;mites judiciales</h4>
-          <p class="topics__desc">C&oacute;mo identificar tareas repetitivas y automatizarlas sin perder controles: entrevistas guiadas, plantillas y robots de escritorio.</p>
-        </li>
-        <li class="topics__item">
-          <h4 class="topics__title">Gobernanza de IA en la justicia</h4>
-          <p class="topics__desc">Uso responsable de la IA en el trabajo judicial con el Acuerdo PCSJA24-12243 de 2024 como marco: criterio propio, verificaci&oacute;n, protecci&oacute;n de datos y transparencia.</p>
-        </li>
-      </ul>
+      <div class="teaching">
+        <div>
+          <h3 class="block-heading" data-animate>Temas</h3>
+          <ul class="topics" role="list" data-animate data-stagger>
+            <li class="topics__item">
+              <span class="topics__icon topics__icon--blue" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+              <div>
+                <h4 class="topics__title">Inform&aacute;tica jur&iacute;dica</h4>
+                <p class="topics__desc">C&oacute;mo funcionan los sistemas de informaci&oacute;n judicial y qu&eacute; cambia con el expediente electr&oacute;nico.</p>
+              </div>
+            </li>
+            <li class="topics__item">
+              <span class="topics__icon topics__icon--teal" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></span>
+              <div>
+                <h4 class="topics__title">Automatizaci&oacute;n de tr&aacute;mites judiciales</h4>
+                <p class="topics__desc">C&oacute;mo identificar tareas repetitivas y automatizarlas sin perder controles: entrevistas guiadas, plantillas y robots de escritorio.</p>
+              </div>
+            </li>
+            <li class="topics__item">
+              <span class="topics__icon topics__icon--gold" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
+              <div>
+                <h4 class="topics__title">Gobernanza de IA en la justicia</h4>
+                <p class="topics__desc">Uso responsable de la IA en el trabajo judicial con el Acuerdo PCSJA24-12243 de 2024 como marco: criterio propio, verificaci&oacute;n, protecci&oacute;n de datos y transparencia.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
 
-      <h3 class="section__subtitle" data-animate>Charlas y talleres recientes</h3>
-      <ul class="entries" role="list" data-animate>
-        <li class="entries__item">
-          Taller pr&aacute;ctico &laquo;IA para el trabajo judicial: menos carga operativa, mayor capacidad de control&raquo;. Servidores judiciales, Medell&iacute;n, 2026.
-        </li>
-        <li class="entries__item">
-          Conferencia &laquo;Casos de estudio nacionales: experiencias de Colombia en la incorporaci&oacute;n de IA en la justicia&raquo;. Jornada Acad&eacute;mica sobre Inteligencia Artificial y su Impacto en la Justicia, Medell&iacute;n, 18 de octubre de 2024.
-          <a href="https://www.asojudiciales.org/wp-content/uploads/2024/10/PROGRAMACION-JORNADA-ACADEMICA-SOBRE-IA-MEDELLIN-18-OCT-2024-1.pdf" class="entries__link" target="_blank" rel="noopener noreferrer">Ver el programa &rarr;</a>
-        </li>
-      </ul>
+        <div>
+          <h3 class="block-heading" data-animate>Charlas y talleres recientes</h3>
+          <ul class="events" role="list" data-animate data-stagger>
+            <li class="event">
+              <span class="event__badge">2026 &middot; Medell&iacute;n</span>
+              <h4 class="event__title">Taller pr&aacute;ctico</h4>
+              <p class="event__desc">&laquo;IA para el trabajo judicial: menos carga operativa, mayor capacidad de control&raquo;. Servidores judiciales.</p>
+            </li>
+            <li class="event">
+              <span class="event__badge">18 oct 2024 &middot; Medell&iacute;n</span>
+              <h4 class="event__title">Conferencia</h4>
+              <p class="event__desc">&laquo;Casos de estudio nacionales: experiencias de Colombia en la incorporaci&oacute;n de IA en la justicia&raquo;. Jornada Acad&eacute;mica sobre Inteligencia Artificial y su Impacto en la Justicia.</p>
+              <a href="https://www.asojudiciales.org/wp-content/uploads/2024/10/PROGRAMACION-JORNADA-ACADEMICA-SOBRE-IA-MEDELLIN-18-OCT-2024-1.pdf" class="event__link" target="_blank" rel="noopener noreferrer">Ver el programa &rarr;</a>
+            </li>
+          </ul>
 
-      <p data-animate>
-        <a href="https://portfolio.sprintjudicial.com/" class="section__link" target="_blank" rel="noopener noreferrer">Trayectoria acad&eacute;mica y profesional &rarr;</a>
-      </p>
-
-      <div class="section__actions" data-animate>
-        <a href="mailto:contacto@sprintjudicial.com?subject=Invitaci%C3%B3n%20acad%C3%A9mica" class="btn btn--primary" aria-label="Invitarme por correo electr&oacute;nico">Invitarme &rarr;</a>
-        <a href="https://www.linkedin.com/in/daniel-arbelaez-" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Escribirme por LinkedIn</a>
+          <div class="callout callout--stacked" data-animate>
+            <h3 class="callout__title">&iquest;Organizas una clase o evento acad&eacute;mico?</h3>
+            <div class="callout__actions">
+              <a href="mailto:contacto@sprintjudicial.com?subject=Invitaci%C3%B3n%20acad%C3%A9mica" class="btn btn--primary" aria-label="Invitarme por correo electr&oacute;nico">Invitarme &rarr;</a>
+              <a href="https://www.linkedin.com/in/daniel-arbelaez-" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Escribirme por LinkedIn</a>
+            </div>
+            <p class="notice notice--inline">Las actividades docentes se realizan por fuera de mi jornada laboral y conforme al r&eacute;gimen aplicable a los servidores judiciales.</p>
+            <a href="https://portfolio.sprintjudicial.com/" class="section__link" target="_blank" rel="noopener noreferrer">Trayectoria acad&eacute;mica y profesional &rarr;</a>
+          </div>
+        </div>
       </div>
-
-      <p class="notice" data-animate>Las actividades docentes se realizan por fuera de mi jornada laboral y conforme al r&eacute;gimen aplicable a los servidores judiciales.</p>
     </div>
   </section>
 
   <!-- ESCRITOS -->
   <section id="escritos" class="blog section--alt">
     <div class="container">
-      <span class="section__label" data-animate>Escritos</span>
-      <h2 class="section__title" data-animate>Lo que publico</h2>
+      <span class="section__label section__label--center" data-animate>Escritos</span>
+      <h2 class="section__title section__title--center" data-animate>Lo que publico</h2>
 
-      <h3 class="section__subtitle" data-animate>Blog</h3>
-      <div class="blog__grid" id="blog-feed" data-animate data-stagger>
-        <!-- JS populates this from RSS -->
+      <div class="writings">
+        <div>
+          <h3 class="block-heading" data-animate>Blog</h3>
+          <div class="blog__grid" id="blog-feed" data-animate data-stagger>
+            <!-- JS populates this from RSS -->
+          </div>
+
+          <div class="blog__fallback" id="blog-fallback">
+            <p class="blog__fallback-title">Visita el blog</p>
+            <a href="https://blog.sprintjudicial.com" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Visitar el blog &rarr;</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="block-heading" data-animate>Publicaciones acad&eacute;micas</h3>
+          <article class="publication" data-animate>
+            <span class="publication__badge">Art&iacute;culo acad&eacute;mico &middot; 2024</span>
+            <p class="publication__cite">Arbel&aacute;ez &Aacute;lvarez, D. (2024). Entrevistas guiadas para la optimizaci&oacute;n de procesos judiciales: un enfoque desde el LegalTech. <cite>Cuaderno Activa</cite>, 16(1), 37&ndash;47.</p>
+            <a href="https://ojs.tdea.edu.co/index.php/cuadernoactiva/article/view/1858" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Leer el art&iacute;culo &rarr;</a>
+            <a href="https://scholar.google.com/citations?user=T5zXXTcAAAAJ" class="section__link" target="_blank" rel="noopener noreferrer">Perfil en Google Scholar &rarr;</a>
+          </article>
+        </div>
       </div>
-
-      <div class="blog__fallback" id="blog-fallback">
-        <a href="https://blog.sprintjudicial.com" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Visitar el blog &rarr;</a>
-      </div>
-
-      <h3 class="section__subtitle" data-animate>Publicaciones acad&eacute;micas</h3>
-      <ul class="entries" role="list" data-animate>
-        <li class="entries__item">
-          Arbel&aacute;ez &Aacute;lvarez, D. (2024). Entrevistas guiadas para la optimizaci&oacute;n de procesos judiciales: un enfoque desde el LegalTech. <cite>Cuaderno Activa</cite>, 16(1), 37&ndash;47.
-          <a href="https://ojs.tdea.edu.co/index.php/cuadernoactiva/article/view/1858" class="entries__link" target="_blank" rel="noopener noreferrer">Leer el art&iacute;culo &rarr;</a>
-        </li>
-      </ul>
-
-      <p data-animate>
-        <a href="https://scholar.google.com/citations?user=T5zXXTcAAAAJ" class="section__link" target="_blank" rel="noopener noreferrer">Perfil en Google Scholar &rarr;</a>
-      </p>
     </div>
   </section>
 
