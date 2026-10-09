@@ -49,7 +49,7 @@ check(html.includes('href="#docencia"'), 'Link de navegación a #docencia');
 
 // Mentoría por grupo comunitario, sin WhatsApp personal (SPEC-004 D2, D6)
 check(html.includes('chat.whatsapp.com/CvZSCpQPKl5GWJsb5yhhWJ'), 'Link al grupo de mentoría');
-check(!html.includes('wa.me/'), 'Sin enlaces a WhatsApp personal');
+check(!/wa\.me\/|api\.whatsapp\.com\/send|wa\.link\//.test(html),'Sin enlaces a WhatsApp personal');
 
 // Un mismo nombre accesible no puede llevar a destinos distintos (WCAG 2.4.4)
 const hrefsByName = new Map();

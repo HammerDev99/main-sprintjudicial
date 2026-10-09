@@ -63,11 +63,11 @@ const FORBIDDEN = [
   {
     group: 'Contacto comercial',
     scope: 'full',
-    patterns: [/wa\.me\//, /3015771258/, /301 577 1258/]
+    patterns: [/wa\.me\//, /api\.whatsapp\.com\/send/, /wa\.link\//, /3015771258/, /301 577 1258/]
   },
   {
     group: 'Recaudo',
-    scope: 'text',
+    scope: 'full',
     patterns: [/paypal/, /\bvaki\b/, /patreon/, /\bdona(r|cion|ciones)\b/, /\bnequi\b/, /daviplata/]
   },
   {
@@ -81,6 +81,8 @@ const FORBIDDEN = [
 const REQUIRED_IN_INDEX = [
   { label: 'Nota de transparencia literal', text: TRANSPARENCY_NOTE },
   { label: 'Aviso de jornada laboral literal', text: WORKING_HOURS_NOTE },
+  { label: 'Aviso de las demos', text: DEMOS_NOTE },
+  { label: 'Aviso de privacidad del grupo', text: 'Es un grupo comunitario, no un canal oficial de la Rama Judicial. Al unirte, los demás miembros pueden ver tu número.' },
   { label: 'Premio con atribución al equipo', text: 'Ganador JusticIALab 2024 (equipo Marduk)' },
   { label: 'Licencia de los contenidos', text: 'CC BY 4.0' },
   { label: 'Licencia MIT de las herramientas', text: 'Licencia MIT' },
@@ -138,6 +140,14 @@ function findMatches(text, patterns) {
     .filter(Boolean);
 }
 
+// Parte visible: sin <head>, <script> ni comentarios HTML
+function visibleHtml(raw) {
+  return raw
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<head[\s>][\s\S]*?<\/head>/gi, ' ')
+    .replace(/<script[\s>][\s\S]*?<\/script>/gi, ' ');
+}
+
 function readFile(file) {
   const fullPath = path.join(ROOT, file);
   return fs.existsSync(fullPath) ? fs.readFileSync(fullPath, 'utf-8') : null;
@@ -174,9 +184,10 @@ for (const file of SCANNED_FILES) {
 console.log('\n--- Contenido obligatorio en index.html ---\n');
 
 const index = readFile('index.html') || '';
-const indexText = normalize(stripTags(index));
+const visibleIndex = visibleHtml(index);
+const indexText = normalize(stripTags(visibleIndex));
 for (const item of REQUIRED_IN_INDEX) {
-  const found = item.exact ? index.includes(item.text) : indexText.includes(normalize(item.text));
+  const found = item.exact ? visibleIndex.includes(item.text) : indexText.includes(normalize(item.text));
   check(found, item.label);
 }
 
@@ -189,7 +200,9 @@ const SELF_TEST_CASES = [
   { input: 'Agilex en <strong>producci&oacute;n nacional</strong>', group: 'Claims' },
   { input: 'T&Eacute;CNICO EN SISTEMAS', group: 'Lugar de trabajo' },
   { input: '<meta name="description" content="Consultoria y precios desde $80.000">', group: 'Precios' },
-  { input: '<a href="#x" aria-label="Cotizar servicio">Ver</a>', group: 'Venta' }
+  { input: '<a href="#x" aria-label="Cotizar servicio">Ver</a>', group: 'Venta' },
+  { input: '<a href="https://paypal.me/autor">Invítame un café</a>', group: 'Recaudo' },
+  { input: '<a href="https://api.whatsapp.com/send?phone=573000000000">Escríbeme</a>', group: 'Contacto comercial' }
 ];
 
 for (const { input, group } of SELF_TEST_CASES) {
