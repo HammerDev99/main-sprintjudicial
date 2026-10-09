@@ -18,6 +18,7 @@ const TESTS = [
   { name: 'Cumplimiento SPEC-004', script: 'tests/test-compliance.js' },
   { name: 'Selectores de JS', script: 'tests/test-js-selectors.js' },
   { name: 'Uso de clases CSS', script: 'tests/test-css-usage.js' },
+  { name: 'Rotador del hero', script: 'tests/test-rotator.js' },
 ];
 
 const ROOT = path.resolve(__dirname, '..');
