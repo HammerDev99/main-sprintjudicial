@@ -1,7 +1,7 @@
 # SPEC-004: Reposicionamiento Académico — Portada sin Oferta Comercial
 
 > Fecha: 2026-10-08
-> Estado: ✅ Implementada (2026-10-09)
+> Estado: ✅ Implementada (2026-10-09) — pendientes del autor: RV-04 (LinkedIn), RV-06 (JUZGADOS.csv en AgilEx) y §8
 > Prioridad: P0
 > Rama: `feat/reposicionamiento-academico`
 > Dependencias: ninguna
@@ -264,7 +264,14 @@ Pipeline, Servicios, Cómo funciona, Comparativa, ¿Por qué Sprint Judicial?, C
 
 ### RV-07: Revisión de código
 
-- [ ] Agente `code-reviewer` sobre el diff completo; se atienden hallazgos CRITICAL y HIGH. (pendiente: revisión final de rama)
+- [x] Agente `code-reviewer` sobre el diff completo; se atienden hallazgos CRITICAL y HIGH. (revisión final de rama 2026-10-09: lista para merge con ajustes, aplicados)
+
+### Ajustes de la revisión final (2026-10-09)
+
+- RV-01 reforzado: el grupo Recaudo se evalúa con URLs; Contacto comercial cubre api.whatsapp.com/send y wa.link; el contenido obligatorio se exige en la parte visible de la página, incluidos los avisos de las demos y de privacidad del grupo.
+- RT-02: los botones primarios, el CTA de la navbar y el enlace de salto usan texto --deep sobre --accent (contraste ≥ 4,5:1, WCAG 1.4.3). Se mantiene la paleta.
+- RT-03: initSmoothScroll mueve el foco al destino (el enlace de salto ahora funciona con teclado, WCAG 2.4.1) y respeta prefers-reduced-motion; html deja de usar scroll-behavior: smooth con movimiento reducido.
+- Ajustes visuales: títulos y fondo de tarjetas del blog, separación de la navbar entre 768 y 1023 px, margen inferior del pie y alineación del enlace de respaldo del blog.
 
 ## 7. Entregables
 

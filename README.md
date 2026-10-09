@@ -63,6 +63,8 @@ npx stylelint "css/**/*.css"
 npx eslint js/
 ```
 
+Los linters ya reportaban hallazgos antes de SPEC-004 (por ejemplo no-var en main.js); el criterio es no introducir reglas nuevas. Los role="list" son intencionales: restauran la semántica de lista en VoiceOver cuando se usa list-style: none (html-validate los marca como no-redundant-role).
+
 `tests/test-compliance.js` verifica las reglas de contenido de `docs/specs/SPEC-004-reposicionamiento-academico.md` sobre los archivos públicos.
 
 ---
