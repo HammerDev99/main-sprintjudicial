@@ -59,7 +59,7 @@ Esta spec traduce ese marco en reglas verificables de contenido. **No es un conc
 | D8 | Los temas de docencia son los del prompt: informática jurídica, automatización de trámites, gobernanza de IA en la justicia | Decisión del autor |
 | D9 | Se elimina la sección "Sobre mí" | Evita por construcción cargos y dependencias |
 | D10 | Se elimina la trust-bar con logos institucionales | El logo de la Rama Judicial puede leerse como aval de la entidad |
-| D11 | El Mapa de Innovación Legal 2023 no se publica | Su única fuente (legalhackerscolombia.org) ya no existe y no hay copia archivada. Vuelve si aparece una fuente pública |
+| D11 | El Mapa de Innovación Legal 2023 se cita como texto, sin enlace y sin reproducir la etiqueta "LAW - Daniel Arbeláez" | legalhackerscolombia.org ya no existe y no hay copia archivada. La única copia disponible es una descarga de Studocu con el correo personal del autor en cada página. El mapa es de Legal Hackers Medellín y ALTCO (no de "Legal Hackers Colombia"); la etiqueta se omite porque se lee como nombre de firma |
 | D12 | El taller 2026 se cita sin organizador ni coautores y sin enlace | No hay fuente pública; el kit nombra a un colega |
 | D13 | Licencia de los contenidos: CC BY 4.0 | Requisito del prompt (licencia de los contenidos en el pie) |
 | D14 | Se mantiene el wordmark "Sprint Judicial" como nombre del sitio | El prompt pide conservar la identidad visual; el hero abre con el nombre del autor |
@@ -108,7 +108,9 @@ Los textos entre comillas son el copy final. Los marcados como **literal** no se
   - Datos: "Licencia MIT · Demo pública".
   - Enlaces: "Repositorio" → `https://github.com/HammerDev99/disciplinajudicialai`; "Probar la demo" → `https://disciplinajudicialai.streamlit.app/`.
 - [ ] Aviso: "Las demos usan servicios de IA de terceros. No ingreses datos personales ni información de procesos reales." (Aquí "servicios" no tiene sentido comercial; el aviso entra en la lista de permitidos de RV-01.)
-- [ ] Subtítulo "Reconocimiento verificable": "**Ganador JusticIALab 2024 (equipo Marduk)** — categoría Justicia Basada en Datos, Primer Concurso de Innovación de la Rama Judicial." (literal la parte en negrita). Enlace "Ver la fuente" → nota de ramajudicial.gov.co del 13-dic-2024 (§11).
+- [ ] Subtítulo "Reconocimientos", con dos ítems:
+  - "**Ganador JusticIALab 2024 (equipo Marduk)** — categoría Justicia Basada en Datos, Primer Concurso de Innovación de la Rama Judicial." (literal la parte en negrita). Enlace "Ver la fuente" → nota de ramajudicial.gov.co del 13-dic-2024 (§11).
+  - "Incluido en el Mapa de Innovación Legal en Colombia (Legal Hackers Medellín y ALTCO, 2023), categoría Automatización documental y de procesos." Sin enlace (D11).
 - [ ] Enlace: "Más proyectos en GitHub" → `https://github.com/HammerDev99`.
 
 ### RC-05: Mentoría abierta (`#mentoria`)
@@ -288,7 +290,7 @@ Fuera de esta spec. El despliegue a producción lo hace el autor. El `Dockerfile
 - links.sprintjudicial.com, portfolio.sprintjudicial.com y hammerdev99.github.io: revisar con las mismas reglas de §2.1.
 - PrismaRPA: licencia y saneamiento antes de publicarlo.
 - Imagen `og-image.png` para redes sociales.
-- Fuente pública alternativa para el Mapa de Innovación Legal 2023 (D11).
+- Fuente pública oficial para el Mapa de Innovación Legal 2023 (D11). Si aparece, se evalúa enlazarla.
 
 ## 11. Fuentes de verificación
 
@@ -303,6 +305,7 @@ Fuera de esta spec. El despliegue a producción lo hace el autor. El `Dockerfile
 | TYBABot: MIT | https://github.com/HammerDev99/TYBABot |
 | DisciplinaJudicialAI: MIT | https://github.com/HammerDev99/disciplinajudicialai |
 | Taller 2026 | Material del autor (sin fuente pública) |
+| Mapa de Innovación Legal en Colombia 2023, Legal Hackers Medellín y ALTCO, categoría Automatización documental y de procesos (p. 5, entrada "LAW - DANIEL ARBELÁEZ") | Copia del autor descargada de Studocu (sin fuente pública; no se enlaza, D11) |
 
 ---
 
@@ -369,7 +372,7 @@ Números de línea de los archivos en el commit `be5e17f`. Se contrastan con el 
 | Línea(s) | Contenido eliminado | Razón |
 |----------|---------------------|-------|
 | 222–223 | Logo JusticIALab + "Ganador JusticIALab 2024" (se reubica en RC-04 con atribución al equipo) | R8 |
-| 226–227 | Logo Legal Hackers + "Mapa de Innovación Legal" (sin fuente verificable, D11) | R8, R3 |
+| 226–227 | Logo Legal Hackers + "Mapa de Innovación Legal" (se reubica en RC-04 como texto con atribución correcta, D11) | R8 |
 | 230–231 | Logo Rama Judicial + "+10 años en la Rama Judicial" | R8 |
 | 234–235 | Logo Agilex con alt "Sistema en producción nacional" + "Agilex en producción nacional" | R3 |
 
@@ -439,7 +442,7 @@ Números de línea de los archivos en el commit `be5e17f`. Se contrastan con el 
 |----------|---------------------|-------|
 | 520–522 | "No es una promesa. Es un historial comprobado … reconocidas a nivel nacional" | R3 |
 | 531–532 | "Ganador JusticIALab" sin año ni equipo (se reubica en RC-04) | R9 |
-| 539–540 | "Mapa de Innovación Legal" (D11) | R3 |
+| 539–540 | "Incluido por Legal Hackers Colombia …" (atribución incorrecta; se reubica en RC-04 como Legal Hackers Medellín y ALTCO, D11) | R3, R9 |
 | 547–548 | "Conferencista" (se reubica en RC-06) | R9 |
 | 555–556 | "Agilex en Producción … implementada a nivel nacional en la Rama Judicial" | R3 |
 
