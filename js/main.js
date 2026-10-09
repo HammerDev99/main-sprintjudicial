@@ -163,8 +163,14 @@ const SprintJudicial = (() => {
 
         window.scrollTo({
           top: top,
-          behavior: 'smooth'
+          behavior: state.prefersReducedMotion ? 'auto' : 'smooth'
         });
+
+        // Move keyboard focus to the target (skip-link, WCAG 2.4.1)
+        if (!target.hasAttribute('tabindex')) {
+          target.setAttribute('tabindex', '-1');
+        }
+        target.focus({ preventScroll: true });
 
         // Update URL without jump
         history.pushState(null, '', href);
