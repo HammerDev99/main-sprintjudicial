@@ -19,7 +19,7 @@ function check(condition, message) {
   }
 }
 
-const SCANNED_FILES = ['index.html', 'llms.txt', 'humans.txt', 'README.md', 'package.json'];
+const SCANNED_FILES = ['index.html', 'privacidad/index.html', 'llms.txt', 'humans.txt', 'README.md', 'package.json'];
 
 const TRANSPARENCY_NOTE = 'Este sitio no ofrece servicios comerciales ni recibe pagos. Las herramientas publicadas son software libre; su uso en entidades públicas corresponde a los canales institucionales de cada entidad.';
 const WORKING_HOURS_NOTE = 'Las actividades docentes se realizan por fuera de mi jornada laboral y conforme al régimen aplicable a los servidores judiciales.';
@@ -189,6 +189,25 @@ const indexText = normalize(stripTags(visibleIndex));
 for (const item of REQUIRED_IN_INDEX) {
   const found = item.exact ? visibleIndex.includes(item.text) : indexText.includes(normalize(item.text));
   check(found, item.label);
+}
+
+console.log('\n--- Contenido obligatorio en privacidad/index.html ---\n');
+
+const REQUIRED_IN_PRIVACY = [
+  { label: 'Nota de transparencia literal', text: TRANSPARENCY_NOTE },
+  { label: 'Responsable a título personal', text: 'Daniel Arbeláez Álvarez, persona natural, a título personal' },
+  { label: 'Correo de contacto', text: 'contacto@sprintjudicial.com', exact: true },
+  { label: 'Marco legal', text: 'Ley 1581 de 2012' },
+  { label: 'Autoridad de protección de datos', text: 'Superintendencia de Industria y Comercio' },
+  { label: 'Aprobación humana de cada publicación', text: 'La IA asiste; la decisión es humana.' },
+  { label: 'Fecha de vigencia', text: 'Vigente desde el' }
+];
+
+const privacy = visibleHtml(readFile('privacidad/index.html') || '');
+const privacyText = normalize(stripTags(privacy));
+for (const item of REQUIRED_IN_PRIVACY) {
+  const found = item.exact ? privacy.includes(item.text) : privacyText.includes(normalize(item.text));
+  check(found, `[privacidad] ${item.label}`);
 }
 
 console.log('\n--- Autoprueba del normalizador ---\n');

@@ -104,3 +104,26 @@ for (const src of localSources) {
 for (const file of fs.readdirSync(path.join(ROOT, 'src'))) {
   check(localSources.includes(`src/${file}`), `Asset de src/ en uso: ${file}`);
 }
+
+// Página de privacidad (exigida por la app de LinkedIn)
+console.log('\n--- Página de privacidad ---\n');
+const privacyPath = path.join(ROOT, 'privacidad', 'index.html');
+const privacyHtml = fs.existsSync(privacyPath) ? fs.readFileSync(privacyPath, 'utf-8') : '';
+check(privacyHtml.length > 0, 'privacidad/index.html existe');
+check(html.includes('href="/privacidad/"'), 'El pie de index.html enlaza a /privacidad/');
+check(
+  privacyHtml.includes('<link rel="canonical" href="https://sprintjudicial.com/privacidad/">'),
+  'Canonical de la página de privacidad'
+);
+check(/<title>[^<]+<\/title>/.test(privacyHtml), 'Title de la página de privacidad');
+check(privacyHtml.includes('name="description"'), 'Meta description de la página de privacidad');
+check(privacyHtml.includes('id="main-content"'), 'Destino del enlace para saltar al contenido');
+const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf-8');
+check(sitemap.includes('<loc>https://sprintjudicial.com/privacidad/</loc>'), 'sitemap.xml incluye /privacidad/');
+const dockerfile = fs.readFileSync(path.join(ROOT, 'Dockerfile'), 'utf-8');
+check(dockerfile.includes('COPY privacidad/'), 'El Dockerfile copia privacidad/');
+const privacyBlank = privacyHtml.match(/<a\s[^>]*target="_blank"[^>]*>/g) || [];
+check(
+  privacyBlank.every((tag) => /rel="noopener noreferrer"/.test(tag)),
+  `${privacyBlank.length} enlaces externos de privacidad llevan rel="noopener noreferrer"`
+);

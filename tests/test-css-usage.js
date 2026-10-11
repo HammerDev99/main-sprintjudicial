@@ -2,8 +2,8 @@
 
 /**
  * Test: Uso de clases CSS (SPEC-004, RT-02)
- * Cada clase definida en css/styles.css debe usarse en index.html
- * o en js/main.js. animations.css se excluye (utilidades reutilizables).
+ * Cada clase definida en css/styles.css debe usarse en alguna página
+ * (index.html, privacidad/index.html) o en js/main.js. animations.css se excluye (utilidades reutilizables).
  */
 
 const fs = require('fs');
@@ -11,7 +11,12 @@ const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
 const css = fs.readFileSync(path.join(ROOT, 'css', 'styles.css'), 'utf-8');
-const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf-8');
+const PAGES = ['index.html', 'privacidad/index.html'];
+const html = PAGES
+  .map((file) => path.join(ROOT, file))
+  .filter((file) => fs.existsSync(file))
+  .map((file) => fs.readFileSync(file, 'utf-8'))
+  .join('\n');
 const js = ['main.js', 'rotator.js']
   .map((file) => path.join(ROOT, 'js', file))
   .filter((file) => fs.existsSync(file))
