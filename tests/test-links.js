@@ -127,3 +127,11 @@ check(
   privacyBlank.every((tag) => /rel="noopener noreferrer"/.test(tag)),
   `${privacyBlank.length} enlaces externos de privacidad llevan rel="noopener noreferrer"`
 );
+
+// Caché del CSS: nginx lo guarda 7 días, así que todas las páginas
+// deben pedir la misma versión (?v=) de styles.css
+const cssVersion = (source) => (source.match(/styles\.css\?v=(\d{8})"/) || [])[1];
+check(
+  Boolean(cssVersion(html)) && cssVersion(html) === cssVersion(privacyHtml),
+  `index.html y privacidad/index.html piden la misma versión de styles.css (${cssVersion(html)} / ${cssVersion(privacyHtml)})`
+);

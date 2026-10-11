@@ -21,6 +21,7 @@ Idioma: texto y documentación en español; identificadores de código en inglé
 - **Mobile first**: estilos base para 320 px y solo `@media (min-width: 768px)` y `(min-width: 1024px)`. No se usa `max-width`.
 - Transiciones de tarjetas y enlaces: 0,2 s. Todo movimiento nuevo necesita su regla en el bloque `prefers-reduced-motion`.
 - Sin `!important` salvo en `.sr-only`.
+- nginx sirve CSS y JS con caché de 7 días y sin huella en el nombre: al cambiar `styles.css` o `animations.css`, sube el `?v=AAAAMMDD` de su `<link>` en **todas** las páginas (`index.html`, `privacidad/index.html`) o los visitantes recurrentes verán la versión anterior.
 - Sin clases sin uso: `tests/test-css-usage.js` falla si una clase de `styles.css` no aparece en `index.html` o en JS.
 - El ícono "i" de `.notice` usa `content: 'i' / ''` (texto alternativo vacío) para que no se anuncie.
 

@@ -122,7 +122,7 @@ Pendientes: Relevo / PrismaRPA / HabeasSafe (con repo público, licencia, sin da
 
 | Métrica | Valor |
 |---------|-------|
-| Tests | 257 passed, 0 failed |
+| Tests | 258 passed, 0 failed |
 | Herramientas publicadas | 3 (AgilEx, TYBABot, DisciplinaJudicialAI), MIT |
 | Secciones de la portada | Hero + 5 + pie |
 
