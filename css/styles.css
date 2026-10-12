@@ -1275,6 +1275,10 @@ section {
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+.publication + .publication {
+  margin-top: var(--space-lg);
+}
+
 .publication:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);

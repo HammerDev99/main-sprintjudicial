@@ -117,7 +117,8 @@ Despliegue: un push a `main` en GitHub dispara un webhook al panel del autor (`p
 Reposicionamiento académico (SPEC-004):   ✅ 2026-10-09
 Estructura visual y dinamismo (SPEC-005): ✅ 2026-10-09
 Pendientes: Relevo / PrismaRPA / HabeasSafe (con repo público, licencia, sin datos laborales),
-            revisión de docs en otros repos y sitios, og-image
+            revisión de docs en otros repos y sitios, og-image,
+            artículo en prensa de Cuaderno Activa (agregar volumen, páginas y enlace al publicarse)
 ```
 
 | Métrica | Valor |
