@@ -135,3 +135,16 @@ check(
   Boolean(cssVersion(html)) && cssVersion(html) === cssVersion(privacyHtml),
   `index.html y privacidad/index.html piden la misma versión de styles.css (${cssVersion(html)} / ${cssVersion(privacyHtml)})`
 );
+
+// Analítica: Umami autoalojado en ambas páginas y permitido por la CSP
+console.log('\n--- Analítica (Umami) ---\n');
+const UMAMI = '<script defer src="https://analytics.sprintjudicial.com/script.js" data-website-id="02c8c902-1147-46f5-94ab-06f68558a945"></script>';
+check(html.includes(UMAMI), 'index.html carga Umami con el website-id del sitio');
+check(privacyHtml.includes(UMAMI), 'privacidad/index.html carga Umami con el website-id del sitio');
+const nginxConf = fs.readFileSync(path.join(ROOT, 'nginx', 'default.conf'), 'utf-8');
+const csp = (nginxConf.match(/Content-Security-Policy "([^"]+)"/) || [, ''])[1];
+check(/script-src [^;]*https:\/\/analytics\.sprintjudicial\.com/.test(csp), 'La CSP permite el script de Umami (script-src)');
+check(/connect-src [^;]*https:\/\/analytics\.sprintjudicial\.com/.test(csp), 'La CSP permite el envío de eventos a Umami (connect-src)');
+const scriptTags = (html + privacyHtml).match(/<script[^>]*>/g) || [];
+check(!scriptTags.some((tag) => /googletagmanager|google-analytics/.test(tag)), 'Sin scripts de Google Analytics');
+

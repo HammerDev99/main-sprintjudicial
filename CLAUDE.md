@@ -19,7 +19,7 @@ Principios de fondo: **IA asiste, no decide** (reflejado en copy y UX) y **segur
 
 - HTML5 / CSS3 (BEM, tokens en `:root`) / JavaScript vanilla, sin dependencias en producción.
 - Tipografía Source Serif 4 + Inter. Tema oscuro fijo, sin modo claro.
-- nginx (alpine) en Docker. Sin Google Analytics.
+- nginx (alpine) en Docker. Sin Google Analytics; analítica con Umami autoalojado (`analytics.sprintjudicial.com`, sin cookies), declarado en la CSP y en `/privacidad/`.
 - Producción: sprintjudicial.com | blog.sprintjudicial.com | portfolio.sprintjudicial.com | docs.agilex.sprintjudicial.com
 
 ## Convenciones (obligatorias)
@@ -123,7 +123,7 @@ Pendientes: Relevo / PrismaRPA / HabeasSafe (con repo público, licencia, sin da
 
 | Métrica | Valor |
 |---------|-------|
-| Tests | 258 passed, 0 failed |
+| Tests | 263 passed, 0 failed |
 | Herramientas publicadas | 3 (AgilEx, TYBABot, DisciplinaJudicialAI), MIT |
 | Secciones de la portada | Hero + 5 + pie |
 
